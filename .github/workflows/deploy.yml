@@ -1,4 +1,4 @@
-name: Build and Deploy MindPalace
+name: Refresh MindPalace Data
 on:
   push:
     branches: [main]
@@ -10,7 +10,7 @@ permissions:
   contents: write
 
 jobs:
-  build:
+  refresh:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -23,10 +23,9 @@ jobs:
           python3 scripts/build_palace.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - name: Deploy to gh-pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./viewer
-          publish_branch: gh-pages
-          force_orphan: true
+      - name: Commit updated palace data
+        run: |
+          git config user.name "Aegis"
+          git config user.email "chrisalunlloyd2@gmail.com"
+          git add data/palace.json
+          git diff --cached --quiet || (git commit -m "auto: refresh palace data" && git push origin main)
