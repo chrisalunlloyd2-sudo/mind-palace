@@ -1,222 +1,254 @@
-import * as THREE from 'https://cdn.skypack.dev/three@0.160.0';
+/* MindPalace v0.2 — Wolfenstein-style first-person hallway walker */
+const WORLD_SCALE = 1;
+const WALL_H = 64;
+const FOV = Math.PI / 3;
+const TURN_SPEED = 0.04;
+const WALK_SPEED = 2.5;
+const CELLS_PER_ROOM = 3; // each repo door is 3 grid cells wide
 
-let scene, camera, renderer, controls;
-let rooms = [];
-let hallways = [];
-let playerState = 'walking';
-let currentRoom = null;
-const panel = document.getElementById('panel');
-const roomTitle = document.getElementById('room-title');
-const roomType = document.getElementById('room-type');
-const roomDesc = document.getElementById('room-desc');
+let canvas, ctx, width, height;
+let keys = {};
+let pos = { x: 1.5, y: 1.5, angle: 0 };
+let rooms = []; // { x, y, w, h, node, leftDoor, rightDoor }
+let map = [];   // 2D grid: 0 = hall, 1 = wall
+let currentNode = null;
+let auth = false;
+let authPanel = null;
 
-const ROOM_SIZE = 4;
-const HALL_WIDTH = 2.5;
-const HALL_HEIGHT = 3.2;
+async function init() {
+    canvas = document.getElementById('viewport');
+    ctx = canvas.getContext('2d', { alpha: false });
+    resize();
+    window.addEventListener('resize', resize);
+    window.addEventListener('keydown', e => keys[e.code] = true);
+    window.addEventListener('keyup', e => keys[e.code] = false);
+    document.addEventListener('click', tryPointer);
+
+    authPanel = document.getElementById('auth-panel');
+    document.getElementById('auth-btn').onclick = doAuth;
+    document.getElementById('close-auth').onclick = () => { authPanel.style.display = 'none'; };
+
+    const graph = await loadGraph();
+    buildMap(graph);
+    requestAnimationFrame(loop);
+}
+
+function resize() {
+    width = canvas.width = window.innerWidth;
+    height = canvas.height = window.innerHeight;
+}
 
 async function loadGraph() {
     const res = await fetch('graph.json?v=' + Date.now());
     return await res.json();
 }
 
-function createRoom(node, position, rotationY = 0) {
-    const group = new THREE.Group();
-    group.position.set(position.x, 0, position.z);
-    group.rotation.y = rotationY;
-
-    // Floor
-    const floorGeo = new THREE.PlaneGeometry(ROOM_SIZE, ROOM_SIZE);
-    const floorMat = new THREE.MeshStandardMaterial({ color: 0x1a1a3a, roughness: 0.8 });
-    const floor = new THREE.Mesh(floorGeo, floorMat);
-    floor.rotation.x = -Math.PI / 2;
-    group.add(floor);
-
-    // Ceiling
-    const ceil = new THREE.Mesh(floorGeo, new THREE.MeshStandardMaterial({ color: 0x0d0d20 }));
-    ceil.rotation.x = Math.PI / 2;
-    ceil.position.y = HALL_HEIGHT;
-    group.add(ceil);
-
-    // Walls
-    const wallMat = new THREE.MeshStandardMaterial({ color: 0x222244, roughness: 0.6 });
-    const wallGeo = new THREE.PlaneGeometry(ROOM_SIZE, HALL_HEIGHT);
-    const positions = [
-        { x: 0, y: HALL_HEIGHT/2, z: -ROOM_SIZE/2, ry: 0 },
-        { x: 0, y: HALL_HEIGHT/2, z: ROOM_SIZE/2, ry: Math.PI },
-        { x: -ROOM_SIZE/2, y: HALL_HEIGHT/2, z: 0, ry: Math.PI/2 },
-        { x: ROOM_SIZE/2, y: HALL_HEIGHT/2, z: 0, ry: -Math.PI/2 },
-    ];
-    for (const w of positions) {
-        const wall = new THREE.Mesh(wallGeo, wallMat);
-        wall.position.set(w.x, w.y, w.z);
-        wall.rotation.y = w.ry;
-        group.add(wall);
-    }
-
-    // Label sprite
-    const canvas = document.createElement('canvas');
-    canvas.width = 512; canvas.height = 128;
-    const ctx = canvas.getContext('2d');
-    ctx.fillStyle = '#ff00ff';
-    ctx.font = '24px monospace';
-    ctx.textAlign = 'center';
-    ctx.fillText(node.label.slice(0, 28), 256, 80);
-    const tex = new THREE.CanvasTexture(canvas);
-    const spriteMat = new THREE.SpriteMaterial({ map: tex });
-    const sprite = new THREE.Sprite(spriteMat);
-    sprite.position.set(0, 2.4, 0);
-    sprite.scale.set(3, 0.75, 1);
-    group.add(sprite);
-
-    group.userData = { node };
-    scene.add(group);
-    rooms.push(group);
-    return group;
+function tryPointer() {
+    canvas.requestPointerLock?.();
 }
 
-function createHallway(p1, p2) {
-    const length = p1.distanceTo(p2);
-    const geo = new THREE.BoxGeometry(HALL_WIDTH, HALL_HEIGHT, length);
-    const mat = new THREE.MeshStandardMaterial({ color: 0x151525 });
-    const hall = new THREE.Mesh(geo, mat);
-    hall.position.copy(p1).lerp(p2, 0.5);
-    hall.position.y = HALL_HEIGHT / 2;
-    hall.lookAt(p2);
-    scene.add(hall);
-    hallways.push(hall);
-
-    // Floor strip
-    const stripGeo = new THREE.PlaneGeometry(HALL_WIDTH - 0.2, length - 0.2);
-    const stripMat = new THREE.MeshBasicMaterial({ color: 0x00ffff, transparent: true, opacity: 0.15, side: THREE.DoubleSide });
-    const strip = new THREE.Mesh(stripGeo, stripMat);
-    strip.rotation.x = -Math.PI / 2;
-    strip.position.copy(hall.position);
-    strip.position.y = 0.02;
-    strip.rotation.y = hall.rotation.y;
-    scene.add(strip);
-}
-
-function layoutGraph(graph) {
-    const nodes = graph.nodes.slice(0, 80); // cap for performance
-    const positions = {};
-    const rings = {
-        daily_portal: 0,
-        project_hub: 1,
-        agent_node: 1,
-        event_spike: 2,
-        hypothesis_gate: 2,
-        memory_room: 3,
-        keyword_chamber: 4,
-    };
-
-    const typeCounts = {};
-    for (const n of nodes) {
-        const ring = rings[n.type] ?? 3;
-        typeCounts[n.type] = (typeCounts[n.type] || 0) + 1;
-        const idx = typeCounts[n.type];
-        const count = nodes.filter(x => x.type === n.type).length || 1;
-        const angle = (idx / count) * Math.PI * 2;
-        const radius = ring * 8 + (Math.random() - 0.5) * 2;
-        positions[n.id] = new THREE.Vector3(
-            Math.cos(angle) * radius,
-            0,
-            Math.sin(angle) * radius
-        );
-    }
-
-    for (const n of nodes) {
-        createRoom(n, positions[n.id]);
-    }
-
-    for (const e of graph.edges) {
-        if (positions[e.source] && positions[e.target]) {
-            createHallway(positions[e.source], positions[e.target]);
-        }
-    }
-
-    // Place player at portal
-    if (graph.nodes[0]) {
-        const start = positions[graph.nodes[0].id];
-        camera.position.set(start.x, 1.7, start.z);
-    }
-}
-
-function init() {
-    scene = new THREE.Scene();
-    scene.background = new THREE.Color(0x050510);
-    scene.fog = new THREE.FogExp2(0x050510, 0.035);
-
-    camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 100);
-
-    renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(window.innerWidth, window.innerHeight);
-    document.body.appendChild(renderer.domElement);
-
-    const ambient = new THREE.AmbientLight(0x404060, 0.6);
-    scene.add(ambient);
-
-    const dir = new THREE.DirectionalLight(0xff00ff, 0.5);
-    dir.position.set(10, 20, 10);
-    scene.add(dir);
-
-    controls = new THREE.PointerLockControls(camera, document.body);
-
-    loadGraph().then(layoutGraph).then(animate);
-
-    window.addEventListener('resize', onWindowResize);
-    document.addEventListener('click', onClick);
-}
-
-function onWindowResize() {
-    camera.aspect = window.innerWidth / window.innerHeight;
-    camera.updateProjectionMatrix();
-    renderer.setSize(window.innerWidth, window.innerHeight);
-}
-
-function onClick() {
-    if (!controls.isLocked && playerState === 'walking') {
-        controls.lock();
-    }
-}
-
-function updateRoomPanel() {
-    const raycaster = new THREE.Raycaster();
-    raycaster.setFromCamera(new THREE.Vector2(0, 0), camera);
-    const intersects = raycaster.intersectObjects(rooms, true);
-    let nearest = null;
-    for (const hit of intersects) {
-        let obj = hit.object;
-        while (obj.parent && !obj.userData.node) obj = obj.parent;
-        if (obj.userData.node) {
-            nearest = obj;
-            break;
-        }
-    }
-    if (nearest && nearest.userData.node) {
-        const node = nearest.userData.node;
-        if (currentRoom !== node.id) {
-            currentRoom = node.id;
-            panel.style.display = 'block';
-            roomTitle.textContent = node.label;
-            roomType.textContent = node.type;
-            roomDesc.textContent = node.payload.preview || '';
-        }
+document.addEventListener('pointerlockchange', () => {
+    if (document.pointerLockElement === canvas) {
+        document.addEventListener('mousemove', look);
     } else {
-        panel.style.display = 'none';
-        currentRoom = null;
+        document.removeEventListener('mousemove', look);
+    }
+});
+
+function look(e) {
+    pos.angle += e.movementX * 0.003;
+}
+
+function buildMap(graph) {
+    const hub = graph.nodes.find(n => n.type === 'zone_hub') || { id: 'hub', label: 'Hall' };
+    const repos = graph.nodes.filter(n => n.type === 'repo_room' || n.type === 'project_hub');
+
+    // Long hallway: cells wide = 4, length = enough for all repos + padding
+    const hallWidth = 5;
+    const hallLength = repos.length * CELLS_PER_ROOM + 6;
+    map = Array(hallLength).fill(0).map(() => Array(hallWidth).fill(1));
+
+    // Carve hall
+    for (let y = 0; y < hallLength; y++) {
+        for (let x = 1; x < hallWidth - 1; x++) {
+            map[y][x] = 0;
+        }
+    }
+
+    // Place repo rooms as alcoves on alternating sides
+    rooms = [];
+    repos.forEach((repo, i) => {
+        const side = i % 2 === 0 ? 0 : hallWidth - 1; // left or right
+        const y = 3 + i * CELLS_PER_ROOM;
+        // Room extends out 3 cells from wall
+        const rw = 3, rh = CELLS_PER_ROOM;
+        const rx = side === 0 ? -rw + 1 : side;
+        // Carve room cells and connecting doorway
+        for (let ry = y; ry < y + rh; ry++) {
+            for (let rx2 = rx; rx2 < rx + rw; rx2++) {
+                if (ry >= 0 && ry < hallLength) {
+                    if (!map[ry]) map[ry] = [];
+                    map[ry][rx2] = 0;
+                }
+            }
+        }
+        // Door frame wall
+        for (let ry = y - 1; ry < y + rh + 1; ry++) {
+            if (ry >= 0 && ry < hallLength) {
+                if (side === 0) {
+                    map[ry][0] = (ry === y || ry === y + rh - 1) ? 1 : 0; // door open in middle
+                } else {
+                    map[ry][hallWidth - 1] = (ry === y || ry === y + rh - 1) ? 1 : 0;
+                }
+            }
+        }
+        rooms.push({
+            x: rx, y: y, w: rw, h: rh,
+            node: repo,
+            doorX: side === 0 ? 0.5 : hallWidth - 1.5,
+            doorY: y + rh / 2,
+        });
+    });
+
+    // Spawn at start of hall
+    pos.x = hallWidth / 2;
+    pos.y = 1.5;
+}
+
+function update(dt) {
+    if (document.pointerLockElement !== canvas) return;
+
+    if (keys['KeyA'] || keys['ArrowLeft']) pos.angle -= TURN_SPEED;
+    if (keys['KeyD'] || keys['ArrowRight']) pos.angle += TURN_SPEED;
+
+    let move = 0;
+    if (keys['KeyW'] || keys['ArrowUp']) move = WALK_SPEED * dt;
+    if (keys['KeyS'] || keys['ArrowDown']) move = -WALK_SPEED * dt;
+
+    if (move !== 0) {
+        const nx = pos.x + Math.cos(pos.angle) * move;
+        const ny = pos.y + Math.sin(pos.angle) * move;
+        if (!isWall(nx, pos.y)) pos.x = nx;
+        if (!isWall(pos.x, ny)) pos.y = ny;
+    }
+
+    // Detect nearby room
+    let near = null;
+    for (const r of rooms) {
+        const dx = (r.doorX - pos.x);
+        const dy = (r.doorY - pos.y);
+        if (dx * dx + dy * dy < 1.5) near = r;
+    }
+    if (near && (!currentNode || currentNode.node.id !== near.node.id)) {
+        currentNode = near;
+        showRoom(near.node);
     }
 }
 
-function animate() {
-    requestAnimationFrame(animate);
-    updateRoomPanel();
-    renderer.render(scene, camera);
+function isWall(x, y) {
+    const gx = Math.floor(x);
+    const gy = Math.floor(y);
+    if (!map[gy] || map[gy][gx] === undefined) return true;
+    return map[gy][gx] === 1;
 }
 
-window.start = function() {
-    document.getElementById('blocker').style.display = 'none';
-    if (!scene) init();
-    controls.lock();
+function showRoom(node) {
+    document.getElementById('room-title').textContent = node.label;
+    document.getElementById('room-type').textContent = node.type;
+    const p = node.payload || {};
+    document.getElementById('room-desc').textContent = p.description || '';
+    document.getElementById('room-meta').textContent = `${p.language || '?'} • ⭐ ${p.stars ?? 0} • updated ${(p.updated || '').slice(0, 10)}`;
+    const visitBtn = document.getElementById('visit-repo');
+    visitBtn.onclick = () => window.open(p.url, '_blank');
+    document.getElementById('room-panel').style.display = 'block';
+}
+
+function render() {
+    // Floor / ceiling gradient
+    const grad = ctx.createLinearGradient(0, 0, 0, height);
+    grad.addColorStop(0, '#050510');
+    grad.addColorStop(0.5, '#1a1a3a');
+    grad.addColorStop(0.5, '#101020');
+    grad.addColorStop(1, '#050510');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, width, height);
+
+    const numRays = width / 2;
+    for (let i = 0; i < numRays; i++) {
+        const rayAngle = pos.angle - FOV / 2 + (i / numRays) * FOV;
+        const dist = castRay(rayAngle);
+        if (dist < 0.01) continue;
+        const correct = dist * Math.cos(rayAngle - pos.angle);
+        const wallH = (WALL_H / correct) * (height / 64);
+        const shade = Math.max(0, 1 - correct / 20);
+        const color = `hsl(260, 40%, ${20 + shade * 30}%)`;
+        ctx.fillStyle = color;
+        const x = i * 2;
+        const y = (height - wallH) / 2;
+        ctx.fillRect(x, y, 2, wallH);
+    }
+
+    // Draw door labels as sprites
+    for (const r of rooms) {
+        const dx = r.doorX - pos.x;
+        const dy = r.doorY - pos.y;
+        const ang = Math.atan2(dy, dx) - pos.angle;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > 0.5 && dist < 16 && Math.abs(normalizeAngle(ang)) < FOV / 2) {
+            const screenX = width / 2 + Math.tan(ang) * (width / 2) / Math.tan(FOV / 2);
+            const h = (64 / dist) * (height / 64) * 0.5;
+            ctx.fillStyle = 'rgba(255,0,255,0.8)';
+            ctx.font = `${Math.max(10, h / 2)}px monospace`;
+            ctx.textAlign = 'center';
+            ctx.fillText(r.node.label, screenX, height / 2 + h / 2);
+        }
+    }
+}
+
+function castRay(angle) {
+    let x = pos.x;
+    let y = pos.y;
+    const stepX = Math.cos(angle) * 0.03;
+    const stepY = Math.sin(angle) * 0.03;
+    let dist = 0;
+    while (dist < 24) {
+        x += stepX;
+        y += stepY;
+        dist += 0.03;
+        if (isWall(x, y)) return dist;
+    }
+    return 24;
+}
+
+function normalizeAngle(a) {
+    while (a > Math.PI) a -= 2 * Math.PI;
+    while (a < -Math.PI) a += 2 * Math.PI;
+    return a;
+}
+
+function doAuth() {
+    const u = document.getElementById('auth-user').value.trim().toLowerCase();
+    const p = document.getElementById('auth-pass').value.trim();
+    if (u === 'viper' && p === 'clamchowder') {
+        auth = true;
+        authPanel.style.display = 'none';
+        document.getElementById('edit-bar').style.display = 'block';
+        document.getElementById('auth-status').textContent = 'ARCHIVIST MODE — editing unlocked';
+    } else {
+        document.getElementById('auth-msg').textContent = 'Incorrect. This hall is read-only.';
+    }
+}
+
+function loop(t) {
+    const dt = Math.min(0.05, (t - (loop.last || t)) / 1000);
+    loop.last = t;
+    update(dt);
+    render();
+    requestAnimationFrame(loop);
+}
+
+window.unlockBasement = function() {
+    authPanel.style.display = 'block';
 };
 
 init();
