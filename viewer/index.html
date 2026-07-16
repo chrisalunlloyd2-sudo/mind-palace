@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>MindPalace — GitHub Hall</title>
+  <link rel="stylesheet" href="css/palace.css">
+</head>
+<body>
+  <div id="blocker">
+    <div class="intro">
+      <h1>🏛️ MindPalace</h1>
+      <p>GitHub Hall — a first-person memory palace.</p>
+      <p class="hint">WASD to walk. Mouse to look. Click a door to enter.<br/>Read-only for guests. Password unlocks editing + basement.</p>
+      <button id="enter-btn">Enter the Hall</button>
+    </div>
+  </div>
+
+  <canvas id="game"></canvas>
+
+  <div id="hud">
+    <div id="crosshair"></div>
+    <div id="room-card">
+      <h2 id="rc-title"></h2>
+      <div id="rc-type"></div>
+      <p id="rc-desc"></p>
+      <div id="rc-meta"></div>
+      <div id="rc-actions">
+        <button id="rc-open">Open Repository</button>
+        <button id="rc-books">Browse Bookshelves</button>
+      </div>
+    </div>
+    <div id="auth-status">Guest — Read Only</div>
+    <div id="edit-bar" class="hidden">
+      <button id="btn-add-book">+ Book</button>
+      <button id="btn-edit-wall">Edit Wall</button>
+      <button id="btn-basement">Go to Basement</button>
+    </div>
+  </div>
+
+  <div id="auth-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close">×</span>
+      <h2>Archivist Login</h2>
+      <p class="sub">Unlock editing and the SOV Basement.</p>
+      <input id="auth-user" type="text" placeholder="user" value="viper">
+      <input id="auth-pass" type="password" placeholder="pass">
+      <div id="auth-error" class="error"></div>
+      <button id="auth-submit">Unlock</button>
+    </div>
+  </div>
+
+  <script src="js/engine.js"></script>
+  <script src="js/palace.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>

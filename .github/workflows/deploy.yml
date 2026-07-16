@@ -1,0 +1,28 @@
+name: Build and Deploy MindPalace to Pages
+on:
+  push:
+    branches: [main]
+  schedule:
+    - cron: '0 */6 * * *'  # refresh repos every 6 hours
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Fetch repos and build palace
+        run: |
+          python3 scripts/fetch_repos.py
+          python3 scripts/build_palace.py
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./viewer

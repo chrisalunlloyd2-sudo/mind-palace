@@ -1,34 +1,62 @@
-# MindPalace
+# 🏛️ MindPalace
 
-A first-person, graph-based data explorer for the sovereign memory system.
+A first-person, Wolfenstein-style memory palace for exploring GitHub repositories and sovereign data.
 
-## Core idea
+## Live URL
 
-Every memory is a **room** in a palace. Every relationship is a **hallway**. You walk through your own topology.
+https://chrisalunlloyd2-sudo.github.io/mind-palace/
 
-- Nodes = memories, entities, projects, keywords, emails, hypotheses
-- Edges = relationships, causality, recency, tags
-- Hallways = transitions between mental states
-- Events = insights, alerts, daily digests, agent votes
+## What it is
 
-## Design method
+- **Main floor / GitHub Hall:** a long corridor where every door leads to one of your GitHub repos.
+- **Inside each room:** bookshelves (stub) holding READMEs, source files, docs, issues, hypotheses.
+- **Basement:** locked door leading to real SOV databases / KG / KV / logit (TBD).
+- **Archivist mode:** password unlocks editing, book creation, wall editing, and basement access.
 
-Built using the **level flow graph / topological layout** method:
+## Controls
 
-1. Define nodes and edges (logical graph)
-2. Establish pacing graph (tension/curiosity over distance)
-3. Translate to 2D spatial layout (bubble diagram)
-4. Implement first-person constraints (sightlines, landmarks, speed)
-5. Graybox prototype in 3D
-6. Define player state machine
+- **WASD / arrows** — walk
+- **Mouse** — look
+- **Click** — lock pointer
+- **P** — open archivist login
+- Default password: `viper:clamchowder` (client-side gate only)
 
-## Implementation plan
+## Repo structure
 
-- **Frontend:** Three.js (WebGL) for lightweight browser-based first-person walking
-- **Backend:** Python FastAPI serving the memory graph as JSON
-- **Data source:** SOV KV/KG at `/root/sov/`, plus GitHub repos, emails, dashboard data
-- **Language:** Python + JavaScript/TypeScript
+```
+mind-palace/
+├── scripts/
+│   ├── fetch_repos.py      # GitHub API → repos.json
+│   └── build_palace.py      # repos.json → palace.json room graph
+├── viewer/                  # static site deployed to GitHub Pages
+│   ├── index.html
+│   ├── css/palace.css
+│   ├── js/
+│   │   ├── engine.js        # raycasting renderer
+│   │   ├── palace.js        # graph loading / room detection
+│   │   ├── auth.js          # password gate
+│   │   └── main.js          # entry point
+│   └── data/
+│       └── palace.json      # generated palace graph
+└── .github/workflows/
+    └── deploy.yml           # auto-build + deploy every 6 hours
+```
 
-## Status
+## Development
 
-Phase 0: repo skeleton and graph spec.
+```bash
+python3 scripts/fetch_repos.py
+python3 scripts/build_palace.py
+# open viewer/index.html in browser, or run a local server:
+python3 -m http.server 8080 --directory viewer
+```
+
+## Roadmap
+
+- [x] Wolfenstein-style hallway walker
+- [x] Auto-populated GitHub repo doors
+- [x] Password-gated edit/basement mode
+- [ ] Bookshelves with real file listings per repo
+- [ ] SOV basement integration (real KG/KV/logit)
+- [ ] Wall/note editing backed by a real store
+- [ ] Cloudflare real auth upgrade

@@ -1,0 +1,990 @@
+{
+  "generated_at": "2026-07-16T18:18:55.451457+00:00",
+  "nodes": [
+    {
+      "id": "atrium:main",
+      "type": "atrium",
+      "label": "Main Atrium",
+      "payload": {
+        "description": "Entrance hall. GitHub Hall to the north. Basement stairs locked."
+      }
+    },
+    {
+      "id": "hall:github",
+      "type": "hall",
+      "label": "GitHub Hall",
+      "payload": {
+        "description": "A long corridor lined with 45 repository doors."
+      }
+    },
+    {
+      "id": "basement:sov",
+      "type": "basement",
+      "label": "SOV Basement",
+      "payload": {
+        "description": "Real databases, KG, KV, logit, and per-machine graphs. Locked until authenticated.",
+        "locked": true
+      }
+    },
+    {
+      "id": "repo:aegis-agent-bridge",
+      "type": "repo_room",
+      "label": "aegis-agent-bridge",
+      "payload": {
+        "name": "aegis-agent-bridge",
+        "description": "Aegis Agent Email Sync Bridge \u2014 protocol, inbox poller, router, and state manager for agent orchestration via Gmail/OneDrive/GitHub",
+        "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-16",
+        "created": "2026-07-14",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:AegisAgent",
+      "type": "repo_room",
+      "label": "AegisAgent",
+      "payload": {
+        "name": "AegisAgent",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/AegisAgent",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-05-25",
+        "created": "2026-04-17",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Aegis_Agents",
+      "type": "repo_room",
+      "label": "Aegis_Agents",
+      "payload": {
+        "name": "Aegis_Agents",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Aegis_Agents",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-05-27",
+        "created": "2026-04-17",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:DARWIN_GRID_DEPLOY",
+      "type": "repo_room",
+      "label": "DARWIN_GRID_DEPLOY",
+      "payload": {
+        "name": "DARWIN_GRID_DEPLOY",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/DARWIN_GRID_DEPLOY",
+        "language": "JavaScript",
+        "stars": 0,
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:E2E_Final_Test",
+      "type": "repo_room",
+      "label": "E2E_Final_Test",
+      "payload": {
+        "name": "E2E_Final_Test",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/E2E_Final_Test",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-05-25",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:E2E_Test_Deploy_6172",
+      "type": "repo_room",
+      "label": "E2E_Test_Deploy_6172",
+      "payload": {
+        "name": "E2E_Test_Deploy_6172",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/E2E_Test_Deploy_6172",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-05-25",
+        "created": "2026-05-13",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:evolved_system",
+      "type": "repo_room",
+      "label": "evolved_system",
+      "payload": {
+        "name": "evolved_system",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/evolved_system",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-05-25",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Flappy_bird_except_python_and",
+      "type": "repo_room",
+      "label": "Flappy_bird_except_python_and",
+      "payload": {
+        "name": "Flappy_bird_except_python_and",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Flappy_bird_except_python_and",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-05-25",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:frontier-ai-dlc",
+      "type": "repo_room",
+      "label": "frontier-ai-dlc",
+      "payload": {
+        "name": "frontier-ai-dlc",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/frontier-ai-dlc",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-12",
+        "created": "2026-07-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Gitautoworks",
+      "type": "repo_room",
+      "label": "Gitautoworks",
+      "payload": {
+        "name": "Gitautoworks",
+        "description": "My automated git hub uploader.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Gitautoworks",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-06-20",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:H2OIDE",
+      "type": "repo_room",
+      "label": "H2OIDE",
+      "payload": {
+        "name": "H2OIDE",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/H2OIDE",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-05-23",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:H2OMatrixCE",
+      "type": "repo_room",
+      "label": "H2OMatrixCE",
+      "payload": {
+        "name": "H2OMatrixCE",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/H2OMatrixCE",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-05-24",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:H2O_MATRIX",
+      "type": "repo_room",
+      "label": "H2O_MATRIX",
+      "payload": {
+        "name": "H2O_MATRIX",
+        "description": "Unified H2O IDE and Matrix GEN8 Ecosystem",
+        "url": "https://github.com/chrisalunlloyd2-sudo/H2O_MATRIX",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-05-23",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:JRM",
+      "type": "repo_room",
+      "label": "JRM",
+      "payload": {
+        "name": "JRM",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/JRM",
+        "language": "Java",
+        "stars": 0,
+        "updated": "2026-06-28",
+        "created": "2026-05-24",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:living-ascii-art",
+      "type": "repo_room",
+      "label": "living-ascii-art",
+      "payload": {
+        "name": "living-ascii-art",
+        "description": "Living ASCII art from news headlines with rainbow fade animations",
+        "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
+        "language": "JavaScript",
+        "stars": 0,
+        "updated": "2026-07-16",
+        "created": "2026-07-11",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Machine2",
+      "type": "repo_room",
+      "label": "Machine2",
+      "payload": {
+        "name": "Machine2",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Machine2",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-13",
+        "created": "2026-06-25",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:MatrixCE_GUI",
+      "type": "repo_room",
+      "label": "MatrixCE_GUI",
+      "payload": {
+        "name": "MatrixCE_GUI",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/MatrixCE_GUI",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Matrix_CEAGENTS",
+      "type": "repo_room",
+      "label": "Matrix_CEAGENTS",
+      "payload": {
+        "name": "Matrix_CEAGENTS",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAGENTS",
+        "language": "HTML",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Matrix_CEAPK",
+      "type": "repo_room",
+      "label": "Matrix_CEAPK",
+      "payload": {
+        "name": "Matrix_CEAPK",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAPK",
+        "language": "Smali",
+        "stars": 0,
+        "updated": "2026-06-10",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Matrix_CEAPPS",
+      "type": "repo_room",
+      "label": "Matrix_CEAPPS",
+      "payload": {
+        "name": "Matrix_CEAPPS",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAPPS",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Matrix_CEBack",
+      "type": "repo_room",
+      "label": "Matrix_CEBack",
+      "payload": {
+        "name": "Matrix_CEBack",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEBack",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Matrix_CEKAI9000",
+      "type": "repo_room",
+      "label": "Matrix_CEKAI9000",
+      "payload": {
+        "name": "Matrix_CEKAI9000",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEKAI9000",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Matrix_CESERVERS",
+      "type": "repo_room",
+      "label": "Matrix_CESERVERS",
+      "payload": {
+        "name": "Matrix_CESERVERS",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CESERVERS",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-06-10",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:matrix_dash",
+      "type": "repo_room",
+      "label": "matrix_dash",
+      "payload": {
+        "name": "matrix_dash",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/matrix_dash",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-05-26",
+        "created": "2026-05-26",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:MATRIX_GEN8_HOME",
+      "type": "repo_room",
+      "label": "MATRIX_GEN8_HOME",
+      "payload": {
+        "name": "MATRIX_GEN8_HOME",
+        "description": "\ud83c\udf0c KAI 9000: Matrix CE Home | Unified Storage Substrate | Phase-Locked Android Architectural Core",
+        "url": "https://github.com/chrisalunlloyd2-sudo/MATRIX_GEN8_HOME",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-06-14",
+        "created": "2026-05-23",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:mind-palace",
+      "type": "repo_room",
+      "label": "mind-palace",
+      "payload": {
+        "name": "mind-palace",
+        "description": "First-person graph-based memory palace for GitHub repos, databases, and sovereign knowledge",
+        "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-16",
+        "created": "2026-07-16",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:moe-kai-skill",
+      "type": "repo_room",
+      "label": "moe-kai-skill",
+      "payload": {
+        "name": "moe-kai-skill",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/moe-kai-skill",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-07-03",
+        "created": "2026-06-20",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:MultiPage_E2E_20010",
+      "type": "repo_room",
+      "label": "MultiPage_E2E_20010",
+      "payload": {
+        "name": "MultiPage_E2E_20010",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/MultiPage_E2E_20010",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-05-25",
+        "created": "2026-05-13",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:NAS_SHARE",
+      "type": "repo_room",
+      "label": "NAS_SHARE",
+      "payload": {
+        "name": "NAS_SHARE",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/NAS_SHARE",
+        "language": "JavaScript",
+        "stars": 0,
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Nova",
+      "type": "repo_room",
+      "label": "Nova",
+      "payload": {
+        "name": "Nova",
+        "description": "Autonomous Systems Engineering Project Foundry. v10.1 Master Engine with System Bible and Double Consent.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Nova",
+        "language": "HTML",
+        "stars": 0,
+        "updated": "2026-06-20",
+        "created": "2026-05-11",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:openrouter",
+      "type": "repo_room",
+      "label": "openrouter",
+      "payload": {
+        "name": "openrouter",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/openrouter",
+        "language": "CSS",
+        "stars": 0,
+        "updated": "2026-05-25",
+        "created": "2026-05-25",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:openrouter_manager",
+      "type": "repo_room",
+      "label": "openrouter_manager",
+      "payload": {
+        "name": "openrouter_manager",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/openrouter_manager",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-15",
+        "created": "2026-05-25",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:RandomTestProject",
+      "type": "repo_room",
+      "label": "RandomTestProject",
+      "payload": {
+        "name": "RandomTestProject",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/RandomTestProject",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Ryush",
+      "type": "repo_room",
+      "label": "Ryush",
+      "payload": {
+        "name": "Ryush",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Ryush",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-06-21",
+        "created": "2026-06-21",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:SimAgentCity",
+      "type": "repo_room",
+      "label": "SimAgentCity",
+      "payload": {
+        "name": "SimAgentCity",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/SimAgentCity",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-06-09",
+        "created": "2026-05-13",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:sims-javafx-neo",
+      "type": "repo_room",
+      "label": "sims-javafx-neo",
+      "payload": {
+        "name": "sims-javafx-neo",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/sims-javafx-neo",
+        "language": "Java",
+        "stars": 0,
+        "updated": "2026-06-17",
+        "created": "2026-05-14",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:SimsMerged",
+      "type": "repo_room",
+      "label": "SimsMerged",
+      "payload": {
+        "name": "SimsMerged",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/SimsMerged",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-06-15",
+        "created": "2026-05-15",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:Sprite",
+      "type": "repo_room",
+      "label": "Sprite",
+      "payload": {
+        "name": "Sprite",
+        "description": "\ud83c\udf0c KAI 9000: Matrix CE Ecosystem | Unified Substrate Explorer with Cloud & Phone Integration | DePIN-backed Autonomous Swarm",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Sprite",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-07-02",
+        "created": "2026-06-10",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:teaching_sandbox",
+      "type": "repo_room",
+      "label": "teaching_sandbox",
+      "payload": {
+        "name": "teaching_sandbox",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/teaching_sandbox",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-05-27",
+        "created": "2026-05-25",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:TestRepo999",
+      "type": "repo_room",
+      "label": "TestRepo999",
+      "payload": {
+        "name": "TestRepo999",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/TestRepo999",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:TestRepoPush",
+      "type": "repo_room",
+      "label": "TestRepoPush",
+      "payload": {
+        "name": "TestRepoPush",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/TestRepoPush",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:training_sandbox",
+      "type": "repo_room",
+      "label": "training_sandbox",
+      "payload": {
+        "name": "training_sandbox",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/training_sandbox",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-05-27",
+        "created": "2026-05-27",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:vidalialed-lite",
+      "type": "repo_room",
+      "label": "vidalialed-lite",
+      "payload": {
+        "name": "vidalialed-lite",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/vidalialed-lite",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-06-28",
+        "created": "2026-06-28",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:wip-quantum-asm",
+      "type": "repo_room",
+      "label": "wip-quantum-asm",
+      "payload": {
+        "name": "wip-quantum-asm",
+        "description": "Quantum Assembly Language Specification and Tooling",
+        "url": "https://github.com/chrisalunlloyd2-sudo/wip-quantum-asm",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-12",
+        "created": "2026-07-12",
+        "private": false
+      }
+    },
+    {
+      "id": "repo:WORKER_PACKAGE",
+      "type": "repo_room",
+      "label": "WORKER_PACKAGE",
+      "payload": {
+        "name": "WORKER_PACKAGE",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/WORKER_PACKAGE",
+        "language": "JavaScript",
+        "stars": 0,
+        "updated": "2026-06-20",
+        "created": "2026-05-12",
+        "private": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "atrium:main",
+      "target": "hall:github",
+      "type": "north",
+      "weight": 1
+    },
+    {
+      "source": "atrium:main",
+      "target": "basement:sov",
+      "type": "down",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:aegis-agent-bridge",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:AegisAgent",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Aegis_Agents",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:DARWIN_GRID_DEPLOY",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:E2E_Final_Test",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:E2E_Test_Deploy_6172",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:evolved_system",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Flappy_bird_except_python_and",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:frontier-ai-dlc",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Gitautoworks",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:H2OIDE",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:H2OMatrixCE",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:H2O_MATRIX",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:JRM",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:living-ascii-art",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Machine2",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:MatrixCE_GUI",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Matrix_CEAGENTS",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Matrix_CEAPK",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Matrix_CEAPPS",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Matrix_CEBack",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Matrix_CEKAI9000",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Matrix_CESERVERS",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:matrix_dash",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:MATRIX_GEN8_HOME",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:mind-palace",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:moe-kai-skill",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:MultiPage_E2E_20010",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:NAS_SHARE",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Nova",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:openrouter",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:openrouter_manager",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:RandomTestProject",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Ryush",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:SimAgentCity",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:sims-javafx-neo",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:SimsMerged",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:Sprite",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:teaching_sandbox",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:TestRepo999",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:TestRepoPush",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:training_sandbox",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:vidalialed-lite",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:wip-quantum-asm",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "hall:github",
+      "target": "repo:WORKER_PACKAGE",
+      "type": "door",
+      "weight": 1
+    }
+  ],
+  "spawn": "atrium:main"
+}
