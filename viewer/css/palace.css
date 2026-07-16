@@ -16,7 +16,6 @@ html, body { width: 100%; height: 100%; overflow: hidden; background: #000; colo
 #rc-meta { font-size: 11px; color: #777; margin-bottom: 12px; }
 #rc-actions { display: flex; gap: 8px; }
 #rc-actions button { flex: 1; background: #00ffff; color: #000; border: none; padding: 7px 0; font-family: inherit; font-size: 11px; cursor: pointer; }
-#rc-actions button.secondary { background: transparent; color: #0ff; border: 1px solid #0ff; }
 #auth-status { position: absolute; top: 18px; left: 18px; font-size: 11px; color: #666; padding: 4px 8px; background: rgba(0,0,0,0.4); border-radius: 4px; }
 #auth-status.archivist { color: #ff00ff; border: 1px solid #ff00ff; }
 #edit-bar { position: absolute; bottom: 18px; left: 50%; transform: translateX(-50%); display: flex; gap: 8px; pointer-events: auto; }
