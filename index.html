@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>MindPalace — GitHub Hall</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html, body { width: 100%; height: 100%; overflow: hidden; background: #050510; color: #e0e0ff; font-family: 'Courier New', monospace; }
+        canvas { display: block; width: 100%; height: 100%; }
+        #ui { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 10; }
+        #crosshair { position: absolute; top: 50%; left: 50%; width: 8px; height: 8px; border: 2px solid rgba(0,255,255,0.7); transform: translate(-50%, -50%); border-radius: 50%; pointer-events: none; }
+        .panel { position: absolute; pointer-events: auto; background: rgba(10,10,31,0.95); border: 1px solid #444; border-radius: 8px; padding: 14px; box-shadow: 0 0 24px rgba(0,255,255,0.15); }
+        #room-panel { top: 20px; right: 20px; width: 320px; display: none; }
+        #room-panel h2 { color: #ff00ff; font-size: 16px; margin-bottom: 6px; }
+        #room-panel .meta { font-size: 11px; color: #888; margin-bottom: 8px; }
+        #room-panel p { font-size: 12px; color: #bbb; margin-bottom: 10px; }
+        #room-panel button { background: #00ffff; color: #000; border: none; padding: 6px 12px; font-family: inherit; cursor: pointer; font-size: 12px; }
+        #auth-panel { top: 50%; left: 50%; transform: translate(-50%, -50%); width: 300px; display: none; }
+        #auth-panel input { width: 100%; margin: 6px 0; padding: 8px; background: #111; color: #0ff; border: 1px solid #333; font-family: inherit; }
+        #auth-panel button { margin-top: 8px; background: #ff00ff; color: #fff; border: none; padding: 8px 16px; font-family: inherit; cursor: pointer; width: 100%; }
+        #auth-panel .close { float: right; color: #888; cursor: pointer; font-size: 12px; }
+        #edit-bar { position: absolute; bottom: 20px; left: 50%; transform: translateX(-50%); display: none; gap: 8px; pointer-events: auto; }
+        #edit-bar button { background: #222; color: #0ff; border: 1px solid #0ff; padding: 8px 16px; cursor: pointer; font-family: inherit; }
+        #footer { position: absolute; bottom: 8px; left: 8px; color: #666; font-size: 11px; pointer-events: none; }
+        #auth-status { position: absolute; top: 20px; left: 20px; color: #ff00ff; font-size: 11px; pointer-events: none; }
+        #help { position: absolute; bottom: 28px; right: 8px; color: #666; font-size: 11px; pointer-events: none; text-align: right; }
+        #blocker { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: rgba(5,5,16,0.9); display: flex; flex-direction: column; align-items: center; justify-content: center; z-index: 20; pointer-events: auto; }
+        #blocker h1 { color: #0ff; text-shadow: 0 0 24px #0ff; font-size: 36px; }
+        #blocker p { color: #aaa; margin-top: 12px; font-size: 14px; text-align: center; }
+        #blocker .small { font-size: 12px; color: #666; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div id="blocker" onclick="enterHall()">
+        <h1>🏛️ MindPalace — GitHub Hall</h1>
+        <p>Click to enter. Use WASD + mouse to walk the hallway.</p>
+        <p class="small">Each door is a GitHub repository. Read-only for visitors.<br/>Archivist access (viper:clamchowder) unlocks editing and the basement.</p>
+    </div>
+
+    <canvas id="viewport"></canvas>
+
+    <div id="crosshair"></div>
+    <div id="auth-status">READ-ONLY GUEST</div>
+
+    <div id="ui">
+        <div id="room-panel" class="panel">
+            <h2 id="room-title">Room</h2>
+            <div id="room-type" class="meta"></div>
+            <p id="room-desc"></p>
+            <div id="room-meta" class="meta"></div>
+            <button id="visit-repo">Open Repository</button>
+        </div>
+
+        <div id="auth-panel" class="panel">
+            <span class="close" id="close-auth">✕</span>
+            <h2 style="color:#0ff;">Archivist Login</h2>
+            <input id="auth-user" type="text" placeholder="user" value="viper">
+            <input id="auth-pass" type="password" placeholder="pass">
+            <div id="auth-msg" style="color:#f44;font-size:11px;"></div>
+            <button id="auth-btn">Unlock Editing</button>
+        </div>
+
+        <div id="edit-bar">
+            <button onclick="alert('Add Book: TBD')">+ Book</button>
+            <button onclick="alert('Edit Wall: TBD')">Edit Wall</button>
+            <button onclick="alert('Basement: real DB connection TBD')">Go to Basement</button>
+        </div>
+
+        <div id="footer">MindPalace v0.2 — Wolfenstein-style graph explorer</div>
+        <div id="help">WASD walk • mouse look • click to lock pointer</div>
+    </div>
+
+    <script src="mindpalace.js"></script>
+    <script>
+        function enterHall() {
+            document.getElementById('blocker').style.display = 'none';
+            document.getElementById('viewport').requestPointerLock?.();
+        }
+    </script>
+</body>
+</html>
