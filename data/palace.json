@@ -1,13 +1,44 @@
 {
-  "generated_at": "2026-07-16T18:12:32.785097+00:00",
+  "generated_at": "2026-07-20T23:50:16.689014+00:00",
   "nodes": [
     {
-      "id": "hub:github",
-      "type": "zone_hub",
-      "label": "GitHub Hall",
+      "id": "atrium:main",
+      "type": "atrium",
+      "label": "Main Atrium",
       "payload": {
-        "zone": "github",
-        "description": "A long hallway of repositories."
+        "description": "Entrance hall. Four wings branch from here."
+      }
+    },
+    {
+      "id": "wing:west",
+      "type": "wing_hub",
+      "label": "West Wing \u2014 Core Systems",
+      "payload": {
+        "description": "Enter Core Systems"
+      }
+    },
+    {
+      "id": "wing:east",
+      "type": "wing_hub",
+      "label": "East Wing \u2014 AI/ML Foundry",
+      "payload": {
+        "description": "Enter AI/ML Foundry"
+      }
+    },
+    {
+      "id": "wing:north",
+      "type": "wing_hub",
+      "label": "North Wing \u2014 Experiments",
+      "payload": {
+        "description": "Enter Experiments"
+      }
+    },
+    {
+      "id": "wing:south",
+      "type": "wing_hub",
+      "label": "South Wing \u2014 Tests/Archive",
+      "payload": {
+        "description": "Enter Tests/Archive"
       }
     },
     {
@@ -15,13 +46,27 @@
       "type": "repo_room",
       "label": "aegis-agent-bridge",
       "payload": {
+        "name": "aegis-agent-bridge",
         "description": "Aegis Agent Email Sync Bridge \u2014 protocol, inbox poller, router, and state manager for agent orchestration via Gmail/OneDrive/GitHub",
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-16T13:28:02Z",
-        "created": "2026-07-14T13:33:06Z",
-        "private": false
+        "updated": "2026-07-20",
+        "created": "2026-07-14",
+        "private": false,
+        "category": "Core Systems",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "requirements.txt",
+          "traffic.json"
+        ],
+        "folders": [
+          "docs",
+          "scripts",
+          "src",
+          "tests"
+        ]
       }
     },
     {
@@ -29,13 +74,25 @@
       "type": "repo_room",
       "label": "AegisAgent",
       "payload": {
+        "name": "AegisAgent",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/AegisAgent",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-05-25T04:08:57Z",
-        "created": "2026-04-17T04:25:35Z",
-        "private": false
+        "updated": "2026-05-25",
+        "created": "2026-04-17",
+        "private": false,
+        "category": "Core Systems",
+        "wing": "west",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md"
+        ],
+        "folders": [
+          "AegisAgent"
+        ]
       }
     },
     {
@@ -43,13 +100,69 @@
       "type": "repo_room",
       "label": "Aegis_Agents",
       "payload": {
+        "name": "Aegis_Agents",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Aegis_Agents",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-27T02:38:24Z",
-        "created": "2026-04-17T04:28:18Z",
-        "private": false
+        "updated": "2026-05-27",
+        "created": "2026-04-17",
+        "private": false,
+        "category": "Core Systems",
+        "wing": "west",
+        "files": [
+          "AEGIS_INDEXER.py",
+          "AEGIS_Launch.bat",
+          "AEGIS_MANIFOLD_BLUEPRINT.txt",
+          "AGENTIC_SYSTEM_GUIDE.md",
+          "Aegis_Igniter.py",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "DIAGNOSTIC_REPORT.md",
+          "DIMON_CORE_DISTILLED.py",
+          "DIRECTORY_STRUCTURE.txt",
+          "Engine.py",
+          "GEMINIX_ORCHESTRATOR.py",
+          "MOLTBOOK_STRESS_TEST.py",
+          "PROJECT_LOG.md",
+          "QUICK_START.md",
+          "README.md",
+          "READY_TO_USE.md",
+          "SYSTEM_STATUS.md",
+          "TOOL_CALLING_GUIDE.md",
+          "VIPER_PERSONAL_PROMPT.txt",
+          "advanced_analytics.py",
+          "aegis_dspy.py",
+          "aegis_ui_clone.html",
+          "agentic_crawler_db.py",
+          "agentic_demo.py",
+          "agentic_loop_controller.py",
+          "api.log",
+          "cleanup_memory.py",
+          "dimon_mionet_logic.py",
+          "dimon_neural_bridge.py",
+          "dimon_operator_engine.py",
+          "gemini_bridge.db",
+          "gemini_bridge.db-shm",
+          "gemini_bridge.db-wal",
+          "gemini_bridge.py",
+          "gemini_bridge_api.py",
+          "gemini_bridge_api_fast.py",
+          "gemini_bridge_minimal.py",
+          "gemini_bridge_rag.py",
+          "gemma_tools.py",
+          "knowledge_base_api.py",
+          "lattice_structure.txt",
+          "logic_cube_solver.py",
+          "phone_automation_script.js",
+          "scraped_data.txt",
+          "setup_aegis.py",
+          "timescale_memory.py"
+        ],
+        "folders": [
+          "__pycache__",
+          "gemini_extension"
+        ]
       }
     },
     {
@@ -57,13 +170,27 @@
       "type": "repo_room",
       "label": "DARWIN_GRID_DEPLOY",
       "payload": {
+        "name": "DARWIN_GRID_DEPLOY",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/DARWIN_GRID_DEPLOY",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-05-12T02:37:16Z",
-        "created": "2026-05-12T02:20:19Z",
-        "private": false
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "INSTALL.md",
+          "README.md",
+          "RUN_WORKER.bat",
+          "heavy_worker.js",
+          "package.json",
+          "worker.js"
+        ],
+        "folders": []
       }
     },
     {
@@ -71,13 +198,29 @@
       "type": "repo_room",
       "label": "E2E_Final_Test",
       "payload": {
+        "name": "E2E_Final_Test",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/E2E_Final_Test",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-25T04:05:06Z",
-        "created": "2026-05-12T04:03:38Z",
-        "private": false
+        "updated": "2026-05-25",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "logic.c",
+          "notes.txt",
+          "secrets.js",
+          "server.py"
+        ],
+        "folders": [
+          "E2E_Final_Test"
+        ]
       }
     },
     {
@@ -85,13 +228,26 @@
       "type": "repo_room",
       "label": "E2E_Test_Deploy_6172",
       "payload": {
+        "name": "E2E_Test_Deploy_6172",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/E2E_Test_Deploy_6172",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-25T04:05:44Z",
-        "created": "2026-05-13T00:35:57Z",
-        "private": false
+        "updated": "2026-05-25",
+        "created": "2026-05-13",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "main.py"
+        ],
+        "folders": [
+          "E2E_Test_Deploy_6172"
+        ]
       }
     },
     {
@@ -99,13 +255,29 @@
       "type": "repo_room",
       "label": "evolved_system",
       "payload": {
+        "name": "evolved_system",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/evolved_system",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-25T04:09:45Z",
-        "created": "2026-05-12T05:50:26Z",
-        "private": false
+        "updated": "2026-05-25",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "core_logic.py",
+          "logic.py",
+          "main.py"
+        ],
+        "folders": [
+          "evolved_system",
+          "utils"
+        ]
       }
     },
     {
@@ -113,13 +285,27 @@
       "type": "repo_room",
       "label": "Flappy_bird_except_python_and",
       "payload": {
+        "name": "Flappy_bird_except_python_and",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Flappy_bird_except_python_and",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-25T04:10:17Z",
-        "created": "2026-05-12T08:14:40Z",
-        "private": false
+        "updated": "2026-05-25",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "main.py"
+        ],
+        "folders": [
+          "Flappy_bird_except_python_and",
+          "platform"
+        ]
       }
     },
     {
@@ -127,13 +313,24 @@
       "type": "repo_room",
       "label": "frontier-ai-dlc",
       "payload": {
+        "name": "frontier-ai-dlc",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/frontier-ai-dlc",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-12T13:58:38Z",
-        "created": "2026-07-12T13:29:47Z",
-        "private": false
+        "updated": "2026-07-12",
+        "created": "2026-07-12",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "requirements.txt"
+        ],
+        "folders": [
+          "src",
+          "tests"
+        ]
       }
     },
     {
@@ -141,13 +338,26 @@
       "type": "repo_room",
       "label": "Gitautoworks",
       "payload": {
+        "name": "Gitautoworks",
         "description": "My automated git hub uploader.",
         "url": "https://github.com/chrisalunlloyd2-sudo/Gitautoworks",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-20T22:17:54Z",
-        "created": "2026-05-12T04:42:15Z",
-        "private": false
+        "updated": "2026-06-20",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md"
+        ],
+        "folders": [
+          "src",
+          "tests"
+        ]
       }
     },
     {
@@ -155,13 +365,71 @@
       "type": "repo_room",
       "label": "H2OIDE",
       "payload": {
+        "name": "H2OIDE",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/H2OIDE",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:41:11Z",
-        "created": "2026-05-23T23:35:11Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-05-23",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "DATA_FLOW.md",
+          "ENTERPRISE_INIT.p",
+          "GLOBAL_PEDAGOGY.md",
+          "PEDAGOGY_90_STEP_ARCHITECTURE.md",
+          "PEDAGOGY_LEDGER_DUMP.sql",
+          "PROJECT_LOG.md",
+          "PROMPT_GUIDE.md",
+          "README.md",
+          "README_ENTERPRISE.md",
+          "README_TEMPLATE.md",
+          "ROADMAP.md",
+          "SCIENTIFIC_SETUP_LOG.md",
+          "SESSION_CHATS.jsonl",
+          "STATE_TRACKER.json",
+          "agy",
+          "agy_main.go",
+          "agy_python.py",
+          "anti_hang_watchdog.py",
+          "autonomous_engine.py",
+          "cognitive_db.py",
+          "daemon.py",
+          "danube_logic_orchestrator.py",
+          "deep_test_suite.py",
+          "fuzzy_logic_gate.py",
+          "genetic_optimizer.py",
+          "h2o_cli_ide.py",
+          "h2o_db_schema.py",
+          "headless_project_suite.py",
+          "initialize_enterprise_project.py",
+          "litellm_config.yaml",
+          "matrix_orchestrator.py",
+          "network_hook.py",
+          "pedagogy_cognitive.py",
+          "pedagogy_loop.py",
+          "pedagogy_mirror_builder.py",
+          "predictive_code_analysis.py",
+          "sandbox_repo",
+          "seed_8_sandbox_updates.py",
+          "seed_new_sandbox.py",
+          "semantic_evolution.py",
+          "slow_pedagogy_daemon.py",
+          "teaching_sandbox",
+          "todo_0001__SYPHON.py__grep______VIPER_SCRIPT_LIBRARY_.md",
+          "training_lab_engine.py",
+          "triton_danube_kernel.py"
+        ],
+        "folders": [
+          "__pycache__",
+          "skills",
+          "training_lab",
+          "training_sandbox"
+        ]
       }
     },
     {
@@ -169,13 +437,78 @@
       "type": "repo_room",
       "label": "H2OMatrixCE",
       "payload": {
+        "name": "H2OMatrixCE",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/H2OMatrixCE",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:41:19Z",
-        "created": "2026-05-24T13:20:01Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-05-24",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "900_STEPS_SINGULARITY.md",
+          "BUDGET_CREDITS.md",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "CLIDE_SPEC.md",
+          "ENTERPRISE_INIT.p",
+          "GEMINI.md",
+          "H2O_MATRIX_SOP.p",
+          "LOGOS_PURPOSE.md",
+          "MATRIX_GEN8_MASTER_PLAN.md",
+          "MIGRATION_PLAN.md",
+          "NEXUS_INTEGRATION_PATH.md",
+          "PEDAGOGY_HARVESTER.py",
+          "PROJECT_LOG.md",
+          "PROJECT_MANIFEST.md",
+          "PROTOCOL_AUTOPSY.md",
+          "README.md",
+          "RESTORE_POINT.md",
+          "ROADMAP.md",
+          "SCIENTIFIC_LOG.md",
+          "SINGULARITY_LOG.md",
+          "SINGULARITY_ROADMAP.md",
+          "SPRITE_NET_MANIFEST.md",
+          "SYNC_ALL.sh",
+          "TODO_SCANNER.py",
+          "VIPER_SCRIPT_LIBRARY",
+          "WAKE.sh",
+          "bootstrap_L1.sh",
+          "build_apk.sh",
+          "clide.sh",
+          "complete_roadmap.py",
+          "genetic_optimizer.py",
+          "initialize_enterprise_project.py",
+          "manifest_apk.sh",
+          "package-lock.json",
+          "predictive_wrapper.py",
+          "run_singularity.sh",
+          "scientific_executor.py",
+          "scientific_orchestrator.py",
+          "scrub_engine.py",
+          "temp_variant.rs",
+          "test_router.py",
+          "todo_0001_LIST.md",
+          "todo_0002_S_---.md",
+          "todo_0003_LIST_in_line.md",
+          "todo_0004__DB__os.path.expanduser_.matrix_ide_database_t.md",
+          "todo_0005__DB_exist_okTrue.md",
+          "todo_0006__DB.md",
+          "todo_0007__DB__os.path.joinHOME_DIR_.matrix_ide_database.md",
+          "todo_0008__DB.md"
+        ],
+        "folders": [
+          "AEGEN_TODOS",
+          "GAME_SUBSTRATE",
+          "H2OIDE",
+          "PocketMatrix",
+          "agy-cli-go",
+          "build_staging",
+          "genetic_flow",
+          "tmp_extract"
+        ]
       }
     },
     {
@@ -183,13 +516,54 @@
       "type": "repo_room",
       "label": "H2O_MATRIX",
       "payload": {
+        "name": "H2O_MATRIX",
         "description": "Unified H2O IDE and Matrix GEN8 Ecosystem",
         "url": "https://github.com/chrisalunlloyd2-sudo/H2O_MATRIX",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:41:06Z",
-        "created": "2026-05-23T23:40:13Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-05-23",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "900_STEPS_SINGULARITY.md",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "CLIDE_SPEC.md",
+          "ENTERPRISE_INIT.p",
+          "GEMINI.md",
+          "H2OIDE",
+          "LOGOS_PURPOSE.md",
+          "MATRIX_GEN8_MASTER_PLAN.md",
+          "MIGRATION_PLAN.md",
+          "PROJECT_LOG.md",
+          "PROJECT_MANIFEST.md",
+          "PROTOCOL_AUTOPSY.md",
+          "README.md",
+          "RESTORE_POINT.md",
+          "SCIENTIFIC_LOG.md",
+          "SINGULARITY_LOG.md",
+          "SINGULARITY_ROADMAP.md",
+          "SPRITE_NET_MANIFEST.md",
+          "bootstrap_L1.sh",
+          "clide.sh",
+          "genetic_optimizer.py",
+          "initialize_enterprise_project.py",
+          "package-lock.json",
+          "run_singularity.sh",
+          "scientific_executor.py",
+          "scientific_orchestrator.py",
+          "temp_variant.rs",
+          "test_router.py",
+          "todo_0001_LIST.md"
+        ],
+        "folders": [
+          "agy-cli-go",
+          "genetic_flow",
+          "src",
+          "tmp_extract"
+        ]
       }
     },
     {
@@ -197,13 +571,31 @@
       "type": "repo_room",
       "label": "JRM",
       "payload": {
+        "name": "JRM",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/JRM",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-06-28T20:44:01Z",
-        "created": "2026-05-24T01:27:32Z",
-        "private": false
+        "updated": "2026-06-28",
+        "created": "2026-05-24",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "APKBUILD.md",
+          "BLUEPRINT.md",
+          "README.md",
+          "TEST_LIST.md",
+          "docker-compose.yml",
+          "pom.xml"
+        ],
+        "folders": [
+          "api",
+          "core",
+          "domain",
+          "security",
+          "tests"
+        ]
       }
     },
     {
@@ -211,13 +603,33 @@
       "type": "repo_room",
       "label": "living-ascii-art",
       "payload": {
+        "name": "living-ascii-art",
         "description": "Living ASCII art from news headlines with rainbow fade animations",
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-07-16T17:38:57Z",
-        "created": "2026-07-11T21:52:35Z",
-        "private": false
+        "updated": "2026-07-20",
+        "created": "2026-07-11",
+        "private": false,
+        "category": "Experiments",
+        "wing": "north",
+        "files": [
+          "PYEOF",
+          "WALKTHROUGHS.md",
+          "agent-bridge-dashboard.html",
+          "app.js",
+          "ascii_art.js",
+          "bridge_state.json",
+          "data.json",
+          "index.html",
+          "style.css"
+        ],
+        "folders": [
+          "analytics",
+          "js",
+          "reviews",
+          "scripts"
+        ]
       }
     },
     {
@@ -225,13 +637,34 @@
       "type": "repo_room",
       "label": "Machine2",
       "payload": {
+        "name": "Machine2",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Machine2",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-13T00:13:14Z",
-        "created": "2026-06-25T01:57:04Z",
-        "private": false
+        "updated": "2026-07-13",
+        "created": "2026-06-25",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "ArchivalMoe_docx.md",
+          "TEST_INFRA.md",
+          "TEST_READY.md",
+          "aegis_stabilization_report.md",
+          "desktop_moe_orchestrator.py",
+          "nmct_db_manager.py",
+          "otg_db_bridge.py",
+          "seed_snippets.py",
+          "start_services.bat",
+          "start_services.ps1",
+          "start_services.py",
+          "system_scan_report.kqml"
+        ],
+        "folders": [
+          "logs",
+          "tests"
+        ]
       }
     },
     {
@@ -239,13 +672,73 @@
       "type": "repo_room",
       "label": "MatrixCE_GUI",
       "payload": {
+        "name": "MatrixCE_GUI",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/MatrixCE_GUI",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:41:08Z",
-        "created": "2026-06-10T13:17:53Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "README.md",
+          "todo_0001_s_and_task_them_to_the_H2OIDE_daemon_for_local_e.md",
+          "todo_0002__SYPHON.py_to_parse_these_logs..md",
+          "todo_0003_LIST.md",
+          "todo_0004_.md.md",
+          "todo_0005_.md_with_comprehensive_TODO_list.md",
+          "todo_0006_.md.md",
+          "todo_0007_.md.md",
+          "todo_0008_List_for_OpenRouter_Manager.md",
+          "todo_0009_list_to_ensure_that_all_tasks_and_features_are_pro.md",
+          "todo_0010_List.md",
+          "todo_0011_.md.md",
+          "todo_0012_list_will_be_used_to_track_and_implement_user_inte.md",
+          "todo_0013_list_will_be_used_to_track_and_implement_database_.md",
+          "todo_0014_list_will_be_used_to_track_and_implement_system_st.md",
+          "todo_0015_list_will_be_used_to_track_and_implement_API_updat.md",
+          "todo_0016_List_Summary.md",
+          "todo_0017_list_outlines_the_current_tasks_and_features_to_be.md",
+          "todo_0018_list_has_been_updated_with_a_comprehensive_outline.md",
+          "todo_0019_list_by_implementing_automated_testing_optimizing.md",
+          "todo_0020_.md.md",
+          "todo_0021_List_for_OpenRouter_Manager.md",
+          "todo_0022_list_to_ensure_that_all_tasks_and_features_are_pro.md",
+          "todo_0023_List.md",
+          "todo_0024_.md.md",
+          "todo_0025_list_will_be_used_to_track_and_implement_user_inte.md",
+          "todo_0026_list_will_be_used_to_track_and_implement_database_.md",
+          "todo_0027_list_will_be_used_to_track_and_implement_system_st.md",
+          "todo_0028_list_will_be_used_to_track_and_implement_API_updat.md",
+          "todo_0029_List_Summary.md",
+          "todo_0030_list_outlines_the_current_tasks_and_features_to_be.md",
+          "todo_0031_.md.md",
+          "todo_0032_.md_with_improved_documentation_and_formatting.md",
+          "todo_0033_.md.md",
+          "todo_0034_.md.md",
+          "todo_0035_.md.md",
+          "todo_0036_.md_with_improved_documentation_and_formatting.md",
+          "todo_0037_.md.md",
+          "todo_0038_.md.md",
+          "todo_0039_.md_with_comprehensive_TODO_list.md",
+          "todo_0040_.md.md",
+          "todo_0041_.md.md",
+          "todo_0042_.md_with_improved_documentation_and_formatting.md",
+          "todo_0043_.md.md",
+          "todo_0044_List_for_OpenRouter_Manager.md",
+          "todo_0045_list_to_ensure_that_all_tasks_and_features_are_pro.md",
+          "todo_0046_List.md",
+          "todo_0047_.md.md",
+          "todo_0048_list_will_be_used_to_track_and_implement_user_inte.md",
+          "todo_0049_list_will_be_used_to_track_and_implement_database_.md"
+        ],
+        "folders": [
+          "AEGEN_TODOS",
+          "matrix_dash",
+          "web"
+        ]
       }
     },
     {
@@ -253,13 +746,44 @@
       "type": "repo_room",
       "label": "Matrix_CEAGENTS",
       "payload": {
+        "name": "Matrix_CEAGENTS",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAGENTS",
         "language": "HTML",
         "stars": 0,
-        "updated": "2026-07-15T02:41:15Z",
-        "created": "2026-06-10T13:18:16Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "Core Systems",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "nx_engine_mapper.py",
+          "swarm_registry.json",
+          "todo_0001__DB__os.path.expanduser_.matrix_ide_database_t.md",
+          "todo_0002__DB_exist_okTrue.md",
+          "todo_0003__DB.md",
+          "todo_0004__DB__os.path.expanduser_.matrix_ide_database_t.md",
+          "todo_0005__DB.md",
+          "todo_0006__DB__os.path.joinHOME_DIR_.matrix_ide_database.md",
+          "todo_0007_SYSTEM_---.md",
+          "todo_0008__DB.md",
+          "todo_0009__DB.md",
+          "todo_0010__DB__os.path.expanduser_.matrix_ide_database_t.md",
+          "todo_0011__DB.md",
+          "todo_0012__DB__os.path.joinHOME_DIR_.matrix_ide_database.md",
+          "todo_0013__DB.md",
+          "todo_0014_SYSTEM_---.md",
+          "todo_0015__DB.md",
+          "todo_0016__DB.md"
+        ],
+        "folders": [
+          "AEGEN_TODOS",
+          "core",
+          "db",
+          "memory",
+          "system"
+        ]
       }
     },
     {
@@ -267,13 +791,29 @@
       "type": "repo_room",
       "label": "Matrix_CEAPK",
       "payload": {
+        "name": "Matrix_CEAPK",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAPK",
         "language": "Smali",
         "stars": 0,
-        "updated": "2026-06-10T23:03:52Z",
-        "created": "2026-06-10T13:21:11Z",
-        "private": false
+        "updated": "2026-06-10",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "BLUEPRINT.md",
+          "README.md",
+          "ROADMAP.md",
+          "genesis_restore.sh",
+          "setup_orchestrator.sh"
+        ],
+        "folders": [
+          "app",
+          "build",
+          "docs",
+          "scripts"
+        ]
       }
     },
     {
@@ -281,13 +821,31 @@
       "type": "repo_room",
       "label": "Matrix_CEAPPS",
       "payload": {
+        "name": "Matrix_CEAPPS",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAPPS",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:41:20Z",
-        "created": "2026-06-10T13:18:25Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "README.md",
+          "genetic_techno_engine.py",
+          "matrix_calculator.py",
+          "matrix_calendar.py",
+          "todo_0001__Training_routine_implementation_for_skill_harv.md",
+          "todo_0002__Verification_cycle_3-reply_test..md"
+        ],
+        "folders": [
+          "MatrixIDE",
+          "MatrixLocal",
+          "QwenConfigApp",
+          "VIPER_SCRIPT_LIBRARY",
+          "openrouter_manager"
+        ]
       }
     },
     {
@@ -295,13 +853,28 @@
       "type": "repo_room",
       "label": "Matrix_CEBack",
       "payload": {
+        "name": "Matrix_CEBack",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEBack",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:41:29Z",
-        "created": "2026-06-10T13:18:39Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "README.md",
+          "capture_output.sh",
+          "git_hygiene.sh",
+          "github_sync.py",
+          "gmail_harvester.py",
+          "prune_logs.py",
+          "todo_0001__FIX_LEARN.md",
+          "todo_0002_s__re.findallrTODO_s._msg_body_re.IGNOR.md",
+          "todo_0003_s_task_list.appendtype_TODO_content_t..md"
+        ],
+        "folders": []
       }
     },
     {
@@ -309,13 +882,29 @@
       "type": "repo_room",
       "label": "Matrix_CEKAI9000",
       "payload": {
+        "name": "Matrix_CEKAI9000",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEKAI9000",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:41:25Z",
-        "created": "2026-06-10T13:18:34Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "README.md",
+          "autonomous_loop.py",
+          "lstm_refractor.py",
+          "memory_integration.py",
+          "orchestrator.sh",
+          "todo_0001__DIR___data_data_com.termux_files_home_.qwen_tod.md",
+          "todo_0002__DIR.md",
+          "todo_0003__DIR_if_f.endswith.json.md",
+          "todo_0004__DIR_files0.md",
+          "verbose_filter.py"
+        ],
+        "folders": []
       }
     },
     {
@@ -323,13 +912,30 @@
       "type": "repo_room",
       "label": "Matrix_CESERVERS",
       "payload": {
+        "name": "Matrix_CESERVERS",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CESERVERS",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-10T23:03:58Z",
-        "created": "2026-06-10T13:18:10Z",
-        "private": false
+        "updated": "2026-06-10",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "README.md",
+          "anti_hang_watchdog.py",
+          "hive_daemon.py",
+          "kqml_router.py",
+          "matrix_calculator.py",
+          "matrix_calendar.py",
+          "qwen_pedagogy_server.py",
+          "refresh_tokens.sh"
+        ],
+        "folders": [
+          "config",
+          "secure"
+        ]
       }
     },
     {
@@ -337,13 +943,26 @@
       "type": "repo_room",
       "label": "matrix_dash",
       "payload": {
+        "name": "matrix_dash",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/matrix_dash",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-26T20:41:37Z",
-        "created": "2026-05-26T20:40:28Z",
-        "private": false
+        "updated": "2026-05-26",
+        "created": "2026-05-26",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "ROADMAP.md"
+        ],
+        "folders": [
+          "src"
+        ]
       }
     },
     {
@@ -351,13 +970,86 @@
       "type": "repo_room",
       "label": "MATRIX_GEN8_HOME",
       "payload": {
+        "name": "MATRIX_GEN8_HOME",
         "description": "\ud83c\udf0c KAI 9000: Matrix CE Home | Unified Storage Substrate | Phase-Locked Android Architectural Core",
         "url": "https://github.com/chrisalunlloyd2-sudo/MATRIX_GEN8_HOME",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-14T15:23:09Z",
-        "created": "2026-05-23T23:33:59Z",
-        "private": false
+        "updated": "2026-06-14",
+        "created": "2026-05-23",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "900_STEPS_SINGULARITY.md",
+          "BRAIN_LOG.md",
+          "BUDGET_CREDITS.md",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "CLIDE_SPEC.md",
+          "ENTERPRISE_INIT.p",
+          "ENTERPRISE_PROJECT_SOP.md",
+          "GEMINI.md",
+          "GLOBAL_MASTER_POLICY.md",
+          "H2O_MATRIX_SOP.p",
+          "LOGOS_PURPOSE.md",
+          "MATRIX_GEN10_MASTER_PLAN.md",
+          "MATRIX_GEN8_MASTER_PLAN.md",
+          "MIGRATION_PLAN.md",
+          "NEXUS_INTEGRATION_PATH.md",
+          "Nova",
+          "PEDAGOGY_ROUTINE_LOG.md",
+          "PHASE1_HANDOFF_FLASH.md",
+          "PIPELINE_VERIFIED.md",
+          "PROJECT_LOG.md",
+          "PROJECT_MANIFEST.md",
+          "PROTOCOL_AUTOPSY.md",
+          "README.md",
+          "README_LEGACY.md",
+          "RESTORE_POINT.md",
+          "ROADMAP.md",
+          "SCIENTIFIC_LOG.md",
+          "SINGULARITY_CE_FEATURES_30_STEPS.md",
+          "SINGULARITY_LOG.md",
+          "SINGULARITY_ROADMAP.md",
+          "SPRITE_NET_MANIFEST.md",
+          "UPDATE_LOG.md",
+          "VIPER_SCRIPT_LIBRARY",
+          "ZERO_TO_CE_500_STEPS.md",
+          "ZERO_TO_CE_PHASE1_EXHAUSTIVE.md",
+          "ZERO_TO_CE_PHASE8_EXHAUSTIVE.md",
+          "ZERO_TO_CE_PHASE9_EXHAUSTIVE.md",
+          "ZERO_TO_CE_SOP.md",
+          "agent_core.py.benchmark",
+          "execution_log.md",
+          "notes.md",
+          "openrouter",
+          "openrouter_manager",
+          "refine_apk_architecture.md",
+          "test_payload.md"
+        ],
+        "folders": [
+          "Downloads",
+          "GAME_SUBSTRATE",
+          "H2OIDE",
+          "PocketMatrix",
+          "SUCCESS_VAULT",
+          "Wisdom",
+          "_Archived_Root",
+          "agy-cli-go",
+          "app",
+          "backup_vault",
+          "bin",
+          "cat_app",
+          "cats",
+          "docs",
+          "downloads",
+          "foundry_work",
+          "genetic_flow",
+          "matrix_dash",
+          "node_modules",
+          "openrouter_cats_30"
+        ]
       }
     },
     {
@@ -365,13 +1057,26 @@
       "type": "repo_room",
       "label": "mind-palace",
       "payload": {
+        "name": "mind-palace",
         "description": "First-person graph-based memory palace for GitHub repos, databases, and sovereign knowledge",
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
-        "language": "unknown",
+        "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-07-16T18:12:01Z",
-        "created": "2026-07-16T18:12:00Z",
-        "private": false
+        "updated": "2026-07-20",
+        "created": "2026-07-16",
+        "private": false,
+        "category": "Experiments",
+        "wing": "north",
+        "files": [
+          "README.md",
+          "index.html",
+          "requirements.txt"
+        ],
+        "folders": [
+          "data",
+          "js",
+          "scripts"
+        ]
       }
     },
     {
@@ -379,13 +1084,21 @@
       "type": "repo_room",
       "label": "moe-kai-skill",
       "payload": {
+        "name": "moe-kai-skill",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/moe-kai-skill",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-07-03T02:21:58Z",
-        "created": "2026-06-20T14:35:09Z",
-        "private": false
+        "updated": "2026-07-03",
+        "created": "2026-06-20",
+        "private": false,
+        "category": "AI/ML Foundry",
+        "wing": "east",
+        "files": [
+          "README.md",
+          "SKILL.md"
+        ],
+        "folders": []
       }
     },
     {
@@ -393,13 +1106,27 @@
       "type": "repo_room",
       "label": "MultiPage_E2E_20010",
       "payload": {
+        "name": "MultiPage_E2E_20010",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/MultiPage_E2E_20010",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-25T04:16:14Z",
-        "created": "2026-05-13T00:59:15Z",
-        "private": false
+        "updated": "2026-05-25",
+        "created": "2026-05-13",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "INSTALL.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "ROADMAP.md",
+          "Roadmap.md",
+          "main.py"
+        ],
+        "folders": []
       }
     },
     {
@@ -407,13 +1134,27 @@
       "type": "repo_room",
       "label": "NAS_SHARE",
       "payload": {
+        "name": "NAS_SHARE",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/NAS_SHARE",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-05-12T02:58:05Z",
-        "created": "2026-05-12T02:53:48Z",
-        "private": false
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "Blueprint.md",
+          "CENTRAL_GRID_HUB.db",
+          "CHANGELOG.md",
+          "Desktop-Worker.js",
+          "INSTALL.md",
+          "README.md",
+          "Retrieval-Agent.js",
+          "package.json"
+        ],
+        "folders": []
       }
     },
     {
@@ -421,13 +1162,59 @@
       "type": "repo_room",
       "label": "Nova",
       "payload": {
+        "name": "Nova",
         "description": "Autonomous Systems Engineering Project Foundry. v10.1 Master Engine with System Bible and Double Consent.",
         "url": "https://github.com/chrisalunlloyd2-sudo/Nova",
         "language": "HTML",
         "stars": 0,
-        "updated": "2026-06-20T14:42:46Z",
-        "created": "2026-05-11T16:11:01Z",
-        "private": false
+        "updated": "2026-06-20",
+        "created": "2026-05-11",
+        "private": false,
+        "category": "Experiments",
+        "wing": "north",
+        "files": [
+          "BEST_PROMPT.txt",
+          "BUILD.txt",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "DRAG_FOLDER_HERE_v2.bat",
+          "DarwinEngine_Core.py",
+          "DarwinianEngine_v2.py",
+          "DarwinianEngine_v8.py",
+          "E2E_Test_Deploy_6172",
+          "GEMINI.md",
+          "INSTALL.md",
+          "MultiPage_E2E_20010",
+          "NOTES.md",
+          "PROJECT_LOG.md",
+          "PROMPT_EVOLUTION_LOG.json",
+          "ProjectSetupDrop.ps1",
+          "README.md",
+          "Roadmap.md",
+          "SYSTEM_BIBLE.md",
+          "SystemsGUI.ps1",
+          "SystemsGUI_v9.ps1",
+          "auto_port.py",
+          "darwin_cli.py",
+          "darwin_cli.spec",
+          "logic_engine.py",
+          "main.py",
+          "pipeline_final.py",
+          "pipeline_v9.py",
+          "prompt_evolver.py",
+          "rolling_core_wrapper.py",
+          "test_cat_webpage.py",
+          "test_e2e_deploy.py",
+          "test_flappy_bird.py",
+          "test_multipage_e2e.py"
+        ],
+        "folders": [
+          "CatWebpageTest",
+          "__pycache__",
+          "build",
+          "dist",
+          "openrouter_manager"
+        ]
       }
     },
     {
@@ -435,13 +1222,31 @@
       "type": "repo_room",
       "label": "openrouter",
       "payload": {
+        "name": "openrouter",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/openrouter",
         "language": "CSS",
         "stars": 0,
-        "updated": "2026-05-25T04:23:36Z",
-        "created": "2026-05-25T00:53:32Z",
-        "private": false
+        "updated": "2026-05-25",
+        "created": "2026-05-25",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "app.js",
+          "hello_world.py",
+          "hello_world.txt",
+          "index.html",
+          "style.css",
+          "txt.txt"
+        ],
+        "folders": [
+          "openrouter_manager"
+        ]
       }
     },
     {
@@ -449,13 +1254,88 @@
       "type": "repo_room",
       "label": "openrouter_manager",
       "payload": {
+        "name": "openrouter_manager",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/openrouter_manager",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-15T02:45:51Z",
-        "created": "2026-05-25T01:47:22Z",
-        "private": false
+        "updated": "2026-07-15",
+        "created": "2026-05-25",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "ContentArchitect.py",
+          "DATA_FLOW.md",
+          "ENTERPRISE_INIT.p",
+          "GLOBAL_PEDAGOGY.md",
+          "PEDAGOGY_LEDGER_DUMP.sql",
+          "PROJECT_LOG.md",
+          "PROMPT_GUIDE.md",
+          "README.md",
+          "README_ENTERPRISE.md",
+          "README_LEGACY.md",
+          "ROADMAP.md",
+          "SCIENTIFIC_EXECUTOR.py",
+          "SESSION_CHATS.jsonl",
+          "advanced_schema_update.py",
+          "agy",
+          "agy_main.go",
+          "benchmark_models.py",
+          "benchmark_results.json",
+          "breeds.html",
+          "cognitive_db.py",
+          "components.py",
+          "config.py",
+          "content_architect.py",
+          "daemon.py",
+          "danube_director.py",
+          "danube_executor.py",
+          "danube_logic_orchestrator.py",
+          "danube_router.py",
+          "dashboard.py",
+          "data_provider.py",
+          "design_research.txt",
+          "encryption.py",
+          "error_handler.py",
+          "fuzzed_file.txt",
+          "gallery.html",
+          "genetic_optimizer.py",
+          "github_operator.py",
+          "index.html",
+          "initialize_enterprise_project.py",
+          "inject_pedagogy.py",
+          "main.py",
+          "matrix_orchestrator.py",
+          "models.py",
+          "network_hook.py",
+          "neural_network.py",
+          "pedagogy_cognitive.py",
+          "pedagogy_loop.py",
+          "predictive_code_analysis.py"
+        ],
+        "folders": [
+          "AEGEN_TODOS",
+          "AegisAgent",
+          "E2E_Final_Test",
+          "E2E_Test_Deploy_6172",
+          "agents",
+          "analysis",
+          "architecture",
+          "components",
+          "core",
+          "docs",
+          "hooks",
+          "openrouter_manager",
+          "project",
+          "skills",
+          "sops",
+          "src",
+          "tests",
+          "webapps"
+        ]
       }
     },
     {
@@ -463,13 +1343,23 @@
       "type": "repo_room",
       "label": "RandomTestProject",
       "payload": {
+        "name": "RandomTestProject",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/RandomTestProject",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-05-12T03:06:00Z",
-        "created": "2026-05-12T03:05:53Z",
-        "private": false
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "Config_Notes.txt",
+          "Database_Schema.txt",
+          "Logic_Module.txt",
+          "README.md"
+        ],
+        "folders": []
       }
     },
     {
@@ -477,13 +1367,30 @@
       "type": "repo_room",
       "label": "Ryush",
       "payload": {
+        "name": "Ryush",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Ryush",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-21T14:47:14Z",
-        "created": "2026-06-21T05:28:10Z",
-        "private": false
+        "updated": "2026-06-21",
+        "created": "2026-06-21",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "blueprint.kqml",
+          "blueprint.md",
+          "project.toml",
+          "roadmap.md"
+        ],
+        "folders": [
+          "GeneticFoundry",
+          "docs",
+          "logs",
+          "scripts",
+          "snapshots"
+        ]
       }
     },
     {
@@ -491,13 +1398,58 @@
       "type": "repo_room",
       "label": "SimAgentCity",
       "payload": {
+        "name": "SimAgentCity",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/SimAgentCity",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-09T02:15:03Z",
-        "created": "2026-05-13T03:49:14Z",
-        "private": false
+        "updated": "2026-06-09",
+        "created": "2026-05-13",
+        "private": false,
+        "category": "Core Systems",
+        "wing": "west",
+        "files": [
+          "BUILD_LOG.txt",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "ENTERPRISE_MANIFESTO.md",
+          "GRAND_MASTER_PLAN.md",
+          "LAUNCH_CITY.bat",
+          "PROJECT_LOG.md",
+          "PROJECT_MAP.txt",
+          "PULSE_HEARTBEAT.txt",
+          "README.md",
+          "RUN_STRESS_TEST.bat",
+          "THE_GHOST_MACHINE_WHITEPAPER.md",
+          "agents_population.json",
+          "blockchain_ledger.json",
+          "chat_logs.json",
+          "check_net.py",
+          "cli_wrapper.py",
+          "genesis_pyramid.py",
+          "git_sync.bat",
+          "heal_protocol.bat",
+          "init_sims.bat",
+          "lean_controller.py",
+          "master_controller.py",
+          "master_verification.py",
+          "orchestrator_pyramid.py",
+          "requirements.txt",
+          "stability_watchdog.py",
+          "swarm_healing.py",
+          "system_health_tester.py",
+          "trace_diagnostic.log",
+          "websocket_tester.py"
+        ],
+        "folders": [
+          "assets",
+          "backend",
+          "briefcase",
+          "city_workspace",
+          "docs",
+          "frontend",
+          "tools"
+        ]
       }
     },
     {
@@ -505,13 +1457,32 @@
       "type": "repo_room",
       "label": "sims-javafx-neo",
       "payload": {
+        "name": "sims-javafx-neo",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/sims-javafx-neo",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-06-17T03:32:05Z",
-        "created": "2026-05-14T04:03:47Z",
-        "private": false
+        "updated": "2026-06-17",
+        "created": "2026-05-14",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "ASCII_PROJECT_MAP.txt",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "JAVAFX_NEO_1700_STEP_PLAN.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "ROADMAP.md",
+          "pom.xml",
+          "sprite_package.zip"
+        ],
+        "folders": [
+          "docs",
+          "sprite_core",
+          "src"
+        ]
       }
     },
     {
@@ -519,13 +1490,81 @@
       "type": "repo_room",
       "label": "SimsMerged",
       "payload": {
+        "name": "SimsMerged",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/SimsMerged",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-15T05:11:07Z",
-        "created": "2026-05-15T02:08:01Z",
-        "private": false
+        "updated": "2026-06-15",
+        "created": "2026-05-15",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "1000_STEPS_GENESIS.md",
+          "AGENT_AUTOMATION_PLAN.md",
+          "ASCII_PROJECT_MAP.txt",
+          "AUTONOMOUS_PULSE.json",
+          "BOOT_STATE.md",
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "CODE_OF_CONDUCT.md",
+          "CONTRIBUTING.md",
+          "DARWINIAN_SPECS.md",
+          "ENTERPRISE_MANIFESTO.md",
+          "ENTERPRISE_MASTER_PLAN.md",
+          "FAQ.md",
+          "FEATURE_LOGIC_TABLE.md",
+          "GEMINI.md",
+          "GITHUB_PROTECTION_GAME_PLAN.md",
+          "GIT_LOG.txt",
+          "GRAND_MASTER_PLAN.md.20260525_024403.mut",
+          "GRAND_MASTER_PLAN.md.20260525_024504.mut",
+          "GRAND_MASTER_PLAN.md.20260525_024610.mut",
+          "GRAND_MASTER_PLAN.md.20260525_024709.mut",
+          "GRAND_MASTER_PLAN.md.20260525_024806.mut",
+          "GRAND_MASTER_PLAN.md.20260525_024908.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025020.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025123.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025218.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025311.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025414.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025522.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025632.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025730.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025822.mut",
+          "GRAND_MASTER_PLAN.md.20260525_025927.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030025.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030125.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030221.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030322.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030420.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030528.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030635.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030750.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030846.mut",
+          "GRAND_MASTER_PLAN.md.20260525_030951.mut",
+          "GRAND_MASTER_PLAN.md.20260525_031112.mut",
+          "GRAND_MASTER_PLAN.md.20260525_031214.mut",
+          "GRAND_MASTER_PLAN.md.20260525_031315.mut",
+          "GRAND_MASTER_PLAN.md.20260525_031431.mut",
+          "GRAND_MASTER_PLAN.md.20260525_031529.mut",
+          "GRAND_MASTER_PLAN.md.20260525_031628.mut",
+          "GRAND_MASTER_PLAN.md.20260525_031809.mut"
+        ],
+        "folders": [
+          "JavaFX_GUI",
+          "SSD_SANDBOX",
+          "SimAgentCity",
+          "agent_sandboxes",
+          "assets",
+          "backend",
+          "build_scripts",
+          "city_workspace",
+          "database",
+          "docs",
+          "frontend"
+        ]
       }
     },
     {
@@ -533,13 +1572,24 @@
       "type": "repo_room",
       "label": "Sprite",
       "payload": {
+        "name": "Sprite",
         "description": "\ud83c\udf0c KAI 9000: Matrix CE Ecosystem | Unified Substrate Explorer with Cloud & Phone Integration | DePIN-backed Autonomous Swarm",
         "url": "https://github.com/chrisalunlloyd2-sudo/Sprite",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-07-02T13:07:29Z",
-        "created": "2026-06-10T00:22:50Z",
-        "private": false
+        "updated": "2026-07-02",
+        "created": "2026-06-10",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "WEB_UI"
+        ],
+        "folders": [
+          "docs",
+          "projects"
+        ]
       }
     },
     {
@@ -547,13 +1597,44 @@
       "type": "repo_room",
       "label": "teaching_sandbox",
       "payload": {
+        "name": "teaching_sandbox",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/teaching_sandbox",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-05-27T01:48:51Z",
-        "created": "2026-05-25T12:57:57Z",
-        "private": false
+        "updated": "2026-05-27",
+        "created": "2026-05-25",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PEDAGOGY_TRAINING_1.md",
+          "PEDAGOGY_TRAINING_2.md",
+          "PEDAGOGY_TRAINING_3.md",
+          "PEDAGOGY_TRAINING_4.md",
+          "PEDAGOGY_TRAINING_5.md",
+          "PEDAGOGY_TRAINING_6.md",
+          "PEDAGOGY_TRAINING_7.md",
+          "PEDAGOGY_TRAINING_8.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "a.py",
+          "gen_2_20260526_075316.md",
+          "gen_3_20260526_101123.md",
+          "gen_4_20260526_104029.md",
+          "gen_5_20260526_120026.md",
+          "gen_6_20260526_122756.md",
+          "gen_7_20260526_122821.md",
+          "gen_8_20260526_122830.md",
+          "gen_999_20260526_194846.md",
+          "gen_9_20260526_075034.md",
+          "research.txt"
+        ],
+        "folders": [
+          "lab_events"
+        ]
       }
     },
     {
@@ -561,13 +1642,20 @@
       "type": "repo_room",
       "label": "TestRepo999",
       "payload": {
+        "name": "TestRepo999",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/TestRepo999",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-05-12T02:10:25Z",
-        "created": "2026-05-12T02:10:18Z",
-        "private": false
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "test.txt"
+        ],
+        "folders": []
       }
     },
     {
@@ -575,13 +1663,20 @@
       "type": "repo_room",
       "label": "TestRepoPush",
       "payload": {
+        "name": "TestRepoPush",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/TestRepoPush",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-05-12T02:17:47Z",
-        "created": "2026-05-12T02:17:38Z",
-        "private": false
+        "updated": "2026-05-12",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "test.txt"
+        ],
+        "folders": []
       }
     },
     {
@@ -589,13 +1684,34 @@
       "type": "repo_room",
       "label": "training_sandbox",
       "payload": {
+        "name": "training_sandbox",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/training_sandbox",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-05-27T01:52:53Z",
-        "created": "2026-05-27T01:52:46Z",
-        "private": false
+        "updated": "2026-05-27",
+        "created": "2026-05-27",
+        "private": false,
+        "category": "Tests/Archive",
+        "wing": "south",
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "ROADMAP.md",
+          "gen_10_20260526_074241.md",
+          "gen_1_20260525_233908.md",
+          "gen_2_20260526_003908.md",
+          "gen_3_20260526_013908.md",
+          "gen_4_20260526_023908.md",
+          "gen_5_20260526_033908.md",
+          "gen_6_20260526_043908.md",
+          "gen_7_20260526_053908.md",
+          "gen_8_20260526_063908.md",
+          "gen_9_20260526_074216.md"
+        ],
+        "folders": []
       }
     },
     {
@@ -603,13 +1719,18 @@
       "type": "repo_room",
       "label": "vidalialed-lite",
       "payload": {
+        "name": "vidalialed-lite",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/vidalialed-lite",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-06-28T16:28:52Z",
-        "created": "2026-06-28T16:28:51Z",
-        "private": false
+        "updated": "2026-06-28",
+        "created": "2026-06-28",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [],
+        "folders": []
       }
     },
     {
@@ -617,13 +1738,22 @@
       "type": "repo_room",
       "label": "wip-quantum-asm",
       "payload": {
+        "name": "wip-quantum-asm",
         "description": "Quantum Assembly Language Specification and Tooling",
         "url": "https://github.com/chrisalunlloyd2-sudo/wip-quantum-asm",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-12T00:53:00Z",
-        "created": "2026-07-12T00:25:28Z",
-        "private": false
+        "updated": "2026-07-12",
+        "created": "2026-07-12",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "QUANTUM_ASM.md",
+          "README.md",
+          "auto_audit.py"
+        ],
+        "folders": []
       }
     },
     {
@@ -631,286 +1761,343 @@
       "type": "repo_room",
       "label": "WORKER_PACKAGE",
       "payload": {
+        "name": "WORKER_PACKAGE",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/WORKER_PACKAGE",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-06-20T20:34:19Z",
-        "created": "2026-05-12T03:13:17Z",
-        "private": false
+        "updated": "2026-06-20",
+        "created": "2026-05-12",
+        "private": false,
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "RUN_WORKER.bat",
+          "heavy_worker.js",
+          "package.json",
+          "worker.js"
+        ],
+        "folders": []
+      }
+    },
+    {
+      "id": "basement:sov",
+      "type": "basement",
+      "label": "SOV Basement",
+      "payload": {
+        "description": "Real databases, KG, KV, logit. Locked until authenticated.",
+        "locked": true
       }
     }
   ],
   "edges": [
     {
-      "source": "hub:github",
+      "source": "atrium:main",
+      "target": "wing:west",
+      "type": "west",
+      "weight": 1
+    },
+    {
+      "source": "atrium:main",
+      "target": "wing:east",
+      "type": "east",
+      "weight": 1
+    },
+    {
+      "source": "atrium:main",
+      "target": "wing:north",
+      "type": "north",
+      "weight": 1
+    },
+    {
+      "source": "atrium:main",
+      "target": "wing:south",
+      "type": "south",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:aegis-agent-bridge",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:AegisAgent",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:Aegis_Agents",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:DARWIN_GRID_DEPLOY",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:E2E_Final_Test",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:E2E_Test_Deploy_6172",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:evolved_system",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:Flappy_bird_except_python_and",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:frontier-ai-dlc",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:Gitautoworks",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:H2OIDE",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:H2OMatrixCE",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:H2O_MATRIX",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:JRM",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:north",
       "target": "repo:living-ascii-art",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:Machine2",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:MatrixCE_GUI",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:Matrix_CEAGENTS",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:Matrix_CEAPK",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:Matrix_CEAPPS",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:Matrix_CEBack",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:Matrix_CEKAI9000",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:Matrix_CESERVERS",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:matrix_dash",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:MATRIX_GEN8_HOME",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:north",
       "target": "repo:mind-palace",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:east",
       "target": "repo:moe-kai-skill",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:MultiPage_E2E_20010",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:NAS_SHARE",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:north",
       "target": "repo:Nova",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:openrouter",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:openrouter_manager",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:RandomTestProject",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:Ryush",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:SimAgentCity",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:sims-javafx-neo",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:SimsMerged",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:Sprite",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:teaching_sandbox",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:TestRepo999",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:TestRepoPush",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:south",
       "target": "repo:training_sandbox",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:vidalialed-lite",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:wip-quantum-asm",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
     },
     {
-      "source": "hub:github",
+      "source": "wing:west",
       "target": "repo:WORKER_PACKAGE",
-      "type": "contains",
-      "weight": 1.0
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "atrium:main",
+      "target": "basement:sov",
+      "type": "down",
+      "weight": 1
     }
-  ]
+  ],
+  "spawn": "atrium:main",
+  "wing_counts": {
+    "west": 21,
+    "east": 13,
+    "north": 3,
+    "south": 8
+  }
 }

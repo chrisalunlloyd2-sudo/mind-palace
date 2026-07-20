@@ -20,7 +20,25 @@ async function init() {
     ctx = canvas.getContext('2d', { alpha: false });
     resize();
     window.addEventListener('resize', resize);
-    window.addEventListener('keydown', e => keys[e.code] = true);
+    window.addEventListener('keydown', e => {
+    if (RoomSystem.activeRoom) {
+        RoomSystem.handleKey(e);
+        return;
+    }
+    // Hallway navigation
+    if (e.code === 'KeyW' || e.code === 'ArrowUp') keys.w = true;
+    if (e.code === 'KeyS' || e.code === 'ArrowDown') keys.s = true;
+    if (e.code === 'KeyA' || e.code === 'ArrowLeft') keys.a = true;
+    if (e.code === 'KeyD' || e.code === 'ArrowRight') keys.d = true;
+});
+
+window.addEventListener('keyup', e => {
+    if (RoomSystem.activeRoom) return;
+    if (e.code === 'KeyW' || e.code === 'ArrowUp') keys.w = false;
+    if (e.code === 'KeyS' || e.code === 'ArrowDown') keys.s = false;
+    if (e.code === 'KeyA' || e.code === 'ArrowLeft') keys.a = false;
+    if (e.code === 'KeyD' || e.code === 'ArrowRight') keys.d = false;
+});
     window.addEventListener('keyup', e => keys[e.code] = false);
     document.addEventListener('click', tryPointer);
 
@@ -28,6 +46,11 @@ async function init() {
     document.getElementById('auth-btn').onclick = doAuth;
     document.getElementById('close-auth').onclick = () => { authPanel.style.display = 'none'; };
 
+    RoomSystem.init();
+    // Initialize audio and room systems
+    AudioSystem.init();
+    RoomSystem.init();
+    
     const graph = await loadGraph();
     buildMap(graph);
     requestAnimationFrame(loop);
@@ -44,7 +67,32 @@ async function loadGraph() {
 }
 
 function tryPointer() {
+    if (RoomSystem.activeRoom) {
+        // Clicking inside room - let room system handle it
+        return;
+    }
+    // Check if clicking on a door
+    const clickedDoor = checkDoorClick();
+    if (clickedDoor) {
+        AudioSystem.playSound('doorHover');
+        RoomSystem.enterRoom(clickedDoor);
+        return;
+    }
     canvas.requestPointerLock?.();
+}
+
+function checkDoorClick() {
+    // Simple distance check - if we're looking at a door and click
+    for (const r of rooms) {
+        const dx = r.doorX - pos.x;
+        const dy = r.doorY - pos.y;
+        const ang = Math.atan2(dy, dx) - pos.angle;
+        const dist = Math.sqrt(dx * dx + dy * dy);
+        if (dist > 0.5 && dist < 3 && Math.abs(normalizeAngle(ang)) < FOV / 4) {
+            return r;
+        }
+    }
+    return null;
 }
 
 document.addEventListener('pointerlockchange', () => {
@@ -192,6 +240,9 @@ function render() {
     }
 
     // Draw door labels as sprites
+    let nearestDoor = null;
+    let nearestDist = Infinity;
+    
     for (const r of rooms) {
         const dx = r.doorX - pos.x;
         const dy = r.doorY - pos.y;
@@ -200,10 +251,45 @@ function render() {
         if (dist > 0.5 && dist < 16 && Math.abs(normalizeAngle(ang)) < FOV / 2) {
             const screenX = width / 2 + Math.tan(ang) * (width / 2) / Math.tan(FOV / 2);
             const h = (64 / dist) * (height / 64) * 0.5;
-            ctx.fillStyle = 'rgba(255,0,255,0.8)';
+            
+            // Color by wing
+            const wing = r.node.payload?.wing || 'west';
+            const wingColors = {
+                west: '#add8e6',
+                east: '#ffd700',
+                north: '#90ee90',
+                south: '#ffa07a'
+            };
+            ctx.fillStyle = wingColors[wing] || '#fff';
+            
             ctx.font = `${Math.max(10, h / 2)}px monospace`;
             ctx.textAlign = 'center';
             ctx.fillText(r.node.label, screenX, height / 2 + h / 2);
+            
+            // Track nearest door for wing status
+            if (dist < nearestDist && dist < 3) {
+                nearestDist = dist;
+                nearestDoor = r;
+            }
+        }
+    }
+    
+    // Update wing status indicator
+    const wingStatus = document.getElementById('wing-status');
+    if (wingStatus) {
+        if (nearestDoor) {
+            const wing = nearestDoor.node.payload?.wing || 'west';
+            const wingNames = {
+                west: 'Core Systems',
+                east: 'AI/ML Foundry',
+                north: 'Experiments',
+                south: 'Tests/Archive'
+            };
+            wingStatus.textContent = `📍 ${wing.toUpperCase()} — ${wingNames[wing]}`;
+            AudioSystem.playAmbient(wing);
+        } else {
+            wingStatus.textContent = '📍 ATRIUM — Central Hub';
+            AudioSystem.playAmbient('west');
         }
     }
 }
