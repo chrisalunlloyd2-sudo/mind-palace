@@ -39,7 +39,7 @@ function resize() {
 }
 
 async function loadGraph() {
-    const res = await fetch('graph.json?v=' + Date.now());
+    const res = await fetch('data/palace.json?v=' + Date.now());
     return await res.json();
 }
 
@@ -142,6 +142,9 @@ function update(dt) {
     if (near && (!currentNode || currentNode.node.id !== near.node.id)) {
         currentNode = near;
         showRoom(near.node);
+    } else if (!near && currentNode) {
+        currentNode = null;
+        document.getElementById('room-panel').style.display = 'none';
     }
 }
 
