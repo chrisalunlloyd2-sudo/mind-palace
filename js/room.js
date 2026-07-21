@@ -1,9 +1,9 @@
-// Mind Palace Room System - Phase 1
-// Spatial navigation with minimal Y-axis, proprioceptive anchoring
+// Mind Palace Room System - Phase 2 (with Expert Integration)
 
 const RoomSystem = {
     activeRoom: null,
     currentWing: 'west',
+    currentSuggestions: null,
     
     init() {
         this.setupKeyboard();
@@ -25,7 +25,6 @@ const RoomSystem = {
     },
     
     setupUI() {
-        // Back button handler
         const backBtn = document.getElementById('back-button');
         if (backBtn) {
             backBtn.onclick = () => this.exitRoom();
@@ -38,20 +37,22 @@ const RoomSystem = {
         this.activeRoom = repoData;
         this.currentWing = repoData.payload?.wing || 'west';
         
-        // Audio cue
         AudioSystem.playSound('doorOpen');
         AudioSystem.playAmbient(this.currentWing);
         
-        // Hide hallway, show room
         const hallway = document.getElementById('hallway-container');
         const room = document.getElementById('room-container');
         if (hallway) hallway.style.display = 'none';
         if (room) room.style.display = 'block';
         
-        // Render room
         this.renderRoom(repoData);
         
-        // Focus on bookshelf for keyboard nav
+        // Analyze with Expert System
+        if (window.ExpertSystem) {
+            this.currentSuggestions = ExpertSystem.analyze(repoData);
+            ExpertSystem.renderPanel(this.currentSuggestions, repoData);
+        }
+        
         const shelf = document.getElementById('bookshelf');
         if (shelf) shelf.focus();
     },
@@ -60,16 +61,20 @@ const RoomSystem = {
         if (!this.activeRoom) return;
         
         AudioSystem.playSound('doorClose');
-        AudioSystem.playAmbient('west'); // Return to default
+        AudioSystem.playAmbient('west');
         
         const hallway = document.getElementById('hallway-container');
         const room = document.getElementById('room-container');
         if (hallway) hallway.style.display = 'block';
         if (room) room.style.display = 'none';
         
-        this.activeRoom = null;
+        // Hide expert panel
+        const expertPanel = document.getElementById('expert-panel');
+        if (expertPanel) expertPanel.style.display = 'none';
         
-        // Return focus to canvas for hallway navigation
+        this.activeRoom = null;
+        this.currentSuggestions = null;
+        
         const canvas = document.getElementById('gameCanvas');
         if (canvas) canvas.focus();
     },
@@ -80,7 +85,6 @@ const RoomSystem = {
         const folders = payload.folders || [];
         const category = payload.category || 'Unknown';
         
-        // Room header
         this.setText('room-title', repo.label);
         this.setText('room-category', category);
         this.setText('room-language', payload.language || 'Unknown');
@@ -88,41 +92,60 @@ const RoomSystem = {
         this.setText('room-updated', payload.updated ? new Date(payload.updated).toLocaleDateString() : 'Unknown');
         this.setText('room-description', payload.description || 'No description available');
         
-        // Build bookshelf
         const shelf = document.getElementById('bookshelf');
         if (!shelf) return;
         
         shelf.innerHTML = '';
         
-        // Wing theme indicator
+        // Wing indicator
         const wingIndicator = document.createElement('div');
         wingIndicator.className = `wing-indicator wing-${this.currentWing}`;
         wingIndicator.innerHTML = `📍 ${this.currentWing.toUpperCase()} WING`;
         shelf.appendChild(wingIndicator);
         
-        // Folder section (top shelf)
+        // Existing files/folders from GitHub
         if (folders.length > 0) {
-            shelf.appendChild(this.createShelfSection('📁 Folders', folders, 'folder'));
+            shelf.appendChild(this.createShelfSection('📁 Existing Folders', folders, 'folder'));
         }
         
-        // File section (main shelves)
         if (files.length > 0) {
-            // Group by extension for visual organization
             const byExt = this.groupByExtension(files);
             Object.keys(byExt).sort().forEach(ext => {
                 shelf.appendChild(this.createShelfSection(`📄 .${ext} Files`, byExt[ext], 'file', ext));
             });
         }
         
+        // Show suggested files if expert has recommendations
+        if (this.currentSuggestions && this.currentSuggestions.suggestions) {
+            const suggested = this.currentSuggestions.suggestions;
+            
+            if (suggested.folders && suggested.folders.length > 0) {
+                const suggestedFolders = suggested.folders
+                    .filter(f => !f.approved)
+                    .map(f => f.name);
+                if (suggestedFolders.length > 0) {
+                    shelf.appendChild(this.createShelfSection('💡 Suggested Folders', suggestedFolders, 'suggested-folder'));
+                }
+            }
+            
+            if (suggested.files && suggested.files.length > 0) {
+                const suggestedFiles = suggested.files
+                    .filter(f => !f.approved)
+                    .map(f => f.name);
+                if (suggestedFiles.length > 0) {
+                    shelf.appendChild(this.createShelfSection('💡 Suggested Files', suggestedFiles, 'suggested-file'));
+                }
+            }
+        }
+        
         // Empty state
-        if (files.length === 0 && folders.length === 0) {
+        if (files.length === 0 && folders.length === 0 && !this.currentSuggestions) {
             const empty = document.createElement('div');
             empty.className = 'empty-shelf';
-            empty.innerHTML = '📚 This room is empty<br><small>Files will appear as the repo is developed</small>';
+            empty.innerHTML = '📚 This room is empty<br><small>Click "Expert Suggestions" to generate architecture</small>';
             shelf.appendChild(empty);
         }
         
-        // File viewer (hidden by default)
         const viewer = document.getElementById('file-viewer');
         if (viewer) viewer.style.display = 'none';
     },
@@ -204,7 +227,7 @@ const RoomSystem = {
         
         const repoUrl = this.activeRoom.payload?.url || '#';
         
-        if (type === 'folder') {
+        if (type === 'folder' || type === 'suggested-folder') {
             content.innerHTML = `
                 <div class="folder-placeholder">
                     <h4>📁 Folder: ${filename}</h4>
@@ -212,6 +235,18 @@ const RoomSystem = {
                     <a href="${repoUrl}/tree/main/${filename}" target="_blank" class="view-on-github">
                         Browse on GitHub →
                     </a>
+                </div>
+            `;
+        } else if (type === 'suggested-file') {
+            // Generate file content from template
+            const template = this.currentSuggestions?.suggestions?.template;
+            const content = template ? ExpertSystem.generateFileContent(template, filename, this.activeRoom) : '';
+            
+            content.innerHTML = `
+                <div class="suggested-file-viewer">
+                    <h4>💡 Suggested: ${filename}</h4>
+                    <p>Click "Approve All" to generate this file</p>
+                    <pre style="background:rgba(0,0,0,0.5);padding:15px;border-radius:6px;overflow-x:auto;font-size:12px;color:#aaa;">${content.substring(0, 500)}...</pre>
                 </div>
             `;
         } else {

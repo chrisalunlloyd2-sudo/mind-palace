@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mind Palace — GitHub Repository Library</title>
+    <title>Mind Palace — Spatial IDE</title>
     <link rel="stylesheet" href="css/room.css">
+    <link rel="stylesheet" href="css/expert.css">
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { 
@@ -39,9 +40,7 @@
             z-index: 1000;
             line-height: 1.6;
         }
-        #instructions strong {
-            color: #ffd700;
-        }
+        #instructions strong { color: #ffd700; }
         #wing-status {
             position: fixed;
             top: 10px;
@@ -53,6 +52,24 @@
             border-radius: 6px;
             border: 1px solid #8b4513;
             z-index: 1000;
+        }
+        #expert-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: linear-gradient(180deg, #90ee90 0%, #32cd32 100%);
+            border: 2px solid #90ee90;
+            border-radius: 6px;
+            color: #000;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: 'Courier New', monospace;
+            z-index: 200;
+        }
+        #expert-toggle:hover {
+            transform: scale(1.05);
+            box-shadow: 0 4px 12px rgba(144,238,144,0.4);
         }
     </style>
 </head>
@@ -81,12 +98,20 @@
                 </div>
             </div>
             <p id="room-description">Description text appears here...</p>
+            <button id="expert-toggle" onclick="ExpertSystem.toggle()">🧠 Expert Suggestions</button>
         </div>
         
         <div id="bookshelf" tabindex="0">
             <!-- Books rendered by RoomSystem -->
         </div>
         
+        <!-- Expert Panel (Left) -->
+        <div id="expert-panel">
+            <h3>🧠 Expert Architect</h3>
+            <div id="expert-content"></div>
+        </div>
+        
+        <!-- File Viewer (Right) -->
         <div id="file-viewer">
             <h3 id="file-title">File Name</h3>
             <div id="file-content"></div>
@@ -95,8 +120,9 @@
         <button id="back-button">← Back to Hallway (ESC)</button>
     </div>
     
-    <!-- Audio System -->
+    <!-- Systems -->
     <script src="js/audio.js"></script>
+    <script src="js/expert.js"></script>
     <script src="js/room.js"></script>
     <script src="js/engine.js"></script>
 </body>

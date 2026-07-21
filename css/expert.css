@@ -1,0 +1,218 @@
+/* Mind Palace Expert System - Phase 2 Styles */
+
+/* Expert Panel */
+#expert-panel {
+    position: absolute;
+    top: 140px;
+    left: 5%;
+    width: 28%;
+    min-width: 300px;
+    height: calc(100vh - 280px);
+    background: rgba(0,0,0,0.95);
+    border: 2px solid #90ee90;
+    border-radius: 8px;
+    padding: 20px;
+    display: none;
+    overflow-y: auto;
+    box-shadow: 0 0 30px rgba(144,238,144,0.2);
+}
+
+#expert-panel h3 {
+    color: #90ee90;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 18px;
+    border-bottom: 2px solid #90ee90;
+    padding-bottom: 12px;
+}
+
+.expert-match {
+    background: rgba(144,238,144,0.1);
+    border: 1px solid rgba(144,238,144,0.3);
+    border-radius: 6px;
+    padding: 12px;
+    margin-bottom: 15px;
+}
+
+.expert-match h4 {
+    color: #90ee90;
+    margin: 0 0 8px 0;
+    font-size: 14px;
+}
+
+.expert-confidence {
+    display: inline-block;
+    padding: 3px 8px;
+    background: rgba(144,238,144,0.2);
+    border-radius: 3px;
+    font-size: 11px;
+    color: #90ee90;
+    margin-bottom: 8px;
+}
+
+.suggestion-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.suggestion-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px;
+    margin-bottom: 6px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 4px;
+    border-left: 3px solid #ffd700;
+    transition: all 0.2s;
+}
+
+.suggestion-item:hover {
+    background: rgba(255,255,255,0.1);
+    transform: translateX(4px);
+}
+
+.suggestion-item.approved {
+    border-left-color: #90ee90;
+    background: rgba(144,238,144,0.1);
+}
+
+.suggestion-icon {
+    font-size: 16px;
+}
+
+.suggestion-name {
+    flex: 1;
+    color: #ddd;
+    font-size: 13px;
+}
+
+.suggestion-desc {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+}
+
+.approve-btn {
+    padding: 4px 10px;
+    background: rgba(144,238,144,0.2);
+    border: 1px solid #90ee90;
+    border-radius: 4px;
+    color: #90ee90;
+    cursor: pointer;
+    font-size: 11px;
+    transition: all 0.2s;
+}
+
+.approve-btn:hover {
+    background: rgba(144,238,144,0.4);
+    transform: scale(1.05);
+}
+
+.approve-btn.approved {
+    background: #90ee90;
+    color: #000;
+    cursor: default;
+}
+
+.approve-all-btn {
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    background: linear-gradient(180deg, #90ee90 0%, #32cd32 100%);
+    border: 2px solid #90ee90;
+    border-radius: 6px;
+    color: #000;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.approve-all-btn:hover {
+    background: linear-gradient(180deg, #32cd32 0%, #22b14c 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(144,238,144,0.4);
+}
+
+/* File Structure Preview */
+.structure-preview {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 2px dashed rgba(144,238,144,0.3);
+}
+
+.structure-preview h4 {
+    color: #90ee90;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.template-block {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(144,238,144,0.2);
+    border-radius: 4px;
+    padding: 10px;
+    margin-bottom: 8px;
+    font-family: 'Courier New', monospace;
+    font-size: 11px;
+    color: #aaa;
+}
+
+.template-block strong {
+    color: #90ee90;
+}
+
+/* Generate Button */
+.generate-btn {
+    width: 100%;
+    padding: 14px;
+    margin-top: 15px;
+    background: linear-gradient(180deg, #4299e1 0%, #2c5282 100%);
+    border: 2px solid #4299e1;
+    border-radius: 6px;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.2s;
+}
+
+.generate-btn:hover {
+    background: linear-gradient(180deg, #63b3ed 0%, #4299e1 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(66,153,225,0.4);
+}
+
+.generate-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Status Badge */
+.status-badge {
+    display: inline-block;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 10px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+.status-suggested {
+    background: rgba(255,215,0,0.2);
+    color: #ffd700;
+}
+
+.status-approved {
+    background: rgba(144,238,144,0.3);
+    color: #90ee90;
+}
+
+.status-generated {
+    background: rgba(66,153,225,0.3);
+    color: #63b3ed;
+}
