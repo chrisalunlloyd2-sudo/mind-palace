@@ -303,3 +303,65 @@ window.Engine4D = Engine4D;
 window.addEventListener('load', () => {
     Engine4D.init();
 });
+
+// GitHub API Integration
+function initGitHubIntegration() {
+    GitHubAPI.init();
+    
+    // Add GitHub login button to creation overlay
+    const githubSection = document.createElement('div');
+    githubSection.innerHTML = `
+        <div style="margin-top: 20px; padding: 15px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+            <h4 style="color: #ffd700; margin-bottom: 10px;">🐙 GitHub Integration</h4>
+            <div id="github-status" style="color: #aaa; font-size: 12px; margin-bottom: 10px;">Not authenticated</div>
+            <input type="password" id="github-token" placeholder="GitHub Personal Access Token" 
+                   style="width: 100%; padding: 8px; background: rgba(0,0,0,0.5); border: 1px solid #8b4513; color: #ffd700; border-radius: 4px; margin-bottom: 10px;">
+            <button id="github-connect" style="background: #2ea44f; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer;">Connect GitHub</button>
+        </div>
+    `;
+    document.querySelector('#creation-form').appendChild(githubSection);
+    
+    document.getElementById('github-connect').addEventListener('click', () => {
+        const token = document.getElementById('github-token').value;
+        if (token) {
+            GitHubAPI.setToken(token);
+            document.getElementById('github-status').textContent = `✅ Connected as ${GitHubAPI.username}`;
+            document.getElementById('github-status').style.color = '#2ea44f';
+        }
+    });
+}
+
+// Voice Input Integration
+function initVoiceInput() {
+    if (VoiceInput.init()) {
+        // Add voice button to creation form
+        const voiceBtn = document.createElement('button');
+        voiceBtn.textContent = '🎤 Voice Command';
+        voiceBtn.style.cssText = 'background: #6f42c1; color: white; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; margin-left: 10px;';
+        document.querySelector('#creation-form button[type="button"]').parentNode.appendChild(voiceBtn);
+        
+        voiceBtn.addEventListener('click', () => {
+            VoiceInput.startListening((parsed) => {
+                // Auto-fill form with voice parsed data
+                if (parsed.name) document.getElementById('repo-name').value = parsed.name;
+                if (parsed.description) document.getElementById('repo-description').value = parsed.description;
+                if (parsed.language) {
+                    // Select language chip
+                    const chips = document.querySelectorAll('.chip');
+                    chips.forEach(chip => {
+                        if (chip.textContent.includes(parsed.language)) {
+                            chip.click();
+                        }
+                    });
+                }
+                console.log('🎤 Voice command processed:', parsed);
+            });
+        });
+    }
+}
+
+// Initialize integrations when engine loads
+setTimeout(() => {
+    if (typeof GitHubAPI !== 'undefined') initGitHubIntegration();
+    if (typeof VoiceInput !== 'undefined') initVoiceInput();
+}, 1000);

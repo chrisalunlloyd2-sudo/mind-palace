@@ -369,3 +369,90 @@ const Creator4D = {
 };
 
 window.Creator4D = Creator4D;
+
+// Real GitHub repo creation function
+async function createGitHubRepo(formData) {
+    const progressEl = document.getElementById('generation-progress');
+    const statusEl = document.getElementById('generation-status');
+    
+    try {
+        // Step 1: Create repository
+        progressEl.style.width = '16%';
+        statusEl.textContent = 'Creating GitHub repository...';
+        
+        const repo = await GitHubAPI.createRepo(
+            formData.name,
+            formData.description,
+            false, // public
+            true   // auto-init with README
+        );
+        
+        // Step 2-5: Generate and commit files
+        progressEl.style.width = '50%';
+        statusEl.textContent = 'Generating file structure...';
+        
+        const files = generateFiles(formData);
+        
+        progressEl.style.width = '66%';
+        statusEl.textContent = 'Committing files to GitHub...';
+        
+        const results = await GitHubAPI.createFiles(
+            GitHubAPI.username,
+            formData.name,
+            files,
+            'Generate initial structure from Mind Palace 4D'
+        );
+        
+        // Step 6: Finalize
+        progressEl.style.width = '100%';
+        statusEl.textContent = 'Repository created successfully!';
+        
+        // Add new room to palace data
+        const newRoom = {
+            id: repo.id.toString(),
+            name: repo.name,
+            description: repo.description || '',
+            language: formData.languages[0] || 'Python',
+            stars: 0,
+            lastUpdated: new Date().toISOString(),
+            wing: 'south', // New repos go to South wing
+            files: files.map(f => ({ name: f.name, content: f.content }))
+        };
+        
+        setTimeout(() => {
+            showSuccessModal(newRoom, repo.html_url);
+        }, 500);
+        
+        return { success: true, repo, files: results };
+        
+    } catch (error) {
+        console.error('Failed to create repo:', error);
+        progressEl.style.width = '0%';
+        statusEl.textContent = `Error: ${error.message}`;
+        statusEl.style.color = '#ff4444';
+        
+        setTimeout(() => {
+            alert(`Failed to create repository: ${error.message}\n\nMake sure you've connected your GitHub account with a valid Personal Access Token.`);
+            hideCreationOverlay();
+        }, 2000);
+    }
+}
+
+// Update the generate button handler
+document.addEventListener('DOMContentLoaded', () => {
+    const generateBtn = document.getElementById('btn-generate');
+    if (generateBtn) {
+        generateBtn.addEventListener('click', async () => {
+            const formData = collectFormData();
+            if (!validateForm(formData)) return;
+            
+            // Check if GitHub is connected
+            if (!GitHubAPI.initialized) {
+                alert('Please connect your GitHub account first by entering a Personal Access Token.');
+                return;
+            }
+            
+            await createGitHubRepo(formData);
+        });
+    }
+});
