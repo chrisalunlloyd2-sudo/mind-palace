@@ -1,0 +1,18 @@
+name: Force GitHub Pages Rebuild
+
+on:
+  workflow_dispatch:
+
+jobs:
+  rebuild:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Trigger rebuild
+        run: |
+          echo "Force rebuild at $(date)" > .rebuild-trigger
+          git config user.name "Aegis"
+          git config user.email "aegis@bot.local"
+          git add .rebuild-trigger
+          git commit -m "chore: force pages rebuild"
+          git push
