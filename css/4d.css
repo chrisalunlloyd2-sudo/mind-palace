@@ -375,3 +375,92 @@
     color: #888;
     font-size: 13px;
 }
+
+/* Creation Overlay */
+#creation-overlay .creation-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+#creation-overlay .creation-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+}
+
+#creation-overlay .close-btn {
+    background: none;
+    border: none;
+    color: #00ff88;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 5px;
+}
+
+#creation-overlay .close-btn:hover {
+    color: #fff;
+}
+
+#creation-overlay .form-group {
+    margin-bottom: 20px;
+}
+
+#creation-overlay label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+}
+
+#creation-overlay input[type="text"],
+#creation-overlay textarea,
+#creation-overlay select {
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: 1px solid #00ff88;
+    border-radius: 5px;
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+}
+
+#creation-overlay textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+#creation-overlay .checkbox-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+#creation-overlay .checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: normal;
+}
+
+#creation-overlay input[type="checkbox"] {
+    accent-color: #00ff88;
+}
+
+#creation-overlay .generate-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #00ff88, #00cc6a);
+    border: none;
+    border-radius: 5px;
+    color: #000;
+    font-size: 1.2em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+#creation-overlay .generate-btn:hover {
+    transform: scale(1.02);
+    box-shadow: 0 0 20px rgba(0, 255, 136, 0.5);
+}

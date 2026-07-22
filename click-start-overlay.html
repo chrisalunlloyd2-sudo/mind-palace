@@ -1,0 +1,62 @@
+<!-- Click-to-Start Overlay Fix -->
+<div id="click-start-overlay" style="
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.85);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    color: #00ff88;
+    font-family: 'Courier New', monospace;
+    cursor: pointer;
+">
+    <h1 style="font-size: 3em; text-shadow: 0 0 20px #00ff88;">🏛️ MIND PALACE 4D</h1>
+    <p style="font-size: 1.5em; margin: 20px;">Click anywhere to enter the hallway</p>
+    <div style="margin-top: 30px; text-align: center; line-height: 1.8;">
+        <p>🚶 <strong>W A S D</strong> — Walk</p>
+        <p>🖱️ <strong>Mouse</strong> — Look around</p>
+        <p>🚪 <strong>Click Door</strong> — Enter room</p>
+        <p>📖 <strong>Click Book</strong> — Read file</p>
+        <p>⌨️ <strong>N</strong> — New research room</p>
+        <p>⌨️ <strong>E</strong> — Expert panel</p>
+        <p>⌨️ <strong>ESC</strong> — Exit room / Release mouse</p>
+    </div>
+    <p style="margin-top: 40px; font-size: 0.9em; opacity: 0.7;">Press ESC anytime to release mouse</p>
+</div>
+
+<script>
+const overlay = document.getElementById('click-start-overlay');
+let started = false;
+
+overlay.addEventListener('click', () => {
+    if (!started) {
+        started = true;
+        overlay.style.opacity = '0';
+        overlay.style.pointerEvents = 'none';
+        setTimeout(() => overlay.remove(), 500);
+        
+        // Request pointer lock
+        const canvas = document.querySelector('canvas');
+        if (canvas) {
+            canvas.requestPointerLock = canvas.requestPointerLock || canvas.mozRequestPointerLock;
+            canvas.requestPointerLock();
+        }
+        
+        // Enable keyboard controls
+        window.controlsEnabled = true;
+        console.log('🏛️ Mind Palace 4D activated - controls enabled');
+    }
+});
+
+// ESC to release pointer
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && document.pointerLockElement) {
+        document.exitPointerLock();
+    }
+});
+</script>
