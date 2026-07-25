@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mind Palace — Lakehouse</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            background: #000; 
+            overflow: hidden; 
+            font-family: 'Courier New', monospace;
+            user-select: none;
+        }
+        #gameCanvas { 
+            display: block; 
+            width: 100vw;
+            height: 100vh;
+            cursor: crosshair;
+        }
+        #loading-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+        }
+        #loading-screen h1 {
+            color: #00ff80; font-size: 24px; margin-bottom: 20px;
+            text-shadow: 0 0 20px #00ff80;
+        }
+        #loading-bar-container {
+            width: 300px; height: 4px; background: #111;
+            border-radius: 2px; overflow: hidden;
+        }
+        #loading-progress {
+            width: 0%; height: 100%; background: #00ff00;
+            transition: width 0.3s;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        #loading-text {
+            color: #666; font-size: 12px; margin-top: 10px;
+        }
+        #loading-tips {
+            color: #444; font-size: 11px; margin-top: 20px;
+            text-align: center; max-width: 400px; line-height: 1.6;
+        }
+        #instructions {
+            position: fixed; bottom: 10px; left: 10px;
+            color: #888; font-size: 11px;
+            background: rgba(0,0,0,0.8); padding: 10px 14px;
+            border-radius: 6px; border: 1px solid #333;
+            z-index: 1000; line-height: 1.6;
+            pointer-events: none;
+        }
+        #instructions strong { color: #00ffcc; }
+        #fps-counter {
+            position: fixed; top: 10px; left: 10px;
+            color: #666; font-size: 11px;
+            background: rgba(0,0,0,0.6); padding: 4px 8px;
+            border-radius: 4px; z-index: 1000;
+            pointer-events: none;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        .loading-dots::after {
+            content: '';
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <div id="loading-screen">
+        <h1>🏠 Mind Palace Lakehouse</h1>
+        <div id="loading-bar-container">
+            <div id="loading-progress"></div>
+        </div>
+        <div id="loading-text">Initializing...</div>
+        <div id="loading-tips">
+            Explore a multi-level lakehouse with interactive furniture,<br>
+            file cabinets, movable chairs, and a complete filing system.<br><br>
+            <span style="color:#555;">WASD — Move &nbsp;|&nbsp; Mouse — Look &nbsp;|&nbsp; E — Interact<br>
+            F — Push &nbsp;|&nbsp; I — Inventory &nbsp;|&nbsp; M — Minimap &nbsp;|&nbsp; Esc — Menus</span>
+        </div>
+    </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="fps-counter">FPS: --</div>
+    <div id="instructions">
+        <strong>WASD</strong> Move &nbsp; <strong>Mouse</strong> Look &nbsp; 
+        <strong>E</strong> Interact &nbsp; <strong>F</strong> Push &nbsp; 
+        <strong>I</strong> Inventory &nbsp; <strong>M</strong> Minimap &nbsp; 
+        <strong>Esc</strong> Menus
+    </div>
+
+    <!-- Engine Core -->
+    <script src="src/engine/renderer.js"></script>
+    <script src="src/engine/camera.js"></script>
+    
+    <!-- Map System -->
+    <script src="src/map/map_loader.js"></script>
+    
+    <!-- Object System -->
+    <script src="src/objects/object_system.js"></script>
+    
+    <!-- Physics -->
+    <script src="src/physics/collision.js"></script>
+    
+    <!-- UI -->
+    <script src="src/ui/hud.js"></script>
+    
+    <!-- Data / Filing System -->
+    <script src="src/data/filing_system.js"></script>
+    
+    <!-- Main Lakehouse Entry -->
+    <script src="src/engine/lakehouse.js"></script>
+
+    <script>
+        // Loading screen updates
+        function updateLoading(percent, text) {
+            document.getElementById('loading-progress').style.width = percent + '%';
+            document.getElementById('loading-text').textContent = text;
+        }
+
+        // FPS counter
+        let frameCount = 0;
+        let lastFpsTime = performance.now();
+        
+        function updateFps() {
+            frameCount++;
+            const now = performance.now();
+            if (now - lastFpsTime >= 1000) {
+                document.getElementById('fps-counter').textContent = 
+                    'FPS: ' + frameCount;
+                frameCount = 0;
+                lastFpsTime = now;
+            }
+            requestAnimationFrame(updateFps);
+        }
+
+        // Boot
+        window.addEventListener('DOMContentLoaded', async () => {
+            updateLoading(10, 'Loading engine...');
+            
+            // Stagger loading for visual feedback
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(25, 'Initializing renderer...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(40, 'Setting up camera...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(55, 'Loading map data...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(70, 'Spawning objects...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(85, 'Initializing filing system...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(95, 'Starting lakehouse...');
+            
+            const success = await Lakehouse.init();
+            
+            if (success) {
+                updateLoading(100, 'Ready!');
+                setTimeout(() => {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            } else {
+                updateLoading(0, 'Error: WebGL 2.0 not supported');
+                document.getElementById('loading-tips').innerHTML = 
+                    '<span style="color:#ff4444;">Your browser does not support WebGL 2.0.<br>' +
+                    'Please use a modern browser (Chrome, Firefox, Edge).</span>';
+            }
+            
+            updateFps();
+        });
+    </script>
+</body>
+</html>
