@@ -1,0 +1,24 @@
+{
+  "gists": [
+    {
+      "title": "Welcome to the Lakehouse",
+      "content": "The Mind Palace Lakehouse is a multi-level interactive environment. Explore rooms, interact with furniture, and discover the filing system. Each room has unique objects and atmosphere."
+    },
+    {
+      "title": "Controls Guide",
+      "content": "WASD / Arrow Keys — Move\nMouse — Look around\nE — Interact with objects\nF — Push movable objects\nI — Open inventory\nM — Toggle minimap\nG — Open this gist wall\nESC — Close panels"
+    },
+    {
+      "title": "Room Directory",
+      "content": "Ground Floor: Living Room, Kitchen, Dining Room, Hallway, Mudroom, Bathroom, Porch, Deck\nUpper Floor: Master Bedroom, Guest Bedrooms, Office, Library, Bathroom\nBasement: Main Area, Laundry\nAttic: Storage"
+    },
+    {
+      "title": "Filing System",
+      "content": "File cabinets are located throughout the lakehouse. Approach a cabinet and press E to open it. Each cabinet contains searchable documents. Use the filing system to store and retrieve notes."
+    },
+    {
+      "title": "About Mind Palace",
+      "content": "Mind Palace is a spatial memory system that maps your projects, notes, and ideas to a virtual environment. The Lakehouse is the first of many environments. Explore, interact, and make it your own."
+    }
+  ]
+}
