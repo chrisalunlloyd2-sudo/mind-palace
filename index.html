@@ -209,10 +209,10 @@
                     document.getElementById('loading-screen').style.display = 'none';
                 }, 500);
             } else {
-                updateLoading(0, 'Error: WebGL 2.0 not supported');
+                updateLoading(0, 'Error: ' + (window.Lakehouse ? (window.Lakehouse.initError || 'Unknown') : 'Lakehouse not loaded'));
                 document.getElementById('loading-tips').innerHTML = 
-                    '<span style="color:#ff4444;">Your browser does not support WebGL 2.0.<br>' +
-                    'Please use a modern browser (Chrome, Firefox, Edge).</span>';
+                    '<span style="color:#ff4444;">' + (window.Lakehouse ? (window.Lakehouse.initError || 'Unknown error') : 'Lakehouse not loaded') + '<br>' +
+                    'Check console for details.</span>';
             }
             
             updateFps();
