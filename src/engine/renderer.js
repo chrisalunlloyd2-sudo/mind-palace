@@ -1,13 +1,13 @@
 /**
  * Mind Palace Lakehouse — WebGL 2.0 Renderer
- * Phase 1.1: True 3D renderer replacing Wolfenstein raycaster
+ * Phase 1.1: True 3D renderer with room geometry generation
  * 
  * Features:
- * - WebGL 2.0 with texture-mapped floors/ceilings
- * - Dynamic lighting (point, ambient, emissive)
+ * - Generates 3D geometry from room definitions (walls, floor, ceiling)
+ * - Dynamic lighting (ambient + point lights)
  * - Fog for depth atmosphere
- * - Chunk-based rendering for large maps
- * - Level of Detail (LOD) system
+ * - Colored rooms with no external texture dependencies
+ * - Works standalone — no image assets needed
  */
 
 const LakehouseRenderer = {
@@ -15,12 +15,11 @@ const LakehouseRenderer = {
     canvas: null,
     program: null,
     buffers: {},
-    textures: {},
-    shaders: {},
-    fog: { color: [0.0, 0.0, 0.0], near: 20, far: 60 },
+    rooms: [],
+    roomTemplates: null,
+    fog: { color: [0.05, 0.05, 0.08], near: 15, far: 40 },
     lights: [],
-    chunks: new Map(),
-    stats: { drawCalls: 0, triangles: 0, fps: 0 },
+    stats: { drawCalls: 0, triangles: 0 },
 
     async init(canvasId = 'gameCanvas') {
         console.log('[Renderer] Initializing WebGL 2.0...');
@@ -46,13 +45,12 @@ const LakehouseRenderer = {
         this.resize();
         window.addEventListener('resize', () => this.resize());
 
-        // Compile core shaders
-        this.shaders.standard = this.compileShader(VERTEX_STANDARD, FRAGMENT_STANDARD);
-        this.shaders.light = this.compileShader(VERTEX_LIGHT, FRAGMENT_LIGHT);
-        this.shaders.water = this.compileShader(VERTEX_WATER, FRAGMENT_WATER);
+        // Compile shader
+        this.program = this.compileShader(VERTEX_SRC, FRAGMENT_SRC);
+        if (!this.program) return false;
 
-        // Set up default buffers
-        this.setupDefaultBuffers();
+        // Store room templates reference
+        this.roomTemplates = window.MapLoader ? window.MapLoader.roomTemplates : null;
 
         console.log('[Renderer] WebGL 2.0 initialized');
         return true;
@@ -89,291 +87,290 @@ const LakehouseRenderer = {
             return null;
         }
 
-        const program = gl.createProgram();
-        gl.attachShader(program, vert);
-        gl.attachShader(program, frag);
-        gl.linkProgram(program);
-        if (!gl.getProgramParameter(program, gl.LINK_STATUS)) {
-            console.error('[Renderer] Program link error:', gl.getProgramInfoLog(program));
+        const prog = gl.createProgram();
+        gl.attachShader(prog, vert);
+        gl.attachShader(prog, frag);
+        gl.linkProgram(prog);
+        if (!gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+            console.error('[Renderer] Program link error:', gl.getProgramInfoLog(prog));
             return null;
         }
 
-        return program;
+        return prog;
     },
 
-    setupDefaultBuffers() {
+    /**
+     * Room color palette
+     */
+    getRoomColors(type) {
+        const palette = {
+            living_room: [0.25, 0.18, 0.12],
+            kitchen: [0.3, 0.25, 0.2],
+            dining_room: [0.22, 0.15, 0.1],
+            master_bedroom: [0.2, 0.15, 0.18],
+            guest_bedroom: [0.18, 0.2, 0.22],
+            office: [0.15, 0.2, 0.15],
+            library: [0.12, 0.08, 0.05],
+            hallway: [0.2, 0.2, 0.22],
+            stairwell: [0.18, 0.18, 0.2],
+            bathroom: [0.25, 0.28, 0.3],
+            basement: [0.08, 0.08, 0.1],
+            attic: [0.15, 0.12, 0.08],
+            porch: [0.3, 0.25, 0.2],
+            deck: [0.25, 0.22, 0.18],
+            mudroom: [0.2, 0.18, 0.15],
+            laundry: [0.22, 0.22, 0.25],
+            default: [0.2, 0.2, 0.2]
+        };
+        return palette[type] || palette.default;
+    },
+
+    /**
+     * Build a room as renderable geometry
+     * Each room = 6 walls (4 sides + floor + ceiling) as colored quads
+     * Each vertex: position (3) + normal (3) + color (3) = 9 floats
+     */
+    buildRoom(roomData) {
         const gl = this.gl;
-        // Full-screen quad for post-processing
-        const quad = new Float32Array([
-            -1, -1, 0, 0,
-             1, -1, 1, 0,
-            -1,  1, 0, 1,
-             1,  1, 1, 1
-        ]);
-        this.buffers.quad = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, this.buffers.quad);
-        gl.bufferData(gl.ARRAY_BUFFER, quad, gl.STATIC_DRAW);
+        
+        // Merge room data with template to get size
+        const template = this.roomTemplates ? this.roomTemplates[roomData.type] : null;
+        const size = template ? template.size : [8, 3, 8];
+        const pos = roomData.position;
+        
+        const [cx, cy, cz] = pos;
+        const [w, h, d] = size;
+        const hw = w / 2, hh = h / 2, hd = d / 2;
+        
+        const baseColor = this.getRoomColors(roomData.type);
+        
+        // Generate all 6 faces as triangles (2 tris per face = 12 tris, 36 verts)
+        // Each vertex: position (3) + normal (3) + color (3) = 9 floats
+        const verts = [];
+        
+        // Helper: add a quad with a given normal
+        function addQuad(p1, p2, p3, p4, normal, color) {
+            // Triangle 1: p1-p2-p3
+            verts.push(p1[0], p1[1], p1[2], normal[0], normal[1], normal[2], color[0], color[1], color[2]);
+            verts.push(p2[0], p2[1], p2[2], normal[0], normal[1], normal[2], color[0], color[1], color[2]);
+            verts.push(p3[0], p3[1], p3[2], normal[0], normal[1], normal[2], color[0], color[1], color[2]);
+            // Triangle 2: p1-p3-p4
+            verts.push(p1[0], p1[1], p1[2], normal[0], normal[1], normal[2], color[0], color[1], color[2]);
+            verts.push(p3[0], p3[1], p3[2], normal[0], normal[1], normal[2], color[0], color[1], color[2]);
+            verts.push(p4[0], p4[1], p4[2], normal[0], normal[1], normal[2], color[0], color[1], color[2]);
+        }
+
+        // Slightly darker for walls, lighter for floor, darker for ceiling
+        const wallColor = baseColor.map(c => c * 0.9);
+        const floorColor = baseColor.map(c => c * 0.7);
+        const ceilColor = baseColor.map(c => c * 0.5);
+        
+        // Front wall (z+) — normal points +Z
+        addQuad(
+            [cx-hw, cy-hh, cz+hd], [cx+hw, cy-hh, cz+hd],
+            [cx+hw, cy+hh, cz+hd], [cx-hw, cy+hh, cz+hd],
+            [0, 0, 1], wallColor
+        );
+        // Back wall (z-) — normal points -Z
+        addQuad(
+            [cx+hw, cy-hh, cz-hd], [cx-hw, cy-hh, cz-hd],
+            [cx-hw, cy+hh, cz-hd], [cx+hw, cy+hh, cz-hd],
+            [0, 0, -1], wallColor
+        );
+        // Left wall (x-) — normal points -X
+        addQuad(
+            [cx-hw, cy-hh, cz-hd], [cx-hw, cy-hh, cz+hd],
+            [cx-hw, cy+hh, cz+hd], [cx-hw, cy+hh, cz-hd],
+            [-1, 0, 0], wallColor
+        );
+        // Right wall (x+) — normal points +X
+        addQuad(
+            [cx+hw, cy-hh, cz+hd], [cx+hw, cy-hh, cz-hd],
+            [cx+hw, cy+hh, cz-hd], [cx+hw, cy+hh, cz+hd],
+            [1, 0, 0], wallColor
+        );
+        // Floor — normal points +Y
+        addQuad(
+            [cx-hw, cy-hh, cz-hd], [cx+hw, cy-hh, cz-hd],
+            [cx+hw, cy-hh, cz+hd], [cx-hw, cy-hh, cz+hd],
+            [0, 1, 0], floorColor
+        );
+        // Ceiling — normal points -Y
+        addQuad(
+            [cx-hw, cy+hh, cz+hd], [cx+hw, cy+hh, cz+hd],
+            [cx+hw, cy+hh, cz-hd], [cx-hw, cy+hh, cz-hd],
+            [0, -1, 0], ceilColor
+        );
+
+        const vertexData = new Float32Array(verts);
+        
+        // Create VAO
+        const vao = gl.createVertexArray();
+        gl.bindVertexArray(vao);
+        
+        const vbo = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
+        gl.bufferData(gl.ARRAY_BUFFER, vertexData, gl.STATIC_DRAW);
+        
+        // Position (3 floats) — location 0
+        gl.enableVertexAttribArray(0);
+        gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 36, 0);
+        // Normal (3 floats) — location 1
+        gl.enableVertexAttribArray(1);
+        gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 36, 12);
+        // Color (3 floats) — location 2
+        gl.enableVertexAttribArray(2);
+        gl.vertexAttribPointer(2, 3, gl.FLOAT, false, 36, 24);
+        
+        gl.bindVertexArray(null);
+        
+        this.rooms.push({
+            vao,
+            vbo,
+            vertexCount: verts.length / 9,
+            position: [cx, cy, cz],
+            type: roomData.type,
+            id: roomData.id
+        });
+        
+        console.log(`[Renderer] Built room: ${roomData.id} (${roomData.type}) — ${verts.length/9} vertices`);
     },
 
-    createTexture(name, data, width, height) {
-        const gl = this.gl;
-        const tex = gl.createTexture();
-        gl.bindTexture(gl.TEXTURE_2D, tex);
-        gl.texImage2D(gl.TEXTURE_2D, 0, gl.RGBA, width, height, 0, gl.RGBA, gl.UNSIGNED_BYTE, data);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MIN_FILTER, gl.LINEAR_MIPMAP_LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_MAG_FILTER, gl.LINEAR);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_S, gl.REPEAT);
-        gl.texParameteri(gl.TEXTURE_2D, gl.TEXTURE_WRAP_T, gl.REPEAT);
-        gl.generateMipmap(gl.TEXTURE_2D);
-        this.textures[name] = tex;
-        return tex;
+    /**
+     * Build all rooms from map data
+     */
+    buildAllRooms(mapData) {
+        this.rooms = [];
+        if (!mapData || !mapData.rooms) {
+            console.warn('[Renderer] No rooms to build');
+            return;
+        }
+        for (const room of mapData.rooms) {
+            this.buildRoom(room);
+        }
+        console.log(`[Renderer] Built ${this.rooms.length} rooms total`);
     },
 
-    addLight(type, position, color, intensity, range) {
-        this.lights.push({ type, position, color, intensity, range });
+    /**
+     * Add a light source
+     */
+    addLight(position, color, intensity) {
+        this.lights.push({ position, color, intensity });
     },
 
-    clearLights() {
-        this.lights = [];
-    },
-
+    /**
+     * Main render call
+     */
     render(scene, camera) {
         const gl = this.gl;
+        const prog = this.program;
+        if (!gl || !prog) return;
+
         gl.clearColor(0.0, 0.0, 0.0, 1.0);
         gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
         gl.enable(gl.DEPTH_TEST);
         gl.enable(gl.CULL_FACE);
+        gl.cullFace(gl.BACK);
+
+        gl.useProgram(prog);
+
+        // Set uniforms
+        gl.uniformMatrix4fv(gl.getUniformLocation(prog, 'uProjection'), false, camera.projectionMatrix);
+        gl.uniformMatrix4fv(gl.getUniformLocation(prog, 'uView'), false, camera.viewMatrix);
+        gl.uniform3fv(gl.getUniformLocation(prog, 'uFogColor'), this.fog.color);
+        gl.uniform1f(gl.getUniformLocation(prog, 'uFogNear'), this.fog.near);
+        gl.uniform1f(gl.getUniformLocation(prog, 'uFogFar'), this.fog.far);
+
+        // Set lights
+        const lightPosLoc = gl.getUniformLocation(prog, 'uLightPos');
+        const lightColorLoc = gl.getUniformLocation(prog, 'uLightColor');
+        const lightIntensityLoc = gl.getUniformLocation(prog, 'uLightIntensity');
+        
+        if (this.lights.length > 0) {
+            const light = this.lights[0];
+            gl.uniform3fv(lightPosLoc, light.position);
+            gl.uniform3fv(lightColorLoc, light.color);
+            gl.uniform1f(lightIntensityLoc, light.intensity);
+        } else {
+            gl.uniform3fv(lightPosLoc, [0, 5, 0]);
+            gl.uniform3fv(lightColorLoc, [1, 1, 1]);
+            gl.uniform1f(lightIntensityLoc, 3.0);
+        }
 
         this.stats.drawCalls = 0;
         this.stats.triangles = 0;
 
-        // Render each chunk
-        for (const [chunkId, chunk] of this.chunks) {
-            if (this.isChunkVisible(chunk, camera)) {
-                this.renderChunk(chunk, camera);
-            }
-        }
-    },
-
-    isChunkVisible(chunk, camera) {
-        // Frustum culling
-        const dx = chunk.center[0] - camera.position[0];
-        const dz = chunk.center[2] - camera.position[2];
-        const dist = Math.sqrt(dx * dx + dz * dz);
-        return dist < this.fog.far + chunk.radius;
-    },
-
-    renderChunk(chunk, camera) {
-        const gl = this.gl;
-        const program = this.shaders.standard;
-        gl.useProgram(program);
-
-        // Set uniforms
-        gl.uniformMatrix4fv(gl.getUniformLocation(program, 'uModelView'), false, chunk.modelMatrix);
-        gl.uniformMatrix4fv(gl.getUniformLocation(program, 'uProjection'), false, camera.projectionMatrix);
-        gl.uniform3fv(gl.getUniformLocation(program, 'uFogColor'), this.fog.color);
-        gl.uniform2fv(gl.getUniformLocation(program, 'uFogRange'), [this.fog.near, this.fog.far]);
-
-        // Bind vertex data
-        gl.bindBuffer(gl.ARRAY_BUFFER, chunk.vertexBuffer);
-        gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 32, 0);  // position
-        gl.vertexAttribPointer(1, 2, gl.FLOAT, false, 32, 12); // texcoord
-        gl.vertexAttribPointer(2, 3, gl.FLOAT, false, 32, 20); // normal
-        gl.enableVertexAttribArray(0);
-        gl.enableVertexAttribArray(1);
-        gl.enableVertexAttribArray(2);
-
-        // Bind texture
-        if (chunk.texture) {
-            gl.activeTexture(gl.TEXTURE0);
-            gl.bindTexture(gl.TEXTURE_2D, chunk.texture);
+        // Draw each room
+        for (const room of this.rooms) {
+            gl.bindVertexArray(room.vao);
+            gl.drawArrays(gl.TRIANGLES, 0, room.vertexCount);
+            this.stats.drawCalls++;
+            this.stats.triangles += room.vertexCount / 3;
         }
 
-        // Draw
-        gl.drawElements(gl.TRIANGLES, chunk.indexCount, gl.UNSIGNED_SHORT, 0);
-        this.stats.drawCalls++;
-        this.stats.triangles += chunk.indexCount / 3;
-    },
-
-    createChunk(id, vertices, indices, textureName) {
-        const gl = this.gl;
-        const vbo = gl.createBuffer();
-        gl.bindBuffer(gl.ARRAY_BUFFER, vbo);
-        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(vertices), gl.STATIC_DRAW);
-
-        const ibo = gl.createBuffer();
-        gl.bindBuffer(gl.ELEMENT_ARRAY_BUFFER, ibo);
-        gl.bufferData(gl.ELEMENT_ARRAY_BUFFER, new Uint16Array(indices), gl.STATIC_DRAW);
-
-        // Calculate center and radius for culling
-        let cx = 0, cy = 0, cz = 0;
-        for (let i = 0; i < vertices.length; i += 8) {
-            cx += vertices[i];
-            cy += vertices[i + 1];
-            cz += vertices[i + 2];
-        }
-        const count = vertices.length / 8;
-        cx /= count; cy /= count; cz /= count;
-
-        let radius = 0;
-        for (let i = 0; i < vertices.length; i += 8) {
-            const dx = vertices[i] - cx;
-            const dy = vertices[i + 1] - cy;
-            const dz = vertices[i + 2] - cz;
-            radius = Math.max(radius, Math.sqrt(dx*dx + dy*dy + dz*dz));
-        }
-
-        const chunk = {
-            id,
-            vertexBuffer: vbo,
-            indexBuffer: ibo,
-            vertexCount: vertices.length / 8,
-            indexCount: indices.length,
-            texture: this.textures[textureName] || null,
-            center: [cx, cy, cz],
-            radius,
-            modelMatrix: new Float32Array(16)
-        };
-        // Identity matrix
-        chunk.modelMatrix[0] = 1; chunk.modelMatrix[5] = 1;
-        chunk.modelMatrix[10] = 1; chunk.modelMatrix[15] = 1;
-
-        this.chunks.set(id, chunk);
-        return chunk;
-    },
-
-    removeChunk(id) {
-        const chunk = this.chunks.get(id);
-        if (chunk) {
-            this.gl.deleteBuffer(chunk.vertexBuffer);
-            this.gl.deleteBuffer(chunk.indexBuffer);
-            this.chunks.delete(id);
-        }
-    },
-
-    clear() {
-        for (const [id, chunk] of this.chunks) {
-            this.gl.deleteBuffer(chunk.vertexBuffer);
-            this.gl.deleteBuffer(chunk.indexBuffer);
-        }
-        this.chunks.clear();
-        this.lights = [];
+        gl.bindVertexArray(null);
     },
 
     dispose() {
-        this.clear();
-        for (const name in this.textures) {
-            this.gl.deleteTexture(this.textures[name]);
+        const gl = this.gl;
+        if (!gl) return;
+        for (const room of this.rooms) {
+            gl.deleteBuffer(room.vbo);
+            gl.deleteVertexArray(room.vao);
         }
-        for (const name in this.shaders) {
-            this.gl.deleteProgram(this.shaders[name]);
-        }
+        this.rooms = [];
     }
 };
 
-// ===== SHADER SOURCES =====
+// ====== SHADERS ======
 
-const VERTEX_STANDARD = `#version 300 es
+const VERTEX_SRC = `#version 300 es
 precision highp float;
 in vec3 aPosition;
-in vec2 aTexCoord;
 in vec3 aNormal;
-uniform mat4 uModelView;
-uniform mat4 uProjection;
-out vec2 vTexCoord;
-out vec3 vNormal;
-out vec3 vPosition;
-void main() {
-    vec4 worldPos = uModelView * vec4(aPosition, 1.0);
-    gl_Position = uProjection * worldPos;
-    vTexCoord = aTexCoord;
-    vNormal = mat3(uModelView) * aNormal;
-    vPosition = worldPos.xyz;
-}`;
+in vec3 aColor;
 
-const FRAGMENT_STANDARD = `#version 300 es
-precision highp float;
-in vec2 vTexCoord;
-in vec3 vNormal;
-in vec3 vPosition;
-uniform vec3 uFogColor;
-uniform vec2 uFogRange;
-uniform sampler2D uTexture;
-out vec4 fragColor;
-void main() {
-    vec4 texColor = texture(uTexture, vTexCoord);
-    float fogFactor = clamp((length(vPosition) - uFogRange.x) / (uFogRange.y - uFogRange.x), 0.0, 1.0);
-    vec4 fogged = mix(texColor, vec4(uFogColor, 1.0), fogFactor);
-    fragColor = fogged;
-}`;
-
-const VERTEX_LIGHT = `#version 300 es
-precision highp float;
-in vec3 aPosition;
-in vec2 aTexCoord;
-in vec3 aNormal;
-uniform mat4 uModelView;
 uniform mat4 uProjection;
+uniform mat4 uView;
 uniform vec3 uLightPos;
 uniform vec3 uLightColor;
 uniform float uLightIntensity;
-out vec2 vTexCoord;
-out vec3 vLighting;
-void main() {
-    vec4 worldPos = uModelView * vec4(aPosition, 1.0);
-    gl_Position = uProjection * worldPos;
-    vTexCoord = aTexCoord;
-    vec3 normal = mat3(uModelView) * aNormal;
-    vec3 lightDir = normalize(uLightPos - worldPos.xyz);
-    float diff = max(dot(normal, lightDir), 0.0);
-    float dist = length(uLightPos - worldPos.xyz);
-    float attenuation = uLightIntensity / (1.0 + dist * dist);
-    vLighting = uLightColor * diff * attenuation;
-}`;
+uniform vec3 uFogColor;
+uniform float uFogNear;
+uniform float uFogFar;
 
-const FRAGMENT_LIGHT = `#version 300 es
+out vec3 vColor;
+out float vFogFactor;
+
+void main() {
+    vec4 worldPos = vec4(aPosition, 1.0);
+    gl_Position = uProjection * uView * worldPos;
+    
+    // Lighting: diffuse from light position using pre-computed normal
+    vec3 lightDir = normalize(uLightPos - aPosition);
+    float diff = max(dot(aNormal, lightDir), 0.0);
+    float ambient = 0.3;
+    float dist = distance(uLightPos, aPosition);
+    float attenuation = uLightIntensity / (1.0 + dist * 0.3);
+    vColor = aColor * (ambient + diff * attenuation);
+    
+    // Fog
+    float viewDist = length(worldPos.xyz);
+    vFogFactor = clamp((viewDist - uFogNear) / (uFogFar - uFogNear), 0.0, 1.0);
+}
+`;
+
+const FRAGMENT_SRC = `#version 300 es
 precision highp float;
-in vec2 vTexCoord;
-in vec3 vLighting;
-uniform sampler2D uTexture;
+in vec3 vColor;
+in float vFogFactor;
+uniform vec3 uFogColor;
 out vec4 fragColor;
-void main() {
-    vec4 texColor = texture(uTexture, vTexCoord);
-    fragColor = vec4(texColor.rgb * (0.3 + vLighting), texColor.a);
-}`;
 
-const VERTEX_WATER = `#version 300 es
-precision highp float;
-in vec3 aPosition;
-in vec2 aTexCoord;
-uniform mat4 uModelView;
-uniform mat4 uProjection;
-uniform float uTime;
-out vec2 vTexCoord;
-out float vHeight;
 void main() {
-    vec3 pos = aPosition;
-    float wave = sin(pos.x * 2.0 + uTime) * 0.05 + cos(pos.z * 1.5 + uTime * 0.7) * 0.03;
-    pos.y += wave;
-    vec4 worldPos = uModelView * vec4(pos, 1.0);
-    gl_Position = uProjection * worldPos;
-    vTexCoord = aTexCoord + vec2(uTime * 0.01, uTime * 0.005);
-    vHeight = pos.y;
-}`;
-
-const FRAGMENT_WATER = `#version 300 es
-precision highp float;
-in vec2 vTexCoord;
-in float vHeight;
-uniform float uTime;
-out vec4 fragColor;
-void main() {
-    vec3 deep = vec3(0.0, 0.1, 0.3);
-    vec3 shallow = vec3(0.0, 0.4, 0.6);
-    float mixFactor = sin(vHeight * 10.0 + uTime) * 0.5 + 0.5;
-    vec3 color = mix(deep, shallow, mixFactor);
-    float alpha = 0.6 + sin(vTexCoord.x * 20.0 + uTime) * 0.2;
-    fragColor = vec4(color, alpha);
-}`;
+    vec3 color = mix(vColor, uFogColor, vFogFactor);
+    fragColor = vec4(color, 1.0);
+}
+`;
 
 window.LakehouseRenderer = LakehouseRenderer;

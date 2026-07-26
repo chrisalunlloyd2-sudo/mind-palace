@@ -1,8 +1,6 @@
 /**
  * Mind Palace Lakehouse — Main Entry Point
  * Phase 0: Orchestrates all systems
- * 
- * Ties together: renderer, camera, map, objects, physics, HUD, filing, touch
  */
 
 const Lakehouse = {
@@ -17,13 +15,11 @@ const Lakehouse = {
     isRunning: false,
     lastTime: 0,
     currentRoom: null,
-    currentLevel: 'ground',
     interactionTarget: null,
 
     async init() {
         console.log('🏠 Mind Palace Lakehouse initializing...');
         
-        // Initialize all systems
         this.renderer = window.LakehouseRenderer;
         this.camera = window.LakehouseCamera;
         this.map = window.MapLoader;
@@ -49,7 +45,7 @@ const Lakehouse = {
         // Init HUD
         this.hud.init();
 
-        // Init touch controls (auto-detects mobile)
+        // Init touch controls
         this.touch.init(this.renderer.canvas, this.camera);
         if (this.touch.enabled) {
             this.touch.show();
@@ -60,8 +56,20 @@ const Lakehouse = {
 
         // Load map
         const mapData = await this.map.loadMap('lakehouse');
+        if (!mapData) {
+            console.error('[Lakehouse] Failed to load map');
+            return false;
+        }
         
-        // Build environment from map
+        // Build renderable geometry from rooms
+        this.renderer.buildAllRooms(mapData);
+        
+        // Add default lights
+        this.renderer.addLight([0, 5, 0], [1, 0.95, 0.8], 3.0);  // Main overhead
+        this.renderer.addLight([5, 2, 5], [1, 0.7, 0.4], 1.5);    // Warm accent
+        this.renderer.addLight([-3, 2, -3], [0.6, 0.7, 1], 1.0);  // Cool accent
+
+        // Build environment (physics walls + objects)
         this.buildEnvironment(mapData);
 
         // Set spawn
@@ -87,7 +95,6 @@ const Lakehouse = {
     buildEnvironment(mapData) {
         console.log('[Lakehouse] Building environment...');
         
-        // Build walls for each room
         for (const room of mapData.rooms) {
             const template = this.map.getRoomTemplate(room.type);
             const pos = room.position;
@@ -103,7 +110,7 @@ const Lakehouse = {
                 [pos[0] + halfW, pos[1] + h, pos[2] + halfD]
             );
 
-            // Spawn default objects for this room type
+            // Spawn default objects
             if (template.objects) {
                 for (const objDefId of template.objects) {
                     const def = window.ObjectSystem.getObjectDef(objDefId);
@@ -167,7 +174,6 @@ const Lakehouse = {
     },
 
     interact() {
-        // Raycast for interaction
         const forward = this.camera.getForward();
         const origin = this.camera.getPosition();
         const hit = this.physics.raycast(origin, forward, 2.5);
@@ -183,21 +189,15 @@ const Lakehouse = {
                     case 'open':
                     case 'open_drawer':
                         obj.state.isOpen = !obj.state.isOpen;
-                        this.hud.showNotification(
-                            obj.state.isOpen ? 'Opened' : 'Closed'
-                        );
+                        this.hud.showNotification(obj.state.isOpen ? 'Opened' : 'Closed');
                         break;
                     case 'toggle':
                         if (obj.defId === 'fireplace') {
                             obj.state.lit = !obj.state.lit;
-                            this.hud.showNotification(
-                                obj.state.lit ? '🔥 Fireplace lit' : 'Fireplace extinguished'
-                            );
+                            this.hud.showNotification(obj.state.lit ? '🔥 Fireplace lit' : 'Fireplace extinguished');
                         } else {
                             obj.state.on = !obj.state.on;
-                            this.hud.showNotification(
-                                obj.state.on ? '💡 Turned on' : '💡 Turned off'
-                            );
+                            this.hud.showNotification(obj.state.on ? '💡 Turned on' : '💡 Turned off');
                         }
                         break;
                     case 'sit':
@@ -225,7 +225,6 @@ const Lakehouse = {
         const cabinet = this.filing.getCabinet(cabinetId);
         if (!cabinet) return;
 
-        // Show cabinet UI
         const content = document.createElement('div');
         content.style.cssText = `
             position: fixed; top: 5%; left: 5%; width: 90%; height: 90%;
@@ -269,10 +268,8 @@ const Lakehouse = {
         `;
         document.body.appendChild(content);
 
-        // Bind close
         document.getElementById('cabinet-close').onclick = () => content.remove();
 
-        // Bind drawer clicks
         content.querySelectorAll('.drawer-entry').forEach(el => {
             el.addEventListener('click', () => {
                 const drawerId = el.dataset.drawer;
@@ -313,10 +310,8 @@ const Lakehouse = {
         `;
         parentContainer.querySelector('div:last-child').appendChild(drawerView);
 
-        // Bind back
         document.getElementById('drawer-back').onclick = () => drawerView.remove();
 
-        // Bind folder clicks
         drawerView.querySelectorAll('.folder-entry').forEach(el => {
             el.addEventListener('click', () => {
                 const folderId = el.dataset.folder;
@@ -334,7 +329,6 @@ const Lakehouse = {
         
         this.filing.renderFolderView(folderId, folderView);
         
-        // Add back button
         const backBtn = document.createElement('button');
         backBtn.textContent = '← Back';
         backBtn.style.cssText = 'background:none;border:1px solid #333;color:#0f0;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:10px;';
@@ -343,7 +337,6 @@ const Lakehouse = {
 
         parentContainer.appendChild(folderView);
 
-        // Bind document clicks
         folderView.querySelectorAll('.doc-entry').forEach(el => {
             el.addEventListener('click', () => {
                 const docId = el.dataset.docId;
@@ -367,13 +360,9 @@ const Lakehouse = {
     },
 
     update(dt) {
-        // Update camera
         this.camera.update(dt);
-
-        // Update physics
         this.physics.update(dt);
 
-        // Update HUD minimap
         if (this.map.currentMap) {
             const mapData = this.map.maps[this.map.currentMap];
             if (mapData) {
@@ -386,7 +375,6 @@ const Lakehouse = {
             }
         }
 
-        // Check for interactable objects
         this.checkInteraction();
     },
 
