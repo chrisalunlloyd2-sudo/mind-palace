@@ -163,6 +163,7 @@ const TouchControls = {
             { label: 'F', key: 'f', color: '#ff8800', bottom: 190, right: 20 },
             { label: 'I', key: 'i', color: '#8888ff', bottom: 260, right: 20 },
             { label: 'M', key: 'm', color: '#ff44ff', bottom: 330, right: 20 },
+            { label: 'G', key: 'g', color: '#66ff66', bottom: 400, right: 20 },
         ];
 
         buttons.forEach(b => {

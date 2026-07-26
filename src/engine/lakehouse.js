@@ -12,6 +12,7 @@ const Lakehouse = {
     hud: null,
     filing: null,
     touch: null,
+    gistWall: null,
     isRunning: false,
     lastTime: 0,
     currentRoom: null,
@@ -27,6 +28,7 @@ const Lakehouse = {
         this.hud = window.LakehouseHUD;
         this.filing = window.FilingSystem;
         this.touch = window.TouchControls;
+        this.gistWall = window.GistWall;
         this.objects = [];
 
         try {
@@ -67,8 +69,14 @@ const Lakehouse = {
             console.log('[Lakehouse] Step 7: Filing system...');
             await this.filing.init();
 
+            // Init gist wall
+            console.log('[Lakehouse] Step 8: Gist wall...');
+            if (this.gistWall) {
+                await this.gistWall.init();
+            }
+
             // Load map
-            console.log('[Lakehouse] Step 8: Loading map...');
+            console.log('[Lakehouse] Step 9: Loading map...');
             const mapData = await this.map.loadMap('lakehouse');
             if (!mapData) {
                 console.error('[Lakehouse] Failed to load map');
@@ -76,7 +84,7 @@ const Lakehouse = {
             }
             
             // Build renderable geometry from rooms
-            console.log('[Lakehouse] Step 9: Building geometry...');
+            console.log('[Lakehouse] Step 10: Building geometry...');
             this.renderer.buildAllRooms(mapData);
             
             // Add default lights
@@ -85,7 +93,7 @@ const Lakehouse = {
             this.renderer.addLight([-3, 2, -3], [0.6, 0.7, 1], 1.0);
 
             // Build environment (physics walls + objects)
-            console.log('[Lakehouse] Step 10: Building environment...');
+            console.log('[Lakehouse] Step 11: Building environment...');
             this.buildEnvironment(mapData);
 
             // Set spawn
@@ -121,7 +129,6 @@ const Lakehouse = {
             const pos = room.position;
             const size = template.size;
             
-            // Add walls to physics
             const halfW = size[0] / 2;
             const halfD = size[2] / 2;
             const h = size[1];
@@ -131,7 +138,6 @@ const Lakehouse = {
                 [pos[0] + halfW, pos[1] + h, pos[2] + halfD]
             );
 
-            // Spawn default objects
             if (template.objects && window.ObjectSystem) {
                 for (const objDefId of template.objects) {
                     try {
@@ -159,7 +165,6 @@ const Lakehouse = {
             }
         }
 
-        // Spawn filing cabinets
         if (this.filing && this.filing.getCabinets) {
             for (const cabinet of this.filing.getCabinets()) {
                 try {
@@ -190,6 +195,11 @@ const Lakehouse = {
             if (e.key === 'f' || e.key === 'F') {
                 this.pushObject();
             }
+            if (e.key === 'g' || e.key === 'G') {
+                if (this.gistWall) {
+                    this.gistWall.toggle();
+                }
+            }
             if (e.key === 'q' || e.key === 'Q') {
                 if (window.ObjectSystem && window.ObjectSystem.placementMode) {
                     window.ObjectSystem.cancelPlacement();
@@ -197,6 +207,9 @@ const Lakehouse = {
                 }
             }
             if (e.key === 'Escape') {
+                if (this.gistWall && this.gistWall.isOpen) {
+                    this.gistWall.hide();
+                }
                 if (window.ObjectSystem && window.ObjectSystem.placementMode) {
                     window.ObjectSystem.cancelPlacement();
                 }
@@ -443,6 +456,7 @@ const Lakehouse = {
     stop() {
         this.isRunning = false;
         if (this.touch) this.touch.dispose();
+        if (this.gistWall) this.gistWall.dispose();
         this.renderer.dispose();
     }
 };
