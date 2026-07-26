@@ -2,7 +2,7 @@
  * Mind Palace Lakehouse — Main Entry Point
  * Phase 0: Orchestrates all systems
  * 
- * Ties together: renderer, camera, map, objects, physics, HUD, filing
+ * Ties together: renderer, camera, map, objects, physics, HUD, filing, touch
  */
 
 const Lakehouse = {
@@ -13,6 +13,7 @@ const Lakehouse = {
     physics: null,
     hud: null,
     filing: null,
+    touch: null,
     isRunning: false,
     lastTime: 0,
     currentRoom: null,
@@ -29,6 +30,7 @@ const Lakehouse = {
         this.physics = window.PhysicsEngine;
         this.hud = window.LakehouseHUD;
         this.filing = window.FilingSystem;
+        this.touch = window.TouchControls;
         this.objects = [];
 
         // Init renderer
@@ -46,6 +48,12 @@ const Lakehouse = {
 
         // Init HUD
         this.hud.init();
+
+        // Init touch controls (auto-detects mobile)
+        this.touch.init(this.renderer.canvas, this.camera);
+        if (this.touch.enabled) {
+            this.touch.show();
+        }
 
         // Init filing system
         await this.filing.init();
@@ -198,7 +206,6 @@ const Lakehouse = {
                     case 'read':
                     case 'inspect':
                         if (obj.state.cabinetId) {
-                            // Open filing cabinet
                             this.openCabinet(obj.state.cabinetId);
                         } else {
                             this.hud.showNotification(`Inspecting ${obj.defId}`);
@@ -221,39 +228,40 @@ const Lakehouse = {
         // Show cabinet UI
         const content = document.createElement('div');
         content.style.cssText = `
-            position: fixed; top: 10%; left: 10%; width: 80%; height: 80%;
+            position: fixed; top: 5%; left: 5%; width: 90%; height: 90%;
             background: rgba(0,0,0,0.95); border: 2px solid #00ff00;
             border-radius: 8px; z-index: 2000; display: flex;
             flex-direction: column; font-family: 'Courier New', monospace;
         `;
         content.innerHTML = `
             <div style="display:flex;justify-content:space-between;align-items:center;
-                        padding:12px 20px;border-bottom:1px solid #333;">
+                        padding:12px 16px;border-bottom:1px solid #333;">
                 <span style="color:#00ff80;font-size:16px;font-weight:bold;">
                     📁 ${cabinet.label}
                 </span>
                 <button id="cabinet-close" style="background:none;border:none;color:#ff4444;
-                        font-size:24px;cursor:pointer;">&times;</button>
+                        font-size:28px;cursor:pointer;padding:0 8px;">&times;</button>
             </div>
-            <div style="flex:1;padding:20px;overflow-y:auto;">
+            <div style="flex:1;padding:16px;overflow-y:auto;">
                 ${cabinet.drawers.map(drawer => `
                     <div class="drawer-entry" data-drawer="${drawer.id}"
-                         style="padding:12px 16px;margin-bottom:8px;border:1px solid #333;
-                                border-radius:6px;cursor:pointer;background:rgba(0,0,0,0.3);
-                                transition:background 0.2s;"
+                         style="padding:14px 16px;margin-bottom:8px;border:1px solid #333;
+                                border-radius:8px;cursor:pointer;background:rgba(0,0,0,0.3);
+                                transition:background 0.2s;min-height:50px;
+                                display:flex;align-items:center;"
                          onmouseover="this.style.background='rgba(0,255,0,0.1)'"
                          onmouseout="this.style.background='rgba(0,0,0,0.3)'">
-                        <div style="display:flex;align-items:center;gap:10px;">
-                            <span style="font-size:20px;">🗄️</span>
-                            <div>
-                                <div style="color:#00ffcc;font-size:14px;font-weight:bold;">
+                        <div style="display:flex;align-items:center;gap:12px;width:100%;">
+                            <span style="font-size:24px;">🗄️</span>
+                            <div style="flex:1;">
+                                <div style="color:#00ffcc;font-size:15px;font-weight:bold;">
                                     ${drawer.label}
                                 </div>
-                                <div style="color:#666;font-size:11px;margin-top:2px;">
+                                <div style="color:#666;font-size:12px;margin-top:2px;">
                                     ${drawer.category}
                                 </div>
                             </div>
-                            <span style="margin-left:auto;color:#0f0;font-size:12px;">Open →</span>
+                            <span style="color:#0f0;font-size:14px;">→</span>
                         </div>
                     </div>
                 `).join('')}
@@ -284,19 +292,20 @@ const Lakehouse = {
         drawerView.innerHTML = `
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px;">
                 <button id="drawer-back" style="background:none;border:1px solid #333;
-                        color:#0f0;padding:4px 10px;border-radius:4px;cursor:pointer;">← Back</button>
+                        color:#0f0;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:14px;">← Back</button>
                 <span style="color:#00ff80;font-size:14px;">Drawer Contents</span>
             </div>
             ${contents.length === 0 ? 
-                '<p style="color:#666;text-align:center;padding:20px;">Empty drawer</p>' :
+                '<p style="color:#666;text-align:center;padding:30px;">Empty drawer</p>' :
                 contents.map(item => `
                     <div class="folder-entry" data-folder="${item.id}"
-                         style="padding:10px 14px;margin-bottom:6px;border-left:3px solid ${item.color};
-                                background:rgba(0,0,0,0.3);cursor:pointer;border-radius:0 4px 4px 0;">
-                        <div style="display:flex;align-items:center;gap:8px;">
-                            <span style="font-size:18px;">${item.icon}</span>
-                            <span style="color:#00ffcc;font-size:13px;">${item.label}</span>
-                            <span style="color:#666;font-size:10px;margin-left:auto;">${item.category}</span>
+                         style="padding:14px 16px;margin-bottom:6px;border-left:4px solid ${item.color};
+                                background:rgba(0,0,0,0.3);cursor:pointer;border-radius:0 8px 8px 0;
+                                min-height:48px;display:flex;align-items:center;">
+                        <div style="display:flex;align-items:center;gap:10px;width:100%;">
+                            <span style="font-size:22px;">${item.icon}</span>
+                            <span style="color:#00ffcc;font-size:14px;flex:1;">${item.label}</span>
+                            <span style="color:#666;font-size:11px;">${item.category}</span>
                         </div>
                     </div>
                 `).join('')
@@ -328,7 +337,7 @@ const Lakehouse = {
         // Add back button
         const backBtn = document.createElement('button');
         backBtn.textContent = '← Back';
-        backBtn.style.cssText = 'background:none;border:1px solid #333;color:#0f0;padding:4px 10px;border-radius:4px;cursor:pointer;margin-bottom:10px;';
+        backBtn.style.cssText = 'background:none;border:1px solid #333;color:#0f0;padding:6px 14px;border-radius:6px;cursor:pointer;font-size:14px;margin-bottom:10px;';
         backBtn.onclick = () => folderView.remove();
         folderView.insertBefore(backBtn, folderView.firstChild);
 
@@ -414,6 +423,7 @@ const Lakehouse = {
 
     stop() {
         this.isRunning = false;
+        if (this.touch) this.touch.dispose();
         this.renderer.dispose();
     }
 };

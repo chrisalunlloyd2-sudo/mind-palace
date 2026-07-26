@@ -7,7 +7,8 @@
  * - Smooth interpolation
  * - Head bob for walking
  * - Collision capsule (not point)
- * - Mouse lock pointer
+ * - Mouse lock pointer (desktop) / touch drag (mobile)
+ * - Auto-detects input method
  */
 
 const LakehouseCamera = {
@@ -47,31 +48,41 @@ const LakehouseCamera = {
     keys: {},
     mouseDelta: [0, 0],
     isLocked: false,
+    isMobile: false,
 
     init(canvas) {
         console.log('[Camera] Initializing...');
         this.aspect = window.innerWidth / window.innerHeight;
         this.updateProjection();
+        this.isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile/i.test(
+            navigator.userAgent || navigator.vendor || window.opera
+        );
         
-        // Mouse lock
-        canvas.addEventListener('click', () => {
-            if (!this.isLocked) {
-                canvas.requestPointerLock();
-            }
-        });
+        if (!this.isMobile) {
+            // Desktop: mouse lock
+            canvas.addEventListener('click', () => {
+                if (!this.isLocked) {
+                    canvas.requestPointerLock();
+                }
+            });
+            
+            document.addEventListener('pointerlockchange', () => {
+                this.isLocked = document.pointerLockElement === canvas;
+            });
+            
+            document.addEventListener('mousemove', (e) => {
+                if (this.isLocked) {
+                    this.mouseDelta[0] += e.movementX;
+                    this.mouseDelta[1] += e.movementY;
+                }
+            });
+        } else {
+            // Mobile: touch controls handle camera via mouseDelta
+            // No pointer lock needed
+            this.isLocked = true; // Always "locked" on mobile
+        }
         
-        document.addEventListener('pointerlockchange', () => {
-            this.isLocked = document.pointerLockElement === canvas;
-        });
-        
-        document.addEventListener('mousemove', (e) => {
-            if (this.isLocked) {
-                this.mouseDelta[0] += e.movementX;
-                this.mouseDelta[1] += e.movementY;
-            }
-        });
-        
-        // Keyboard
+        // Keyboard (works on both)
         document.addEventListener('keydown', (e) => {
             this.keys[e.key.toLowerCase()] = true;
             if (e.key === 'Shift') this.isSprinting = true;
@@ -108,7 +119,7 @@ const LakehouseCamera = {
     },
 
     update(dt) {
-        // Mouse look
+        // Mouse look (desktop) or touch look (mobile via mouseDelta)
         const mx = this.mouseDelta[0] * this.sensitivity;
         const my = this.mouseDelta[1] * this.sensitivity;
         this.rotation[0] -= mx;
