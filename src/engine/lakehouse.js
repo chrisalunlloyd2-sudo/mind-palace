@@ -18,6 +18,7 @@ const Lakehouse = {
     currentRoom: null,
     interactionTarget: null,
     initError: null,
+    initStep: '',
 
     async init() {
         console.log('🏠 Mind Palace Lakehouse initializing...');
@@ -34,7 +35,7 @@ const Lakehouse = {
 
         try {
             // Step 1: Renderer
-            console.log('[Lakehouse] Step 1: Renderer...');
+            this.initStep = 'Renderer'; console.log('[Lakehouse] Step 1: Renderer...');
             const rendererReady = await this.renderer.init('gameCanvas');
             if (!rendererReady) {
                 this.initError = 'Renderer failed to initialize';
@@ -43,7 +44,7 @@ const Lakehouse = {
             }
 
             // Step 2: Camera
-            console.log('[Lakehouse] Step 2: Camera...');
+            this.initStep = 'Camera'; console.log('[Lakehouse] Step 2: Camera...');
             if (this.camera && this.camera.init) {
                 this.camera.init(this.renderer.canvas);
             } else {
@@ -52,19 +53,19 @@ const Lakehouse = {
             }
 
             // Step 3: Physics
-            console.log('[Lakehouse] Step 3: Physics...');
+            this.initStep = 'Physics'; console.log('[Lakehouse] Step 3: Physics...');
             if (this.physics && this.physics.init) {
                 this.physics.init();
             }
 
             // Step 4: HUD
-            console.log('[Lakehouse] Step 4: HUD...');
+            this.initStep = 'HUD'; console.log('[Lakehouse] Step 4: HUD...');
             if (this.hud && this.hud.init) {
                 this.hud.init();
             }
 
             // Step 5: Touch controls
-            console.log('[Lakehouse] Step 5: Touch controls...');
+            this.initStep = 'Touch controls'; console.log('[Lakehouse] Step 5: Touch controls...');
             if (this.touch && this.touch.init) {
                 this.touch.init(this.renderer.canvas, this.camera);
                 if (this.touch.enabled) {
@@ -73,25 +74,25 @@ const Lakehouse = {
             }
 
             // Step 6: Object system
-            console.log('[Lakehouse] Step 6: Object system...');
+            this.initStep = 'Object system'; console.log('[Lakehouse] Step 6: Object system...');
             if (window.ObjectSystem && window.ObjectSystem.init) {
                 await window.ObjectSystem.init();
             }
 
             // Step 7: Filing system
-            console.log('[Lakehouse] Step 7: Filing system...');
+            this.initStep = 'Filing system'; console.log('[Lakehouse] Step 7: Filing system...');
             if (this.filing && this.filing.init) {
                 await this.filing.init();
             }
 
             // Step 8: Gist wall
-            console.log('[Lakehouse] Step 8: Gist wall...');
+            this.initStep = 'Gist wall'; console.log('[Lakehouse] Step 8: Gist wall...');
             if (this.gistWall && this.gistWall.init) {
                 await this.gistWall.init();
             }
 
             // Step 9: Load map
-            console.log('[Lakehouse] Step 9: Loading map...');
+            this.initStep = 'Map loader'; console.log('[Lakehouse] Step 9: Loading map...');
             const mapData = await this.map.loadMap('lakehouse');
             if (!mapData) {
                 this.initError = 'Failed to load map data';
@@ -100,7 +101,7 @@ const Lakehouse = {
             }
             
             // Step 10: Build geometry
-            console.log('[Lakehouse] Step 10: Building geometry...');
+            this.initStep = 'Geometry builder'; console.log('[Lakehouse] Step 10: Building geometry...');
             this.renderer.buildAllRooms(mapData);
             
             // Add default lights
@@ -109,7 +110,7 @@ const Lakehouse = {
             this.renderer.addLight([-3, 2, -3], [0.6, 0.7, 1], 1.0);
 
             // Step 11: Build environment
-            console.log('[Lakehouse] Step 11: Building environment...');
+            this.initStep = 'Environment builder'; console.log('[Lakehouse] Step 11: Building environment...');
             this.buildEnvironment(mapData);
 
             // Set spawn
@@ -136,6 +137,7 @@ const Lakehouse = {
             return true;
         } catch (e) {
             this.initError = e.message || 'Unknown initialization error';
+            this.initStep = this.initStep || 'Unknown step';
             console.error('[Lakehouse] Init error:', e);
             console.error(e.stack);
             return false;

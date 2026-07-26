@@ -181,26 +181,33 @@
 
         // Boot
         window.addEventListener('DOMContentLoaded', async () => {
-            updateLoading(10, 'Loading engine...');
+            // Show step-by-step progress
+            const steps = [
+                { pct: 5,  text: 'Loading scripts...' },
+                { pct: 10, text: 'Initializing renderer...' },
+                { pct: 20, text: 'Setting up camera...' },
+                { pct: 30, text: 'Loading physics...' },
+                { pct: 40, text: 'Setting up HUD...' },
+                { pct: 50, text: 'Loading touch controls...' },
+                { pct: 60, text: 'Loading object system...' },
+                { pct: 70, text: 'Loading filing system...' },
+                { pct: 80, text: 'Loading gist wall...' },
+                { pct: 90, text: 'Loading map data...' },
+                { pct: 95, text: 'Building environment...' },
+            ];
             
-            await new Promise(r => setTimeout(r, 100));
-            updateLoading(25, 'Initializing renderer...');
+            let currentStep = 0;
+            function showStep() {
+                if (currentStep < steps.length) {
+                    updateLoading(steps[currentStep].pct, steps[currentStep].text);
+                    currentStep++;
+                }
+            }
             
-            await new Promise(r => setTimeout(r, 100));
-            updateLoading(40, 'Setting up camera...');
+            // Show first step immediately
+            showStep();
             
-            await new Promise(r => setTimeout(r, 100));
-            updateLoading(55, 'Loading map data...');
-            
-            await new Promise(r => setTimeout(r, 100));
-            updateLoading(70, 'Spawning objects...');
-            
-            await new Promise(r => setTimeout(r, 100));
-            updateLoading(85, 'Initializing filing system...');
-            
-            await new Promise(r => setTimeout(r, 100));
-            updateLoading(95, 'Starting lakehouse...');
-            
+            // Start init
             const success = await Lakehouse.init();
             
             if (success) {
@@ -209,10 +216,13 @@
                     document.getElementById('loading-screen').style.display = 'none';
                 }, 500);
             } else {
-                updateLoading(0, 'Error: ' + (window.Lakehouse ? (window.Lakehouse.initError || 'Unknown') : 'Lakehouse not loaded'));
+                const errMsg = window.Lakehouse ? (window.Lakehouse.initError || 'Unknown error') : 'Lakehouse not loaded';
+                const errStep = window.Lakehouse ? (window.Lakehouse.initStep || '') : '';
+                updateLoading(0, 'Error at: ' + errStep);
                 document.getElementById('loading-tips').innerHTML = 
-                    '<span style="color:#ff4444;">' + (window.Lakehouse ? (window.Lakehouse.initError || 'Unknown error') : 'Lakehouse not loaded') + '<br>' +
-                    'Check console for details.</span>';
+                    '<span style="color:#ff4444;font-size:14px;">' + errMsg + '</span><br>' +
+                    '<span style="color:#666;font-size:11px;">Failed at step: ' + errStep + '</span><br>' +
+                    '<span style="color:#666;font-size:11px;">Check browser console (F12) for details</span>';
             }
             
             updateFps();
