@@ -2,128 +2,220 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mind Palace — Spatial IDE</title>
-    <link rel="stylesheet" href="css/room.css">
-    <link rel="stylesheet" href="css/expert.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Mind Palace — Lakehouse</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { 
+        html, body { 
+            width: 100%; height: 100%; overflow: hidden;
             background: #000; 
-            overflow: hidden; 
             font-family: 'Courier New', monospace;
             user-select: none;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            touch-action: none;
+            position: fixed;
         }
         #gameCanvas { 
             display: block; 
-            margin: 0 auto; 
-            background: #000;
+            width: 100vw;
+            height: 100vh;
             cursor: crosshair;
+            touch-action: none;
         }
-        #hallway-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        #loading-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 9999;
+            display: flex; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 20px;
+        }
+        #loading-screen h1 {
+            color: #00ff80; font-size: clamp(18px, 5vw, 28px); margin-bottom: 20px;
+            text-shadow: 0 0 20px #00ff80;
+            text-align: center;
+        }
+        #loading-bar-container {
+            width: min(300px, 80vw); height: 4px; background: #111;
+            border-radius: 2px; overflow: hidden;
+        }
+        #loading-progress {
+            width: 0%; height: 100%; background: #00ff00;
+            transition: width 0.3s;
+            box-shadow: 0 0 10px #00ff00;
+        }
+        #loading-text {
+            color: #666; font-size: clamp(11px, 3vw, 14px); margin-top: 10px;
+        }
+        #loading-tips {
+            color: #444; font-size: clamp(10px, 2.5vw, 12px); margin-top: 20px;
+            text-align: center; max-width: 400px; line-height: 1.6;
+            padding: 0 20px;
         }
         #instructions {
-            position: fixed;
-            bottom: 10px;
-            left: 10px;
-            color: #ffd700;
-            font-size: 11px;
-            background: rgba(0,0,0,0.8);
-            padding: 12px 16px;
-            border-radius: 6px;
-            border: 1px solid #8b4513;
-            z-index: 1000;
-            line-height: 1.6;
+            position: fixed; bottom: 10px; left: 10px; right: 10px;
+            color: #888; font-size: clamp(9px, 2.5vw, 11px);
+            background: rgba(0,0,0,0.8); padding: 8px 12px;
+            border-radius: 6px; border: 1px solid #333;
+            z-index: 1000; line-height: 1.6;
+            pointer-events: none;
+            text-align: center;
         }
-        #instructions strong { color: #ffd700; }
-        #wing-status {
-            position: fixed;
-            top: 10px;
-            right: 10px;
-            color: #ffd700;
-            font-size: 12px;
-            background: rgba(0,0,0,0.8);
-            padding: 8px 14px;
-            border-radius: 6px;
-            border: 1px solid #8b4513;
-            z-index: 1000;
+        #instructions strong { color: #00ffcc; }
+        #fps-counter {
+            position: fixed; top: 10px; left: 10px;
+            color: #666; font-size: 10px;
+            background: rgba(0,0,0,0.6); padding: 3px 6px;
+            border-radius: 4px; z-index: 1000;
+            pointer-events: none;
         }
-        #expert-toggle {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            background: linear-gradient(180deg, #90ee90 0%, #32cd32 100%);
-            border: 2px solid #90ee90;
-            border-radius: 6px;
-            color: #000;
-            font-weight: bold;
-            cursor: pointer;
-            font-family: 'Courier New', monospace;
-            z-index: 200;
+        /* Mobile orientation warning */
+        #orientation-warning {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: #000; z-index: 99999;
+            display: none; flex-direction: column;
+            align-items: center; justify-content: center;
+            padding: 40px; text-align: center;
         }
-        #expert-toggle:hover {
-            transform: scale(1.05);
-            box-shadow: 0 4px 12px rgba(144,238,144,0.4);
+        #orientation-warning .icon { font-size: 60px; margin-bottom: 20px; }
+        #orientation-warning h2 { color: #00ff80; font-size: 20px; margin-bottom: 10px; }
+        #orientation-warning p { color: #666; font-size: 14px; line-height: 1.6; }
+        @media (orientation: portrait) and (max-width: 768px) {
+            #orientation-warning { display: flex; }
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
         }
     </style>
 </head>
 <body>
-    <!-- Hallway View (Raycaster) -->
-    <div id="hallway-container">
-        <canvas id="gameCanvas" width="800" height="600"></canvas>
-        <div id="instructions">
-            <strong>WASD</strong> Move | <strong>Mouse</strong> Look<br>
-            <strong>Click Door</strong> Enter Room | <strong>ESC</strong> Exit<br>
-            <strong>←/→</strong> Scroll Books | <strong>Click Book</strong> View File
-        </div>
-        <div id="wing-status">📍 WEST WING — Core Systems</div>
+    <div id="orientation-warning">
+        <div class="icon">📱</div>
+        <h2>Rotate Your Device</h2>
+        <p>For the best experience, please rotate your phone to landscape mode.</p>
     </div>
-    
-    <!-- Room View (Bookshelf Navigation) -->
-    <div id="room-container">
-        <div class="room-header">
-            <h1 id="room-title">Repository Name</h1>
-            <div class="room-meta-row">
-                <div class="room-meta">
-                    <span id="room-category">Category</span>
-                    <span id="room-language">Language</span>
-                    <span id="room-stars">⭐ 0</span>
-                    <span id="room-updated">Updated</span>
-                </div>
-            </div>
-            <p id="room-description">Description text appears here...</p>
-            <button id="expert-toggle" onclick="ExpertSystem.toggle()">🧠 Expert Suggestions</button>
+
+    <div id="loading-screen">
+        <h1>🏠 Mind Palace Lakehouse</h1>
+        <div id="loading-bar-container">
+            <div id="loading-progress"></div>
         </div>
-        
-        <div id="bookshelf" tabindex="0">
-            <!-- Books rendered by RoomSystem -->
+        <div id="loading-text">Initializing...</div>
+        <div id="loading-tips">
+            Explore a multi-level lakehouse with interactive furniture,<br>
+            file cabinets, movable chairs, and a complete filing system.<br><br>
+            <span style="color:#555;">
+                <span class="desktop-only">WASD — Move &nbsp;|&nbsp; Mouse — Look &nbsp;|&nbsp; E — Interact<br>
+                F — Push &nbsp;|&nbsp; I — Inventory &nbsp;|&nbsp; M — Minimap</span>
+                <span class="mobile-only">🕹 Left stick — Move &nbsp;|&nbsp; 👆 Right side — Look<br>
+                E — Interact &nbsp;|&nbsp; F — Push &nbsp;|&nbsp; I — Inventory</span>
+            </span>
         </div>
-        
-        <!-- Expert Panel (Left) -->
-        <div id="expert-panel">
-            <h3>🧠 Expert Architect</h3>
-            <div id="expert-content"></div>
-        </div>
-        
-        <!-- File Viewer (Right) -->
-        <div id="file-viewer">
-            <h3 id="file-title">File Name</h3>
-            <div id="file-content"></div>
-        </div>
-        
-        <button id="back-button">← Back to Hallway (ESC)</button>
     </div>
+    <canvas id="gameCanvas"></canvas>
+    <div id="fps-counter">FPS: --</div>
+    <div style="position:fixed;top:10px;right:10px;z-index:1001;pointer-events:auto;">
+        <a href="index-classic.html" style="color:#666;font-size:10px;background:rgba(0,0,0,0.6);padding:4px 8px;border-radius:4px;border:1px solid #333;text-decoration:none;">Classic View</a>
+    </div>
+    <div id="instructions">
+        <strong>WASD</strong> Move &nbsp; <strong>Mouse</strong> Look &nbsp; 
+        <strong>E</strong> Interact &nbsp; <strong>F</strong> Push &nbsp; 
+        <strong>I</strong> Inventory &nbsp; <strong>M</strong> Minimap
+    </div>
+
+    <!-- Engine Core -->
+    <script src="src/engine/renderer.js"></script>
+    <script src="src/engine/camera.js"></script>
     
-    <!-- Systems -->
-    <script src="js/audio.js"></script>
-    <script src="js/expert.js"></script>
-    <script src="js/room.js"></script>
-    <script src="js/engine.js"></script>
+    <!-- Map System -->
+    <script src="src/map/map_loader.js"></script>
+    
+    <!-- Object System -->
+    <script src="src/objects/object_system.js"></script>
+    
+    <!-- Physics -->
+    <script src="src/physics/collision.js"></script>
+    
+    <!-- UI -->
+    <script src="src/ui/hud.js"></script>
+    <script src="src/ui/touch_controls.js"></script>
+    
+    <!-- Data / Filing System -->
+    <script src="src/data/filing_system.js"></script>
+    
+    <!-- Main Lakehouse Entry -->
+    <script src="src/engine/lakehouse.js"></script>
+
+    <script>
+        // Show/hide desktop vs mobile tips
+        const isMobile = /android|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile/i.test(navigator.userAgent || navigator.vendor || window.opera);
+        document.querySelectorAll('.desktop-only').forEach(el => el.style.display = isMobile ? 'none' : 'inline');
+        document.querySelectorAll('.mobile-only').forEach(el => el.style.display = isMobile ? 'inline' : 'none');
+
+        // Loading screen updates
+        function updateLoading(percent, text) {
+            document.getElementById('loading-progress').style.width = percent + '%';
+            document.getElementById('loading-text').textContent = text;
+        }
+
+        // FPS counter
+        let frameCount = 0;
+        let lastFpsTime = performance.now();
+        
+        function updateFps() {
+            frameCount++;
+            const now = performance.now();
+            if (now - lastFpsTime >= 1000) {
+                document.getElementById('fps-counter').textContent = 
+                    'FPS: ' + frameCount;
+                frameCount = 0;
+                lastFpsTime = now;
+            }
+            requestAnimationFrame(updateFps);
+        }
+
+        // Boot
+        window.addEventListener('DOMContentLoaded', async () => {
+            updateLoading(10, 'Loading engine...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(25, 'Initializing renderer...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(40, 'Setting up camera...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(55, 'Loading map data...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(70, 'Spawning objects...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(85, 'Initializing filing system...');
+            
+            await new Promise(r => setTimeout(r, 100));
+            updateLoading(95, 'Starting lakehouse...');
+            
+            const success = await Lakehouse.init();
+            
+            if (success) {
+                updateLoading(100, 'Ready!');
+                setTimeout(() => {
+                    document.getElementById('loading-screen').style.display = 'none';
+                }, 500);
+            } else {
+                updateLoading(0, 'Error: WebGL 2.0 not supported');
+                document.getElementById('loading-tips').innerHTML = 
+                    '<span style="color:#ff4444;">Your browser does not support WebGL 2.0.<br>' +
+                    'Please use a modern browser (Chrome, Firefox, Edge).</span>';
+            }
+            
+            updateFps();
+        });
+    </script>
 </body>
 </html>
