@@ -29,67 +29,88 @@ const Lakehouse = {
         this.touch = window.TouchControls;
         this.objects = [];
 
-        // Init renderer
-        const rendererReady = await this.renderer.init('gameCanvas');
-        if (!rendererReady) {
-            console.error('[Lakehouse] Renderer failed to initialize');
+        try {
+            // Init renderer
+            console.log('[Lakehouse] Step 1: Renderer...');
+            const rendererReady = await this.renderer.init('gameCanvas');
+            if (!rendererReady) {
+                console.error('[Lakehouse] Renderer failed to initialize');
+                return false;
+            }
+
+            // Init camera
+            console.log('[Lakehouse] Step 2: Camera...');
+            this.camera.init(this.renderer.canvas);
+
+            // Init physics
+            console.log('[Lakehouse] Step 3: Physics...');
+            this.physics.init();
+
+            // Init HUD
+            console.log('[Lakehouse] Step 4: HUD...');
+            this.hud.init();
+
+            // Init touch controls
+            console.log('[Lakehouse] Step 5: Touch controls...');
+            this.touch.init(this.renderer.canvas, this.camera);
+            if (this.touch.enabled) {
+                this.touch.show();
+            }
+
+            // Init object system
+            console.log('[Lakehouse] Step 6: Object system...');
+            if (window.ObjectSystem) {
+                await window.ObjectSystem.init();
+            }
+
+            // Init filing system
+            console.log('[Lakehouse] Step 7: Filing system...');
+            await this.filing.init();
+
+            // Load map
+            console.log('[Lakehouse] Step 8: Loading map...');
+            const mapData = await this.map.loadMap('lakehouse');
+            if (!mapData) {
+                console.error('[Lakehouse] Failed to load map');
+                return false;
+            }
+            
+            // Build renderable geometry from rooms
+            console.log('[Lakehouse] Step 9: Building geometry...');
+            this.renderer.buildAllRooms(mapData);
+            
+            // Add default lights
+            this.renderer.addLight([0, 5, 0], [1, 0.95, 0.8], 3.0);
+            this.renderer.addLight([5, 2, 5], [1, 0.7, 0.4], 1.5);
+            this.renderer.addLight([-3, 2, -3], [0.6, 0.7, 1], 1.0);
+
+            // Build environment (physics walls + objects)
+            console.log('[Lakehouse] Step 10: Building environment...');
+            this.buildEnvironment(mapData);
+
+            // Set spawn
+            const spawn = this.map.getSpawn();
+            this.camera.setPosition(spawn[0], spawn[1], spawn[2]);
+
+            // Set current room
+            this.currentRoom = this.map.getRoom('living_room');
+
+            // Bind interaction key
+            this.bindInteractionKey();
+
+            // Start loop
+            this.isRunning = true;
+            this.lastTime = performance.now();
+            this.loop(this.lastTime);
+
+            console.log('🏠 Mind Palace Lakehouse ready');
+            this.hud.showNotification('Welcome to the Lakehouse', 2000);
+            return true;
+        } catch (e) {
+            console.error('[Lakehouse] Init error:', e);
+            console.error(e.stack);
             return false;
         }
-
-        // Init camera
-        this.camera.init(this.renderer.canvas);
-
-        // Init physics
-        this.physics.init();
-
-        // Init HUD
-        this.hud.init();
-
-        // Init touch controls
-        this.touch.init(this.renderer.canvas, this.camera);
-        if (this.touch.enabled) {
-            this.touch.show();
-        }
-
-        // Init filing system
-        await this.filing.init();
-
-        // Load map
-        const mapData = await this.map.loadMap('lakehouse');
-        if (!mapData) {
-            console.error('[Lakehouse] Failed to load map');
-            return false;
-        }
-        
-        // Build renderable geometry from rooms
-        this.renderer.buildAllRooms(mapData);
-        
-        // Add default lights
-        this.renderer.addLight([0, 5, 0], [1, 0.95, 0.8], 3.0);  // Main overhead
-        this.renderer.addLight([5, 2, 5], [1, 0.7, 0.4], 1.5);    // Warm accent
-        this.renderer.addLight([-3, 2, -3], [0.6, 0.7, 1], 1.0);  // Cool accent
-
-        // Build environment (physics walls + objects)
-        this.buildEnvironment(mapData);
-
-        // Set spawn
-        const spawn = this.map.getSpawn();
-        this.camera.setPosition(spawn[0], spawn[1], spawn[2]);
-
-        // Set current room
-        this.currentRoom = this.map.getRoom('living_room');
-
-        // Bind interaction key
-        this.bindInteractionKey();
-
-        // Start loop
-        this.isRunning = true;
-        this.lastTime = performance.now();
-        this.loop(this.lastTime);
-
-        console.log('🏠 Mind Palace Lakehouse ready');
-        this.hud.showNotification('Welcome to the Lakehouse', 2000);
-        return true;
     },
 
     buildEnvironment(mapData) {
@@ -111,40 +132,50 @@ const Lakehouse = {
             );
 
             // Spawn default objects
-            if (template.objects) {
+            if (template.objects && window.ObjectSystem) {
                 for (const objDefId of template.objects) {
-                    const def = window.ObjectSystem.getObjectDef(objDefId);
-                    if (def) {
-                        const offset = [
-                            (Math.random() - 0.5) * (size[0] * 0.6),
-                            0,
-                            (Math.random() - 0.5) * (size[2] * 0.6)
-                        ];
-                        const instance = window.ObjectSystem.createInstance(
-                            objDefId,
-                            [pos[0] + offset[0], 0, pos[2] + offset[2]],
-                            Math.random() * Math.PI * 2
-                        );
-                        if (instance) {
-                            this.objects.push(instance);
-                            this.physics.addObject(instance);
+                    try {
+                        const def = window.ObjectSystem.getObjectDef(objDefId);
+                        if (def) {
+                            const offset = [
+                                (Math.random() - 0.5) * (size[0] * 0.6),
+                                0,
+                                (Math.random() - 0.5) * (size[2] * 0.6)
+                            ];
+                            const instance = window.ObjectSystem.createInstance(
+                                objDefId,
+                                [pos[0] + offset[0], 0, pos[2] + offset[2]],
+                                Math.random() * Math.PI * 2
+                            );
+                            if (instance) {
+                                this.objects.push(instance);
+                                this.physics.addObject(instance);
+                            }
                         }
+                    } catch (e) {
+                        console.warn(`[Lakehouse] Could not spawn ${objDefId}:`, e);
                     }
                 }
             }
         }
 
         // Spawn filing cabinets
-        for (const cabinet of this.filing.getCabinets()) {
-            const instance = window.ObjectSystem.createInstance(
-                'file_cabinet',
-                cabinet.position,
-                0,
-                { cabinetId: cabinet.id }
-            );
-            if (instance) {
-                this.objects.push(instance);
-                this.physics.addObject(instance);
+        if (this.filing && this.filing.getCabinets) {
+            for (const cabinet of this.filing.getCabinets()) {
+                try {
+                    const instance = window.ObjectSystem.createInstance(
+                        'file_cabinet',
+                        cabinet.position,
+                        0,
+                        { cabinetId: cabinet.id }
+                    );
+                    if (instance) {
+                        this.objects.push(instance);
+                        this.physics.addObject(instance);
+                    }
+                } catch (e) {
+                    console.warn(`[Lakehouse] Could not spawn cabinet ${cabinet.id}:`, e);
+                }
             }
         }
 
@@ -160,13 +191,13 @@ const Lakehouse = {
                 this.pushObject();
             }
             if (e.key === 'q' || e.key === 'Q') {
-                if (window.ObjectSystem.placementMode) {
+                if (window.ObjectSystem && window.ObjectSystem.placementMode) {
                     window.ObjectSystem.cancelPlacement();
                     this.hud.showNotification('Placement cancelled');
                 }
             }
             if (e.key === 'Escape') {
-                if (window.ObjectSystem.placementMode) {
+                if (window.ObjectSystem && window.ObjectSystem.placementMode) {
                     window.ObjectSystem.cancelPlacement();
                 }
             }
@@ -205,7 +236,7 @@ const Lakehouse = {
                         break;
                     case 'read':
                     case 'inspect':
-                        if (obj.state.cabinetId) {
+                        if (obj.state && obj.state.cabinetId) {
                             this.openCabinet(obj.state.cabinetId);
                         } else {
                             this.hud.showNotification(`Inspecting ${obj.defId}`);
@@ -353,7 +384,7 @@ const Lakehouse = {
         const origin = this.camera.getPosition();
         const hit = this.physics.raycast(origin, forward, 2.5);
         
-        if (hit && hit.object && hit.object.interactions.includes('push')) {
+        if (hit && hit.object && hit.object.interactions && hit.object.interactions.includes('push')) {
             window.ObjectSystem.pushObject(hit.object, forward, 5);
             this.hud.showNotification('Pushed');
         }
