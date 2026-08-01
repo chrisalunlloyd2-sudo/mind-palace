@@ -1,0 +1,365 @@
+{
+  "generated": "deterministic",
+  "rooms": [
+    {
+      "name": "SIMS1337",
+      "path": "/projects/SIMS1337",
+      "type": "project",
+      "hex": "2,0",
+      "description": "autonomous code mining, quorum voting, LoRA tuning",
+      "position": {
+        "x": 8.0,
+        "z": 0.0
+      },
+      "color": "#00c853",
+      "bookshelf": {
+        "folders": [
+          {
+            "name": "Tasks",
+            "type": "folder",
+            "files": [
+              "Quorum Voting",
+              "Code Mining",
+              "LoRA Tuning"
+            ]
+          }
+        ],
+        "surfaceFiles": [
+          {
+            "name": "README.md",
+            "content": "# SIMS1337\n\nautonomous code mining, quorum voting, LoRA tuning"
+          }
+        ]
+      }
+    },
+    {
+      "name": "MatrixWinCE",
+      "path": "/projects/MatrixWinCE",
+      "type": "project",
+      "hex": "3,0",
+      "description": "wince desktop, GGUF bridge, crew audio loop",
+      "position": {
+        "x": 12.0,
+        "z": 0.0
+      },
+      "color": "#00c853",
+      "bookshelf": {
+        "folders": [
+          {
+            "name": "Tasks",
+            "type": "folder",
+            "files": [
+              "GGUF Server",
+              "Audio Loop",
+              "Full Build"
+            ]
+          }
+        ],
+        "surfaceFiles": [
+          {
+            "name": "README.md",
+            "content": "# MatrixWinCE\n\nwince desktop, GGUF bridge, crew audio loop"
+          }
+        ]
+      }
+    },
+    {
+      "name": "API Orchestrator",
+      "path": "/projects/api-orchestrator",
+      "type": "project",
+      "hex": "-2,1",
+      "description": "markov chain decisions, free-api escalation",
+      "position": {
+        "x": -8.0,
+        "z": 4.0
+      },
+      "color": "#00c853",
+      "bookshelf": {
+        "folders": [
+          {
+            "name": "Tasks",
+            "type": "folder",
+            "files": [
+              "Markov Chain",
+              "Escalation"
+            ]
+          }
+        ],
+        "surfaceFiles": [
+          {
+            "name": "README.md",
+            "content": "# API Orchestrator\n\nmarkov chain decisions, free-api escalation"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Brute Foundry",
+      "path": "/projects/brute-foundry",
+      "type": "project",
+      "hex": "2,-1",
+      "description": "combinatorial code optimization matrix",
+      "position": {
+        "x": 8.0,
+        "z": -4.0
+      },
+      "color": "#00c853",
+      "bookshelf": {
+        "folders": [
+          {
+            "name": "Tasks",
+            "type": "folder",
+            "files": [
+              "Mining",
+              "Gating"
+            ]
+          }
+        ],
+        "surfaceFiles": [
+          {
+            "name": "README.md",
+            "content": "# Brute Foundry\n\ncombinatorial code optimization matrix"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mind Palace",
+      "path": "/projects/mind-palace",
+      "type": "project",
+      "hex": "1,0",
+      "description": "3D/4D lakehouse, one world model",
+      "position": {
+        "x": 4.0,
+        "z": 0.0
+      },
+      "color": "#00c853",
+      "bookshelf": {
+        "folders": [
+          {
+            "name": "Tasks",
+            "type": "folder",
+            "files": [
+              "World Bridge",
+              "4D Viewer"
+            ]
+          }
+        ],
+        "surfaceFiles": [
+          {
+            "name": "README.md",
+            "content": "# Mind Palace\n\n3D/4D lakehouse, one world model"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Karoo GP",
+      "path": "/projects/karoo_gp",
+      "type": "project",
+      "hex": "-1,0",
+      "description": "symbolic regression, code mining",
+      "position": {
+        "x": -4.0,
+        "z": 0.0
+      },
+      "color": "#00c853",
+      "bookshelf": {
+        "folders": [
+          {
+            "name": "Tasks",
+            "type": "folder",
+            "files": [
+              "Symbolic Miner"
+            ]
+          }
+        ],
+        "surfaceFiles": [
+          {
+            "name": "README.md",
+            "content": "# Karoo GP\n\nsymbolic regression, code mining"
+          }
+        ]
+      }
+    }
+  ],
+  "desktop": {
+    "Agents": [
+      {
+        "name": "Aegis",
+        "path": "/agents/aegis",
+        "hex": "0,0",
+        "kind": "file",
+        "content": "system conscience, salience gate"
+      },
+      {
+        "name": "Nyx",
+        "path": "/agents/nyx",
+        "hex": "-2,1",
+        "kind": "file",
+        "content": "governor, safety gate"
+      },
+      {
+        "name": "Hero Kernel",
+        "path": "/agents/hero",
+        "hex": "2,0",
+        "kind": "file",
+        "content": "training kernel, attention engine"
+      },
+      {
+        "name": "Qwen",
+        "path": "/agents/qwen",
+        "hex": "3,0",
+        "kind": "file",
+        "content": "device-side build driver"
+      }
+    ],
+    "Projects": [
+      {
+        "name": "SIMS1337",
+        "path": "/projects/SIMS1337",
+        "hex": "2,0",
+        "kind": "folder"
+      },
+      {
+        "name": "MatrixWinCE",
+        "path": "/projects/MatrixWinCE",
+        "hex": "3,0",
+        "kind": "folder"
+      },
+      {
+        "name": "API Orchestrator",
+        "path": "/projects/api-orchestrator",
+        "hex": "-2,1",
+        "kind": "folder"
+      },
+      {
+        "name": "Brute Foundry",
+        "path": "/projects/brute-foundry",
+        "hex": "2,-1",
+        "kind": "folder"
+      },
+      {
+        "name": "Mind Palace",
+        "path": "/projects/mind-palace",
+        "hex": "1,0",
+        "kind": "folder"
+      },
+      {
+        "name": "Karoo GP",
+        "path": "/projects/karoo_gp",
+        "hex": "-1,0",
+        "kind": "folder"
+      }
+    ],
+    "Tasks": [
+      {
+        "name": "Quorum Voting",
+        "path": "/projects/SIMS1337/quorum-voting",
+        "hex": "2,1",
+        "kind": "file",
+        "content": "weighted quorum on model votes"
+      },
+      {
+        "name": "Code Mining",
+        "path": "/projects/SIMS1337/code-mining",
+        "hex": "2,1",
+        "kind": "file",
+        "content": "git diff suggestions"
+      },
+      {
+        "name": "LoRA Tuning",
+        "path": "/projects/SIMS1337/lora-tuning",
+        "hex": "2,1",
+        "kind": "file",
+        "content": "hessian policy, EWC gate"
+      },
+      {
+        "name": "GGUF Server",
+        "path": "/projects/MatrixWinCE/gguf-server",
+        "hex": "3,1",
+        "kind": "file",
+        "content": "strict :5000, no-placeholder"
+      },
+      {
+        "name": "Audio Loop",
+        "path": "/projects/MatrixWinCE/audio-loop",
+        "hex": "3,1",
+        "kind": "file",
+        "content": "performative steer, tts"
+      },
+      {
+        "name": "Full Build",
+        "path": "/projects/MatrixWinCE/full-build",
+        "hex": "3,1",
+        "kind": "file",
+        "content": "setup_deps -> full_build -> Downloads"
+      },
+      {
+        "name": "Markov Chain",
+        "path": "/projects/api-orchestrator/markov-chain",
+        "hex": "-2,2",
+        "kind": "file",
+        "content": "verified claim chain in SQLite"
+      },
+      {
+        "name": "Escalation",
+        "path": "/projects/api-orchestrator/escalation",
+        "hex": "-2,2",
+        "kind": "file",
+        "content": "weak-consensus, cloud deferred"
+      },
+      {
+        "name": "Mining",
+        "path": "/projects/brute-foundry/mining",
+        "hex": "2,-2",
+        "kind": "file",
+        "content": "4-axis permutation generation"
+      },
+      {
+        "name": "Gating",
+        "path": "/projects/brute-foundry/gating",
+        "hex": "2,-2",
+        "kind": "file",
+        "content": "nyx safety gate, performative tester"
+      },
+      {
+        "name": "World Bridge",
+        "path": "/projects/mind-palace/world-bridge",
+        "hex": "1,1",
+        "kind": "file",
+        "content": "toc_tok -> rooms + desktop"
+      },
+      {
+        "name": "4D Viewer",
+        "path": "/projects/mind-palace/4d-viewer",
+        "hex": "1,1",
+        "kind": "file",
+        "content": "hex-anchored room layout"
+      },
+      {
+        "name": "Symbolic Miner",
+        "path": "/projects/karoo_gp/symbolic-miner",
+        "hex": "-1,1",
+        "kind": "file",
+        "content": "karoo as code miner"
+      }
+    ],
+    "Memory": [
+      {
+        "name": "Projects",
+        "path": "/projects",
+        "hex": "0,1",
+        "kind": "file",
+        "content": ""
+      },
+      {
+        "name": "Agents",
+        "path": "/agents",
+        "hex": "0,-1",
+        "kind": "file",
+        "content": ""
+      }
+    ]
+  }
+}

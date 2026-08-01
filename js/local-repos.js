@@ -13,6 +13,7 @@ class LocalRepoBrowser {
 
     // Fetch public repos from GitHub API (no auth needed for public repos)
     async fetchRepos() {
+        const haveWorld = await this.loadWorldModel();
         try {
             const response = await fetch(`https://api.github.com/users/${this.username}/repos?per_page=100&sort=updated`);
             if (!response.ok) throw new Error('GitHub API failed');
@@ -30,7 +31,8 @@ class LocalRepoBrowser {
             }));
             
             console.log(`📚 Loaded ${this.repos.length} repos from GitHub`);
-            this.generateRooms();
+            // GitHub gap-fills repos NOT already in the world model (no dupes)
+            this.generateRooms(haveWorld);
             return this.repos;
         } catch (error) {
             console.warn('⚠️ GitHub API failed, using fallback repos:', error);
@@ -52,9 +54,41 @@ class LocalRepoBrowser {
     }
 
     // Generate room config for each repo
-    generateRooms() {
-        this.rooms = {};
+    // One-world-model: prefer data/world.json (Mind Palace <-> VD aligned).
+    // Deterministic hex-anchored layout; GitHub API is only a gap-filler.
+    async loadWorldModel() {
+        try {
+            const resp = await fetch('data/world.json');
+            if (!resp.ok) throw new Error('world.json not found');
+            const world = await resp.json();
+            (world.rooms || []).forEach((room, i) => {
+                const pos = room.position || { x: (i % 10) * 4, z: -Math.floor(i / 10) * 4 };
+                this.rooms[room.name] = {
+                    name: room.name,
+                    description: room.description || 'Room',
+                    wing: pos.x < 0 ? 'west' : 'south',
+                    doorPosition: { x: pos.x, z: pos.z },
+                    color: room.color || '#00c853',
+                    bookshelf: room.bookshelf || this.generateBookshelf({
+                        name: room.name, description: room.description
+                    }),
+                    fromWorld: true
+                };
+            });
+            console.log(`🌍 World model: ${world.rooms.length} rooms (hex-anchored)`);
+            return true;
+        } catch (e) {
+            console.warn('⚠️ world.json unavailable, falling back to GitHub:', e.message);
+            return false;
+        }
+    }
+
+    generateRooms(keepExisting = false) {
+        if (!keepExisting) this.rooms = {};
+        let added = 0;
         this.repos.forEach((repo, index) => {
+            if (this.rooms[repo.name]) return; // world model already owns it
+            added++;
             const wing = this.getWingForRepo(repo);
             const position = this.getPositionForIndex(index, wing);
             
@@ -67,7 +101,7 @@ class LocalRepoBrowser {
                 bookshelf: this.generateBookshelf(repo)
             };
         });
-        console.log('🏛️ Generated rooms:', Object.keys(this.rooms).length);
+        console.log('🏛️ Generated rooms:', Object.keys(this.rooms).length, added > 0 ? `(+${added} GitHub)` : '(world model only)');
     }
 
     getWingForRepo(repo) {

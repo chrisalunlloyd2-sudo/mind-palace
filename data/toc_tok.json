@@ -1,0 +1,70 @@
+{
+  "root": {
+    "path": "/", "title": "Mind Palace World", "type": "root", "hex": "0,0",
+    "children": {
+      "projects": {
+        "path": "/projects", "title": "Projects", "type": "folder", "hex": "0,1",
+        "children": {
+          "SIMS1337": {
+            "path": "/projects/SIMS1337", "title": "SIMS1337", "type": "project",
+            "hex": "2,0", "content": "autonomous code mining, quorum voting, LoRA tuning",
+            "children": {
+              "quorum-voting": {"path": "/projects/SIMS1337/quorum-voting", "title": "Quorum Voting", "type": "task", "hex": "2,1", "content": "weighted quorum on model votes"},
+              "code-mining": {"path": "/projects/SIMS1337/code-mining", "title": "Code Mining", "type": "task", "hex": "2,1", "content": "git diff suggestions"},
+              "lora-tuning": {"path": "/projects/SIMS1337/lora-tuning", "title": "LoRA Tuning", "type": "task", "hex": "2,1", "content": "hessian policy, EWC gate"}
+            }
+          },
+          "MatrixWinCE": {
+            "path": "/projects/MatrixWinCE", "title": "MatrixWinCE", "type": "project",
+            "hex": "3,0", "content": "wince desktop, GGUF bridge, crew audio loop",
+            "children": {
+              "gguf-server": {"path": "/projects/MatrixWinCE/gguf-server", "title": "GGUF Server", "type": "task", "hex": "3,1", "content": "strict :5000, no-placeholder"},
+              "audio-loop": {"path": "/projects/MatrixWinCE/audio-loop", "title": "Audio Loop", "type": "task", "hex": "3,1", "content": "performative steer, tts"},
+              "full-build": {"path": "/projects/MatrixWinCE/full-build", "title": "Full Build", "type": "task", "hex": "3,1", "content": "setup_deps -> full_build -> Downloads"}
+            }
+          },
+          "api-orchestrator": {
+            "path": "/projects/api-orchestrator", "title": "API Orchestrator", "type": "project",
+            "hex": "-2,1", "content": "markov chain decisions, free-api escalation",
+            "children": {
+              "markov-chain": {"path": "/projects/api-orchestrator/markov-chain", "title": "Markov Chain", "type": "task", "hex": "-2,2", "content": "verified claim chain in SQLite"},
+              "escalation": {"path": "/projects/api-orchestrator/escalation", "title": "Escalation", "type": "task", "hex": "-2,2", "content": "weak-consensus, cloud deferred"}
+            }
+          },
+          "brute-foundry": {
+            "path": "/projects/brute-foundry", "title": "Brute Foundry", "type": "project",
+            "hex": "2,-1", "content": "combinatorial code optimization matrix",
+            "children": {
+              "mining": {"path": "/projects/brute-foundry/mining", "title": "Mining", "type": "task", "hex": "2,-2", "content": "4-axis permutation generation"},
+              "gating": {"path": "/projects/brute-foundry/gating", "title": "Gating", "type": "task", "hex": "2,-2", "content": "nyx safety gate, performative tester"}
+            }
+          },
+          "mind-palace": {
+            "path": "/projects/mind-palace", "title": "Mind Palace", "type": "project",
+            "hex": "1,0", "content": "3D/4D lakehouse, one world model",
+            "children": {
+              "world-bridge": {"path": "/projects/mind-palace/world-bridge", "title": "World Bridge", "type": "task", "hex": "1,1", "content": "toc_tok -> rooms + desktop"},
+              "4d-viewer": {"path": "/projects/mind-palace/4d-viewer", "title": "4D Viewer", "type": "task", "hex": "1,1", "content": "hex-anchored room layout"}
+            }
+          },
+          "karoo_gp": {
+            "path": "/projects/karoo_gp", "title": "Karoo GP", "type": "project",
+            "hex": "-1,0", "content": "symbolic regression, code mining",
+            "children": {
+              "symbolic-miner": {"path": "/projects/karoo_gp/symbolic-miner", "title": "Symbolic Miner", "type": "task", "hex": "-1,1", "content": "karoo as code miner"}
+            }
+          }
+        }
+      },
+      "agents": {
+        "path": "/agents", "title": "Agents", "type": "folder", "hex": "0,-1",
+        "children": {
+          "aegis": {"path": "/agents/aegis", "title": "Aegis", "type": "agent", "hex": "0,0", "content": "system conscience, salience gate"},
+          "nyx": {"path": "/agents/nyx", "title": "Nyx", "type": "agent", "hex": "-2,1", "content": "governor, safety gate"},
+          "hero": {"path": "/agents/hero", "title": "Hero Kernel", "type": "agent", "hex": "2,0", "content": "training kernel, attention engine"},
+          "qwen": {"path": "/agents/qwen", "title": "Qwen", "type": "agent", "hex": "3,0", "content": "device-side build driver"}
+        }
+      }
+    }
+  }
+}
