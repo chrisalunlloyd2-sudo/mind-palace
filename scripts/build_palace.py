@@ -44,6 +44,8 @@ def main():
     with open("viewer/data/palace.json") as f:
         data = json.load(f)
 
+    owner = data.get("owner", "chrisalunlloyd2-sudo")
+
     rooms = []
     edges = []
 
@@ -75,24 +77,36 @@ def main():
     # Repo rooms organized by wing
     wing_counts = {'west': 0, 'east': 0, 'north': 0, 'south': 0}
     
-    # Extract repo nodes from existing palace
-    repo_nodes = [n for n in data['nodes'] if n['type'] == 'repo_room']
-    
-    for i, repo in enumerate(repo_nodes):
-        category, wing = categorize_repo(repo['label'])
-        
+    # Normalize repo list. fetch_repos.py writes {"owner", "repos":[{name,...}]},
+    # but legacy builds wrote {"nodes":[{type:"repo_room", label, payload}]}.
+    if isinstance(data.get("repos"), list):
+        repo_entries = data["repos"]
+    elif isinstance(data.get("nodes"), list):
+        repo_entries = [
+            {"name": n.get("label", "unknown"), **n.get("payload", {})}
+            for n in data["nodes"]
+            if isinstance(n, dict) and n.get("type") == "repo_room"
+        ]
+    else:
+        repo_entries = []
+
+    for i, repo in enumerate(repo_entries):
+        repo_name = (repo.get("name") or repo.get("label") or "unknown").strip()
+        category, wing = categorize_repo(repo_name)
+
         # Fetch files/folders from GitHub
-        owner = repo['payload'].get('owner', 'chrisalunlloyd2-sudo')
-        repo_name = repo['payload'].get('name', repo['label'])
-        files, folders = get_repo_contents(owner, repo_name)
-        
-        rid = f"repo:{repo['label']}"
+        repo_owner = repo.get("owner", owner)
+        files, folders = get_repo_contents(repo_owner, repo_name)
+
+        rid = f"repo:{repo_name}"
         rooms.append({
             "id": rid,
             "type": "repo_room",
-            "label": repo["label"],
+            "label": repo_name,
             "payload": {
-                **repo['payload'],
+                **repo,
+                "name": repo_name,
+                "owner": repo_owner,
                 "category": category,
                 "wing": wing,
                 "files": files,
@@ -101,9 +115,9 @@ def main():
         })
         edges.append({"source": wings[wing]['id'], "target": rid, "type": "door", "weight": 1})
         wing_counts[wing] += 1
-        
+
         if (i + 1) % 10 == 0:
-            print(f"  Processed {i+1}/{len(repo_nodes)} repos...")
+            print(f"  Processed {i+1}/{len(repo_entries)} repos...")
 
     # Basement (locked)
     rooms.append({
