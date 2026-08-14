@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-20T23:50:16.689014+00:00",
+  "generated_at": "2026-08-14T12:14:58.347149+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,9 +51,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-07-20",
+        "updated": "2026-08-14",
         "created": "2026-07-14",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Core Systems",
         "wing": "west",
         "files": [
@@ -82,6 +83,7 @@
         "updated": "2026-05-25",
         "created": "2026-04-17",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Core Systems",
         "wing": "west",
         "files": [
@@ -105,9 +107,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Aegis_Agents",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-27",
+        "updated": "2026-08-13",
         "created": "2026-04-17",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Core Systems",
         "wing": "west",
         "files": [
@@ -128,7 +131,9 @@
           "QUICK_START.md",
           "README.md",
           "READY_TO_USE.md",
+          "ROADMAP.md",
           "SYSTEM_STATUS.md",
+          "TASKS.md",
           "TOOL_CALLING_GUIDE.md",
           "VIPER_PERSONAL_PROMPT.txt",
           "advanced_analytics.py",
@@ -166,6 +171,39 @@
       }
     },
     {
+      "id": "repo:batch_termux",
+      "type": "repo_room",
+      "label": "batch_termux",
+      "payload": {
+        "name": "batch_termux",
+        "description": "Persistent batch terminal for Termux \u2014 Rust native core with psutil monitoring, regex hooks, error recursion feedback, and resource pressure pacing. Forks nova-terminal, bridges sims1337 + matrixwince.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/batch_termux",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-08-01",
+        "created": "2026-07-29",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "Cargo.toml",
+          "README.md"
+        ],
+        "folders": [
+          "hooks",
+          "matrixwince-bridge",
+          "python-cascade",
+          "rust-core",
+          "scripts",
+          "sims1337-bridge",
+          "src",
+          "termux-hooks",
+          "tests"
+        ]
+      }
+    },
+    {
       "id": "repo:DARWIN_GRID_DEPLOY",
       "type": "repo_room",
       "label": "DARWIN_GRID_DEPLOY",
@@ -178,6 +216,7 @@
         "updated": "2026-05-12",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -206,6 +245,7 @@
         "updated": "2026-05-25",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
@@ -236,6 +276,7 @@
         "updated": "2026-05-25",
         "created": "2026-05-13",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
@@ -263,6 +304,7 @@
         "updated": "2026-05-25",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -293,6 +335,7 @@
         "updated": "2026-05-25",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -309,6 +352,30 @@
       }
     },
     {
+      "id": "repo:fleet-repo-scanner",
+      "type": "repo_room",
+      "label": "fleet-repo-scanner",
+      "payload": {
+        "name": "fleet-repo-scanner",
+        "description": "Paced fleet repo scanner with rollback + never-try-twice memory. Pure stdlib, ADD-only doctrine gate, snapshot-rollback, never repeats a failing operation.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/fleet-repo-scanner",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-08-10",
+        "created": "2026-08-10",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "never_try_twice.py",
+          "repo_scanner.py"
+        ],
+        "folders": []
+      }
+    },
+    {
       "id": "repo:frontier-ai-dlc",
       "type": "repo_room",
       "label": "frontier-ai-dlc",
@@ -317,10 +384,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/frontier-ai-dlc",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-12",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-07-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -343,16 +411,19 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Gitautoworks",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-20",
+        "updated": "2026-08-13",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
           "Blueprint.md",
           "CHANGELOG.md",
           "PROJECT_LOG.md",
-          "README.md"
+          "README.md",
+          "ROADMAP.md",
+          "TASKS.md"
         ],
         "folders": [
           "src",
@@ -369,10 +440,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/H2OIDE",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-05-23",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -441,10 +513,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/H2OMatrixCE",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-05-24",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -520,10 +593,11 @@
         "description": "Unified H2O IDE and Matrix GEN8 Ecosystem",
         "url": "https://github.com/chrisalunlloyd2-sudo/H2O_MATRIX",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-08-13",
         "created": "2026-05-23",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -542,10 +616,12 @@
           "PROTOCOL_AUTOPSY.md",
           "README.md",
           "RESTORE_POINT.md",
+          "ROADMAP.md",
           "SCIENTIFIC_LOG.md",
           "SINGULARITY_LOG.md",
           "SINGULARITY_ROADMAP.md",
           "SPRITE_NET_MANIFEST.md",
+          "TASKS.md",
           "bootstrap_L1.sh",
           "clide.sh",
           "genetic_optimizer.py",
@@ -567,6 +643,37 @@
       }
     },
     {
+      "id": "repo:house-inference",
+      "type": "repo_room",
+      "label": "house-inference",
+      "payload": {
+        "name": "house-inference",
+        "description": "Termux/cellular house GGUF inference \u2014 super-hardened server, model manifest (danube/triton/tinystories), quantization, APK model hook. Main ops pattern.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/house-inference",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-08-02",
+        "created": "2026-08-02",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "MODELS.md",
+          "README.md",
+          "download_models.sh",
+          "find_models.sh",
+          "gguf_server_v2.py",
+          "model_manifest.json",
+          "start_house_server.sh"
+        ],
+        "folders": [
+          "docs",
+          "qwen"
+        ]
+      }
+    },
+    {
       "id": "repo:JRM",
       "type": "repo_room",
       "label": "JRM",
@@ -579,6 +686,7 @@
         "updated": "2026-06-28",
         "created": "2026-05-24",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -608,9 +716,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-07-20",
+        "updated": "2026-08-14",
         "created": "2026-07-11",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Experiments",
         "wing": "north",
         "files": [
@@ -620,9 +729,14 @@
           "app.js",
           "ascii_art.js",
           "bridge_state.json",
+          "daily_feature.json",
           "data.json",
           "index.html",
-          "style.css"
+          "models.json",
+          "real-gui.png",
+          "style.css",
+          "swarm-hub.png",
+          "vote_data.json"
         ],
         "folders": [
           "analytics",
@@ -645,6 +759,7 @@
         "updated": "2026-07-13",
         "created": "2026-06-25",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -668,6 +783,32 @@
       }
     },
     {
+      "id": "repo:MasterLogs",
+      "type": "repo_room",
+      "label": "MasterLogs",
+      "payload": {
+        "name": "MasterLogs",
+        "description": "Centralized system logs, dependency trees, runtime errors, debug traces, KV snapshots, keyword lists, LoRA updates \u2014 auto-populated nightly by Aegis dream engine.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-07-26",
+        "created": "2026-07-26",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md"
+        ],
+        "folders": [
+          "gists",
+          "projects",
+          "scripts"
+        ]
+      }
+    },
+    {
       "id": "repo:MatrixCE_GUI",
       "type": "repo_room",
       "label": "MatrixCE_GUI",
@@ -676,10 +817,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/MatrixCE_GUI",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -750,10 +892,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAGENTS",
         "language": "HTML",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Core Systems",
         "wing": "west",
         "files": [
@@ -799,6 +942,7 @@
         "updated": "2026-06-10",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -825,14 +969,18 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEAPPS",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-08-13",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
+          "CHANGELOG.md",
           "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
           "genetic_techno_engine.py",
           "matrix_calculator.py",
           "matrix_calendar.py",
@@ -844,7 +992,8 @@
           "MatrixLocal",
           "QwenConfigApp",
           "VIPER_SCRIPT_LIBRARY",
-          "openrouter_manager"
+          "openrouter_manager",
+          "todo"
         ]
       }
     },
@@ -857,10 +1006,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEBack",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -886,10 +1036,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEKAI9000",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -920,6 +1071,7 @@
         "updated": "2026-06-10",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -948,9 +1100,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/matrix_dash",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-26",
+        "updated": "2026-08-13",
         "created": "2026-05-26",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -958,7 +1111,8 @@
           "CHANGELOG.md",
           "PROJECT_LOG.md",
           "README.md",
-          "ROADMAP.md"
+          "ROADMAP.md",
+          "TASKS.md"
         ],
         "folders": [
           "src"
@@ -978,6 +1132,7 @@
         "updated": "2026-06-14",
         "created": "2026-05-23",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
@@ -1062,20 +1217,61 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-07-20",
+        "updated": "2026-08-14",
         "created": "2026-07-16",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Experiments",
         "wing": "north",
         "files": [
+          "DEPENDENCIES.md",
           "README.md",
+          "click-start-overlay.html",
+          "index-3d.html",
+          "index-4d.html",
+          "index-4d.html.backup",
+          "index-classic.html",
           "index.html",
           "requirements.txt"
         ],
         "folders": [
+          "css",
           "data",
+          "docs",
           "js",
-          "scripts"
+          "maps",
+          "scripts",
+          "src",
+          "viewer"
+        ]
+      }
+    },
+    {
+      "id": "repo:mindpalace",
+      "type": "repo_room",
+      "label": "mindpalace",
+      "payload": {
+        "name": "mindpalace",
+        "description": "3D First-Person GitHub Repository Explorer",
+        "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
+        "language": "Java",
+        "stars": 0,
+        "updated": "2026-08-12",
+        "created": "2026-08-10",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Experiments",
+        "wing": "north",
+        "files": [
+          "LICENSE.txt",
+          "README.md",
+          "ROADMAP.md",
+          "dependency-reduced-pom.xml",
+          "mvnw",
+          "pom.xml"
+        ],
+        "folders": [
+          "src"
         ]
       }
     },
@@ -1089,14 +1285,18 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/moe-kai-skill",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-07-03",
+        "updated": "2026-08-14",
         "created": "2026-06-20",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
+          "CHANGELOG.md",
           "README.md",
-          "SKILL.md"
+          "ROADMAP.md",
+          "SKILL.md",
+          "TASKS.md"
         ],
         "folders": []
       }
@@ -1114,6 +1314,7 @@
         "updated": "2026-05-25",
         "created": "2026-05-13",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
@@ -1139,9 +1340,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/NAS_SHARE",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-05-12",
+        "updated": "2026-08-13",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1151,7 +1353,9 @@
           "Desktop-Worker.js",
           "INSTALL.md",
           "README.md",
+          "ROADMAP.md",
           "Retrieval-Agent.js",
+          "TASKS.md",
           "package.json"
         ],
         "folders": []
@@ -1167,9 +1371,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Nova",
         "language": "HTML",
         "stars": 0,
-        "updated": "2026-06-20",
+        "updated": "2026-08-14",
         "created": "2026-05-11",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Experiments",
         "wing": "north",
         "files": [
@@ -1194,6 +1399,7 @@
           "SYSTEM_BIBLE.md",
           "SystemsGUI.ps1",
           "SystemsGUI_v9.ps1",
+          "TASKS.md",
           "auto_port.py",
           "darwin_cli.py",
           "darwin_cli.spec",
@@ -1230,6 +1436,7 @@
         "updated": "2026-05-25",
         "created": "2026-05-25",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1258,10 +1465,11 @@
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/openrouter_manager",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-15",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-05-25",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1346,20 +1554,28 @@
         "name": "RandomTestProject",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/RandomTestProject",
-        "language": "unknown",
+        "language": "Python",
         "stars": 0,
-        "updated": "2026-05-12",
+        "updated": "2026-08-12",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
+          "CHANGELOG.md",
           "Config_Notes.txt",
           "Database_Schema.txt",
           "Logic_Module.txt",
-          "README.md"
+          "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
+          "main.py",
+          "requirements.txt"
         ],
-        "folders": []
+        "folders": [
+          "tests"
+        ]
       }
     },
     {
@@ -1375,6 +1591,7 @@
         "updated": "2026-06-21",
         "created": "2026-06-21",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1403,9 +1620,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/SimAgentCity",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-09",
+        "updated": "2026-08-12",
         "created": "2026-05-13",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Core Systems",
         "wing": "west",
         "files": [
@@ -1419,7 +1637,9 @@
           "PROJECT_MAP.txt",
           "PULSE_HEARTBEAT.txt",
           "README.md",
+          "ROADMAP.md",
           "RUN_STRESS_TEST.bat",
+          "TASKS.md",
           "THE_GHOST_MACHINE_WHITEPAPER.md",
           "agents_population.json",
           "blockchain_ledger.json",
@@ -1453,6 +1673,92 @@
       }
     },
     {
+      "id": "repo:sims-java-neo-fx",
+      "type": "repo_room",
+      "label": "sims-java-neo-fx",
+      "payload": {
+        "name": "sims-java-neo-fx",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/sims-java-neo-fx",
+        "language": "Java",
+        "stars": 0,
+        "updated": "2026-08-10",
+        "created": "2026-08-06",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "20260513T110512Z_behavioral_testing_lab_report.json",
+          "20260513T110513Z_smoke_testing_lab_report.json",
+          "20260513T110542Z_behavioral_testing_lab_report.json",
+          "20260513T110542Z_epoch_testing_lab_report.json",
+          "20260514T015218Z_benchmark_testing_lab_report.json",
+          "20260514T015218Z_system_testing_lab_report.json",
+          "20260515T015052Z_weekly_docs_report.json",
+          "20260515T015427Z_daily_report.json",
+          "20260515T015540Z_daily_report.json",
+          "20260515T015648Z_daily_report.json",
+          "20260515T015750Z_weekly_docs_report.json",
+          "20260515T015759Z_daily_report.json",
+          "20260515T020032Z_daily_report.json",
+          "AEGIS_MANIFOLD_BLUEPRINT.txt",
+          "AEGIS_UPGRADE_REPORT.txt",
+          "AGENT_APP_DEV_PROTOCOL.md",
+          "AGENT_RESUME_INSTRUCTIONS.md",
+          "AGENT_SPECS.md",
+          "APPROVAL_20260507T013438Z_385080d748_bc2daf355ea9.json",
+          "APPROVAL_20260507T013438Z_baef6edc60_b7b90a5fd038.json",
+          "APPROVAL_20260507T013444Z_c374f31e2b_3702ace7b508.json",
+          "APPROVAL_20260507T013444Z_c81caf88b3_57ab5d3db6ae.json",
+          "APPROVAL_20260507T013444Z_cc11a742ba_d66ce621d696.json",
+          "APPROVAL_20260507T013504Z_385080d748_f88d8776afdf.json",
+          "APPROVAL_20260507T013504Z_baef6edc60_33ee0e9e7b00.json",
+          "APPROVAL_20260507T013616Z_0c2d107f6f_093eb62a55b9.json",
+          "APPROVAL_20260507T013616Z_138dceb08a_b872b2197e6e.json",
+          "APPROVAL_20260507T013616Z_14c694d8f8_a0c473892e45.json",
+          "APPROVAL_20260507T013616Z_1f85614f3c_da4ecee3d16d.json",
+          "APPROVAL_20260507T013616Z_385080d748_edc937436a8d.json",
+          "APPROVAL_20260507T013616Z_397f932180_c0d1edf682db.json",
+          "APPROVAL_20260507T013616Z_42410f4cf5_3ac3a85dd52f.json",
+          "APPROVAL_20260507T013616Z_8474ecbb36_8d71eb2fd8f9.json",
+          "APPROVAL_20260507T013616Z_8b80bcc103_f02ecc3df48a.json",
+          "APPROVAL_20260507T013616Z_8c4569bb07_0d560440ea3c.json",
+          "APPROVAL_20260507T013616Z_98fc025ac7_0a90f7e33606.json",
+          "APPROVAL_20260507T013616Z_a261040c87_95967680d3f5.json",
+          "APPROVAL_20260507T013616Z_aebb7a9ae8_e44e81e551b6.json",
+          "APPROVAL_20260507T013616Z_baef6edc60_459538650320.json",
+          "APPROVAL_20260507T013616Z_c2e51b6a6f_5b73453e2468.json",
+          "APPROVAL_20260507T013616Z_c4c024e25b_ca3dd929fbb9.json",
+          "APPROVAL_20260507T013616Z_f3eec14d6f_f99278b1c5d7.json",
+          "APPROVAL_20260513T035739Z_cc11a742ba_d9aa0b119052.json",
+          "ASCII_MODIFICATION_LEDGER.md",
+          "ASCII_TOPOLOGY_TREES.md",
+          "ASCII_TREE.txt",
+          "BLUEPRINT.md",
+          "BUILD_STANDALONE_APP.ps1",
+          "BVD_ASSIST_SYNC_20260514.md",
+          "CHANGELOG.md"
+        ],
+        "folders": [
+          "assets",
+          "builds",
+          "code_registry",
+          "docs",
+          "game_engine_bridges",
+          "lora",
+          "pipelines",
+          "runbooks",
+          "scripts",
+          "src",
+          "suggestions",
+          "target",
+          "tests",
+          "web"
+        ]
+      }
+    },
+    {
       "id": "repo:sims-javafx-neo",
       "type": "repo_room",
       "label": "sims-javafx-neo",
@@ -1465,6 +1771,7 @@
         "updated": "2026-06-17",
         "created": "2026-05-14",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1486,6 +1793,153 @@
       }
     },
     {
+      "id": "repo:SIMS1337",
+      "type": "repo_room",
+      "label": "SIMS1337",
+      "payload": {
+        "name": "SIMS1337",
+        "description": "Whitepaper: https://github.com/chrisalunlloyd2-sudo/SIMS1337/blob/main/SIMS1337_White_Paper.md",
+        "url": "https://github.com/chrisalunlloyd2-sudo/SIMS1337",
+        "language": "Java",
+        "stars": 0,
+        "updated": "2026-08-10",
+        "created": "2026-07-22",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "BLUEPRINT.md",
+          "CHANGELOG.md",
+          "CHRISSTEPS_QUICK_REF.md",
+          "DEPENDENCIES.md",
+          "HOW_TO_OPEN_GUI.md",
+          "INSTALL_JAVA_MAVEN.bat",
+          "LAUNCH_BOTH.bat",
+          "LAUNCH_GODHAND.bat",
+          "LAUNCH_GUI.ps1",
+          "PHASES.md",
+          "README.md",
+          "RUN_GUI.bat",
+          "RUN_PLAYERGRID.bat",
+          "RUN_PLAYERGRID_FIXED.bat",
+          "SIMS1337_HEADER.png",
+          "SIMS1337_White_Paper.md",
+          "godhand.png",
+          "guardian.bat",
+          "index.html",
+          "mvn-wrapper.bat",
+          "pom.xml",
+          "sims",
+          "sims.bat",
+          "sims.ps1",
+          "whitelist.bat"
+        ],
+        "folders": [
+          "bin",
+          "code_registry",
+          "docs",
+          "logs",
+          "lora",
+          "modelfiles",
+          "reports",
+          "root-scripts",
+          "scripts",
+          "src",
+          "suggestions",
+          "target",
+          "web"
+        ]
+      }
+    },
+    {
+      "id": "repo:SIMS1337-BACKEND",
+      "type": "repo_room",
+      "label": "SIMS1337-BACKEND",
+      "payload": {
+        "name": "SIMS1337-BACKEND",
+        "description": "\u2699\ufe0f GodHand + Player Grid Backend - Servers, Tests, Model Chat",
+        "url": "https://github.com/chrisalunlloyd2-sudo/SIMS1337-BACKEND",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-07-22",
+        "created": "2026-07-22",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [],
+        "folders": []
+      }
+    },
+    {
+      "id": "repo:SIMS1337-SKY",
+      "type": "repo_room",
+      "label": "SIMS1337-SKY",
+      "payload": {
+        "name": "SIMS1337-SKY",
+        "description": "\ud83c\udfd9\ufe0f Player Grid 3D - XYZ City Skyline Assets",
+        "url": "https://github.com/chrisalunlloyd2-sudo/SIMS1337-SKY",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-07-22",
+        "created": "2026-07-22",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [],
+        "folders": []
+      }
+    },
+    {
+      "id": "repo:SIMS1337BACKEND",
+      "type": "repo_room",
+      "label": "SIMS1337BACKEND",
+      "payload": {
+        "name": "SIMS1337BACKEND",
+        "description": "\u2699\ufe0f Backend Services, Tests, CI/CD, Server Orchestration",
+        "url": "https://github.com/chrisalunlloyd2-sudo/SIMS1337BACKEND",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-07-22",
+        "created": "2026-07-22",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md"
+        ],
+        "folders": [
+          "docs"
+        ]
+      }
+    },
+    {
+      "id": "repo:SIMS1337SKY",
+      "type": "repo_room",
+      "label": "SIMS1337SKY",
+      "payload": {
+        "name": "SIMS1337SKY",
+        "description": "\ud83c\udfd9\ufe0f SIMS1337 Skyline - 4D City Assets & Graphics",
+        "url": "https://github.com/chrisalunlloyd2-sudo/SIMS1337SKY",
+        "language": "HTML",
+        "stars": 0,
+        "updated": "2026-07-22",
+        "created": "2026-07-22",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "index.html"
+        ],
+        "folders": []
+      }
+    },
+    {
       "id": "repo:SimsMerged",
       "type": "repo_room",
       "label": "SimsMerged",
@@ -1495,9 +1949,10 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/SimsMerged",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-06-15",
+        "updated": "2026-08-01",
         "created": "2026-05-15",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1568,6 +2023,33 @@
       }
     },
     {
+      "id": "repo:sovereign-analytics",
+      "type": "repo_room",
+      "label": "sovereign-analytics",
+      "payload": {
+        "name": "sovereign-analytics",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/sovereign-analytics",
+        "language": "HTML",
+        "stars": 0,
+        "updated": "2026-08-07",
+        "created": "2026-08-06",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "cloudflare_beacon.py",
+          "index.html",
+          "query_backend.py",
+          "traffic.json",
+          "vote_data.json"
+        ],
+        "folders": []
+      }
+    },
+    {
       "id": "repo:Sprite",
       "type": "repo_room",
       "label": "Sprite",
@@ -1580,6 +2062,7 @@
         "updated": "2026-07-02",
         "created": "2026-06-10",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1605,6 +2088,7 @@
         "updated": "2026-05-27",
         "created": "2026-05-25",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
@@ -1650,6 +2134,7 @@
         "updated": "2026-05-12",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
@@ -1671,6 +2156,7 @@
         "updated": "2026-05-12",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
@@ -1692,6 +2178,7 @@
         "updated": "2026-05-27",
         "created": "2026-05-27",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
@@ -1727,6 +2214,7 @@
         "updated": "2026-06-28",
         "created": "2026-06-28",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [],
@@ -1742,10 +2230,11 @@
         "description": "Quantum Assembly Language Specification and Tooling",
         "url": "https://github.com/chrisalunlloyd2-sudo/wip-quantum-asm",
         "language": "Python",
-        "stars": 0,
-        "updated": "2026-07-12",
+        "stars": 1,
+        "updated": "2026-07-26",
         "created": "2026-07-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
@@ -1766,14 +2255,18 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/WORKER_PACKAGE",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-06-20",
+        "updated": "2026-08-12",
         "created": "2026-05-12",
         "private": false,
+        "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
+          "CHANGELOG.md",
           "README.md",
+          "ROADMAP.md",
           "RUN_WORKER.bat",
+          "TASKS.md",
           "heavy_worker.js",
           "package.json",
           "worker.js"
@@ -1835,6 +2328,12 @@
       "weight": 1
     },
     {
+      "source": "wing:west",
+      "target": "repo:batch_termux",
+      "type": "door",
+      "weight": 1
+    },
+    {
       "source": "wing:east",
       "target": "repo:DARWIN_GRID_DEPLOY",
       "type": "door",
@@ -1861,6 +2360,12 @@
     {
       "source": "wing:west",
       "target": "repo:Flappy_bird_except_python_and",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:fleet-repo-scanner",
       "type": "door",
       "weight": 1
     },
@@ -1896,6 +2401,12 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:house-inference",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:JRM",
       "type": "door",
       "weight": 1
@@ -1909,6 +2420,12 @@
     {
       "source": "wing:west",
       "target": "repo:Machine2",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:MasterLogs",
       "type": "door",
       "weight": 1
     },
@@ -1973,6 +2490,12 @@
       "weight": 1
     },
     {
+      "source": "wing:north",
+      "target": "repo:mindpalace",
+      "type": "door",
+      "weight": 1
+    },
+    {
       "source": "wing:east",
       "target": "repo:moe-kai-skill",
       "type": "door",
@@ -2028,13 +2551,55 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:sims-java-neo-fx",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:sims-javafx-neo",
       "type": "door",
       "weight": 1
     },
     {
       "source": "wing:west",
+      "target": "repo:SIMS1337",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:SIMS1337-BACKEND",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:SIMS1337-SKY",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:SIMS1337BACKEND",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:SIMS1337SKY",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:SimsMerged",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:sovereign-analytics",
       "type": "door",
       "weight": 1
     },
@@ -2095,9 +2660,9 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 21,
+    "west": 32,
     "east": 13,
-    "north": 3,
+    "north": 4,
     "south": 8
   }
 }
