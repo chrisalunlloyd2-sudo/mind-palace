@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T06:42:35.390485+00:00",
+  "generated_at": "2026-08-15T12:43:15.800423+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -2071,14 +2071,17 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Sprite",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-07-02",
+        "updated": "2026-08-15",
         "created": "2026-06-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
+          "CHANGELOG.md",
           "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
           "WEB_UI"
         ],
         "folders": [
