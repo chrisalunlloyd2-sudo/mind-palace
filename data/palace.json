@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T01:24:17.520640+00:00",
+  "generated_at": "2026-08-15T06:42:35.390485+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -213,7 +213,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/DARWIN_GRID_DEPLOY",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-05-12",
+        "updated": "2026-08-15",
         "created": "2026-05-12",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -224,7 +224,9 @@
           "CHANGELOG.md",
           "INSTALL.md",
           "README.md",
+          "ROADMAP.md",
           "RUN_WORKER.bat",
+          "TASKS.md",
           "heavy_worker.js",
           "package.json",
           "worker.js"
@@ -683,7 +685,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/JRM",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-06-28",
+        "updated": "2026-08-15",
         "created": "2026-05-24",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -692,7 +694,10 @@
         "files": [
           "APKBUILD.md",
           "BLUEPRINT.md",
+          "CHANGELOG.md",
           "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
           "TEST_LIST.md",
           "docker-compose.yml",
           "pom.xml"
@@ -792,7 +797,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-14",
+        "updated": "2026-08-15",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -803,6 +808,8 @@
         ],
         "folders": [
           "gists",
+          "keywords",
+          "kv_snapshots",
           "projects",
           "scripts"
         ]
@@ -1007,14 +1014,17 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Matrix_CEBack",
         "language": "Python",
         "stars": 1,
-        "updated": "2026-07-26",
+        "updated": "2026-08-15",
         "created": "2026-06-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
         "category": "AI/ML Foundry",
         "wing": "east",
         "files": [
+          "CHANGELOG.md",
           "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
           "capture_output.sh",
           "git_hygiene.sh",
           "github_sync.py",
@@ -1024,7 +1034,9 @@
           "todo_0002_s__re.findallrTODO_s._msg_body_re.IGNOR.md",
           "todo_0003_s_task_list.appendtype_TODO_content_t..md"
         ],
-        "folders": []
+        "folders": [
+          "todo"
+        ]
       }
     },
     {
@@ -1217,7 +1229,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-14",
+        "updated": "2026-08-15",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1256,7 +1268,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-08-12",
+        "updated": "2026-08-15",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
