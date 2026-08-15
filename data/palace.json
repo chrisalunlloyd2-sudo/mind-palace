@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-14T18:59:08.798260+00:00",
+  "generated_at": "2026-08-15T01:24:17.520640+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-14",
+        "updated": "2026-08-15",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -716,7 +716,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-14",
+        "updated": "2026-08-15",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2153,13 +2153,17 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/TestRepoPush",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-05-12",
+        "updated": "2026-08-14",
         "created": "2026-05-12",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
         "category": "Tests/Archive",
         "wing": "south",
         "files": [
+          "CHANGELOG.md",
+          "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
           "test.txt"
         ],
         "folders": []
