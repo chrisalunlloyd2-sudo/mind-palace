@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T12:45:13.466742+00:00",
+  "generated_at": "2026-08-16T18:33:22.849806+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -107,7 +107,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Aegis_Agents",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-15",
+        "updated": "2026-08-16",
         "created": "2026-04-17",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -126,6 +126,7 @@
           "DIRECTORY_STRUCTURE.txt",
           "Engine.py",
           "GEMINIX_ORCHESTRATOR.py",
+          "LICENSE",
           "MOLTBOOK_STRESS_TEST.py",
           "PROJECT_LOG.md",
           "QUICK_START.md",
@@ -162,8 +163,7 @@
           "logic_cube_solver.py",
           "phone_automation_script.js",
           "scraped_data.txt",
-          "setup_aegis.py",
-          "test_fog_of_war.py"
+          "setup_aegis.py"
         ],
         "folders": [
           "__pycache__",
@@ -212,7 +212,7 @@
         "name": "Chrisalunlloyd2-sudo",
         "description": "Kernel / Aegis profile \u2014 nightly contribution snake + 3D grid",
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
-        "language": "Mermaid",
+        "language": "Python",
         "stars": 0,
         "updated": "2026-08-16",
         "created": "2026-08-16",
@@ -231,6 +231,7 @@
           "docs",
           "fsm",
           "schemas",
+          "scripts",
           "state_snapshot"
         ]
       }
@@ -743,6 +744,33 @@
           "security",
           "tests"
         ]
+      }
+    },
+    {
+      "id": "repo:Kernel_Pedagogy",
+      "type": "repo_room",
+      "label": "Kernel_Pedagogy",
+      "payload": {
+        "name": "Kernel_Pedagogy",
+        "description": "Lessons distilled from Kernel's real code \u2014 DPLL, BMC, N-retry, knee-pruning, fleet gist. Auto-seeded nightly.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Kernel_Pedagogy",
+        "language": "unknown",
+        "stars": 0,
+        "updated": "2026-08-16",
+        "created": "2026-08-16",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "bmc_frame.md",
+          "dpll_sat.md",
+          "fleet_gist.md",
+          "knee_prune.md",
+          "n_retry.md"
+        ],
+        "folders": []
       }
     },
     {
@@ -2471,6 +2499,12 @@
       "weight": 1
     },
     {
+      "source": "wing:west",
+      "target": "repo:Kernel_Pedagogy",
+      "type": "door",
+      "weight": 1
+    },
+    {
       "source": "wing:north",
       "target": "repo:living-ascii-art",
       "type": "door",
@@ -2719,7 +2753,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 33,
+    "west": 34,
     "east": 13,
     "north": 4,
     "south": 8
