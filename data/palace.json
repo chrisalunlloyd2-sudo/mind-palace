@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-15T18:33:47.756495+00:00",
+  "generated_at": "2026-08-16T01:35:21.462368+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-15",
+        "updated": "2026-08-16",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -107,7 +107,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Aegis_Agents",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-13",
+        "updated": "2026-08-15",
         "created": "2026-04-17",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -147,6 +147,7 @@
           "dimon_mionet_logic.py",
           "dimon_neural_bridge.py",
           "dimon_operator_engine.py",
+          "fog_of_war.py",
           "gemini_bridge.db",
           "gemini_bridge.db-shm",
           "gemini_bridge.db-wal",
@@ -162,7 +163,7 @@
           "phone_automation_script.js",
           "scraped_data.txt",
           "setup_aegis.py",
-          "timescale_memory.py"
+          "test_fog_of_war.py"
         ],
         "folders": [
           "__pycache__",
@@ -721,7 +722,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-15",
+        "updated": "2026-08-16",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -797,7 +798,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-15",
+        "updated": "2026-08-16",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
