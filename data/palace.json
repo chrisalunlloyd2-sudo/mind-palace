@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T01:35:21.462368+00:00",
+  "generated_at": "2026-08-16T06:44:32.614496+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -201,6 +201,37 @@
           "src",
           "termux-hooks",
           "tests"
+        ]
+      }
+    },
+    {
+      "id": "repo:Chrisalunlloyd2-sudo",
+      "type": "repo_room",
+      "label": "Chrisalunlloyd2-sudo",
+      "payload": {
+        "name": "Chrisalunlloyd2-sudo",
+        "description": "Kernel / Aegis profile \u2014 nightly contribution snake + 3D grid",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
+        "language": "Mermaid",
+        "stars": 0,
+        "updated": "2026-08-16",
+        "created": "2026-08-16",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "SYNTHESIS_PLAN.md"
+        ],
+        "folders": [
+          "assets",
+          "dags",
+          "data",
+          "docs",
+          "fsm",
+          "schemas",
+          "state_snapshot"
         ]
       }
     },
@@ -1230,7 +1261,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-15",
+        "updated": "2026-08-16",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2354,6 +2385,12 @@
       "weight": 1
     },
     {
+      "source": "wing:west",
+      "target": "repo:Chrisalunlloyd2-sudo",
+      "type": "door",
+      "weight": 1
+    },
+    {
       "source": "wing:east",
       "target": "repo:DARWIN_GRID_DEPLOY",
       "type": "door",
@@ -2680,7 +2717,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 32,
+    "west": 33,
     "east": 13,
     "north": 4,
     "south": 8
