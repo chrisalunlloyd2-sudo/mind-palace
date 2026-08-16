@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-16T06:44:32.614496+00:00",
+  "generated_at": "2026-08-16T12:45:13.466742+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -335,7 +335,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/evolved_system",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-05-25",
+        "updated": "2026-08-16",
         "created": "2026-05-12",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -346,6 +346,8 @@
           "CHANGELOG.md",
           "PROJECT_LOG.md",
           "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
           "core_logic.py",
           "logic.py",
           "main.py"
