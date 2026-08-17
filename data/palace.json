@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T07:01:57.938530+00:00",
+  "generated_at": "2026-08-17T12:50:16.872622+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -1338,6 +1338,7 @@
         "category": "Experiments",
         "wing": "north",
         "files": [
+          "BUILD_PLAN.md",
           "LICENSE.txt",
           "README.md",
           "ROADMAP.md",
