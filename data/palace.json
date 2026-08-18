@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-17T18:43:52.591259+00:00",
+  "generated_at": "2026-08-18T01:23:38.576379+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-17",
+        "updated": "2026-08-18",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -215,7 +215,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-17",
+        "updated": "2026-08-18",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -784,7 +784,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-17",
+        "updated": "2026-08-18",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1331,7 +1331,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-08-17",
+        "updated": "2026-08-18",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1340,13 +1340,17 @@
         "files": [
           "BUILD_PLAN.md",
           "LICENSE.txt",
+          "PATCHING.md",
           "README.md",
           "ROADMAP.md",
           "dependency-reduced-pom.xml",
+          "deploy_patch.ps1",
           "mvnw",
           "pom.xml"
         ],
         "folders": [
+          "patches",
+          "scripts",
           "src"
         ]
       }
@@ -1361,7 +1365,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/moe-kai-skill",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-08-14",
+        "updated": "2026-08-17",
         "created": "2026-06-20",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
