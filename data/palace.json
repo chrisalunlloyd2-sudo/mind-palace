@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-20T12:55:25.223351+00:00",
+  "generated_at": "2026-08-20T18:43:50.040934+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -1373,7 +1373,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/moe-kai-skill",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-08-19",
+        "updated": "2026-08-20",
         "created": "2026-06-20",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
