@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T01:23:39.376751+00:00",
+  "generated_at": "2026-08-22T06:45:16.264732+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -827,9 +827,9 @@
         "name": "Machine2",
         "description": "",
         "url": "https://github.com/chrisalunlloyd2-sudo/Machine2",
-        "language": "Python",
+        "language": "Java",
         "stars": 0,
-        "updated": "2026-08-21",
+        "updated": "2026-08-22",
         "created": "2026-06-25",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -850,6 +850,7 @@
           "system_scan_report.kqml"
         ],
         "folders": [
+          "MoeGUI",
           "logs",
           "tests"
         ]
@@ -865,7 +866,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-21",
+        "updated": "2026-08-22",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1297,7 +1298,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-21",
+        "updated": "2026-08-22",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
