@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-22T18:35:03.328851+00:00",
+  "generated_at": "2026-08-23T01:37:44.329554+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-22",
+        "updated": "2026-08-23",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -215,7 +215,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-22",
+        "updated": "2026-08-23",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -453,7 +453,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Gitautoworks",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-20",
+        "updated": "2026-08-22",
         "created": "2026-05-12",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -465,7 +465,8 @@
           "PROJECT_LOG.md",
           "README.md",
           "ROADMAP.md",
-          "TASKS.md"
+          "TASKS.md",
+          "requirements.txt"
         ],
         "folders": [
           "src",
@@ -789,7 +790,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-22",
+        "updated": "2026-08-23",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1903,7 +1904,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/SIMS1337",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-08-10",
+        "updated": "2026-08-22",
         "created": "2026-07-22",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1911,6 +1912,7 @@
         "wing": "west",
         "files": [
           "BLUEPRINT.md",
+          "BUILD_BLOCKER.md",
           "CHANGELOG.md",
           "CHRISSTEPS_QUICK_REF.md",
           "DEPENDENCIES.md",
@@ -1921,11 +1923,13 @@
           "LAUNCH_GUI.ps1",
           "PHASES.md",
           "README.md",
+          "ROADMAP.md",
           "RUN_GUI.bat",
           "RUN_PLAYERGRID.bat",
           "RUN_PLAYERGRID_FIXED.bat",
           "SIMS1337_HEADER.png",
           "SIMS1337_White_Paper.md",
+          "TASKS.md",
           "godhand.png",
           "guardian.bat",
           "index.html",
