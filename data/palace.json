@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T01:35:28.036102+00:00",
+  "generated_at": "2026-08-24T07:04:44.207344+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -169,6 +169,51 @@
           "__pycache__",
           "gemini_extension",
           "tests"
+        ]
+      }
+    },
+    {
+      "id": "repo:avatar-creator",
+      "type": "repo_room",
+      "label": "avatar-creator",
+      "payload": {
+        "name": "avatar-creator",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/avatar-creator",
+        "language": "JavaScript",
+        "stars": 0,
+        "updated": "2026-08-24",
+        "created": "2026-08-24",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "check_browser.js",
+          "debug.png",
+          "debug2.png",
+          "debug3.png",
+          "index.html",
+          "mjpeg_server.js",
+          "package-lock.json",
+          "package.json",
+          "pup-screenshot.png",
+          "pup-screenshot2.png",
+          "pup.js",
+          "streamer.js",
+          "take_screenshot.js",
+          "take_screenshot2.js",
+          "test-scene.js",
+          "test.js",
+          "test_load.js",
+          "test_load_script.js",
+          "vite.config.js"
+        ],
+        "folders": [
+          "dist",
+          "node_modules",
+          "public",
+          "src"
         ]
       }
     },
@@ -867,7 +912,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-23",
+        "updated": "2026-08-24",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1299,7 +1344,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-23",
+        "updated": "2026-08-24",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2442,6 +2487,12 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:avatar-creator",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:batch_termux",
       "type": "door",
       "weight": 1
@@ -2785,7 +2836,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 34,
+    "west": 35,
     "east": 13,
     "north": 4,
     "south": 8
