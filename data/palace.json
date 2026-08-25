@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-24T18:45:09.390168+00:00",
+  "generated_at": "2026-08-25T01:25:28.257467+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -182,7 +182,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/avatar-creator",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-08-24",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -190,6 +190,9 @@
         "wing": "west",
         "files": [
           "README.md",
+          "character_lineage.db",
+          "character_lineage.db-shm",
+          "character_lineage.db-wal",
           "check_browser.js",
           "debug.png",
           "debug2.png",
@@ -211,6 +214,7 @@
           "vite.config.js"
         ],
         "folders": [
+          "backend",
           "dist",
           "node_modules",
           "public",
@@ -261,7 +265,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -836,7 +840,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
