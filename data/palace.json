@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-25T01:25:28.257467+00:00",
+  "generated_at": "2026-08-25T06:53:53.086571+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -216,9 +216,11 @@
         "folders": [
           "backend",
           "dist",
+          "docs",
           "node_modules",
           "public",
-          "src"
+          "src",
+          "tests"
         ]
       }
     },
@@ -880,7 +882,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Machine2",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-06-25",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -917,7 +919,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1349,7 +1351,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1433,7 +1435,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/moe-kai-skill",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-08-24",
+        "updated": "2026-08-25",
         "created": "2026-06-20",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
