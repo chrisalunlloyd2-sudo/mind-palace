@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-26T01:35:25.996905+00:00",
+  "generated_at": "2026-08-26T06:54:49.038102+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -921,7 +921,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-25",
+        "updated": "2026-08-26",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1353,7 +1353,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-25",
+        "updated": "2026-08-26",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1392,7 +1392,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-08-23",
+        "updated": "2026-08-26",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1416,6 +1416,7 @@
           "build-warm-installer.sh",
           "dependency-reduced-pom.xml",
           "deploy_patch.ps1",
+          "evolve-ctl.sh",
           "gen-wizard-bmp.py",
           "mvnw",
           "pom.xml"
@@ -1437,7 +1438,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/moe-kai-skill",
         "language": "unknown",
         "stars": 0,
-        "updated": "2026-08-25",
+        "updated": "2026-08-26",
         "created": "2026-06-20",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
