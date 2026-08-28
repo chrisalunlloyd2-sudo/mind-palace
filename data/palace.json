@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-28T10:22:20.258761+00:00",
+  "generated_at": "2026-08-28T21:55:32.313345+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -199,8 +199,6 @@
           "debug3.png",
           "index.html",
           "lexical_cortex.db",
-          "lexical_cortex.db-shm",
-          "lexical_cortex.db-wal",
           "mjpeg_server.js",
           "package-lock.json",
           "package.json",
@@ -208,6 +206,7 @@
           "pup-screenshot.png",
           "pup-screenshot2.png",
           "pup.js",
+          "requirements.txt",
           "streamer.js",
           "take_screenshot.js",
           "take_screenshot2.js",
@@ -926,7 +925,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-27",
+        "updated": "2026-08-28",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1358,7 +1357,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-27",
+        "updated": "2026-08-28",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
