@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-29T06:22:23.230898+00:00",
+  "generated_at": "2026-08-29T16:27:07.869053+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -168,64 +168,6 @@
         "folders": [
           "__pycache__",
           "gemini_extension",
-          "tests"
-        ]
-      }
-    },
-    {
-      "id": "repo:avatar-creator",
-      "type": "repo_room",
-      "label": "avatar-creator",
-      "payload": {
-        "name": "avatar-creator",
-        "description": "",
-        "url": "https://github.com/chrisalunlloyd2-sudo/avatar-creator",
-        "language": "JavaScript",
-        "stars": 0,
-        "updated": "2026-08-29",
-        "created": "2026-08-24",
-        "private": false,
-        "owner": "chrisalunlloyd2-sudo",
-        "category": "Active Projects",
-        "wing": "west",
-        "files": [
-          "README.md",
-          "character_lineage.db",
-          "character_lineage.db-shm",
-          "character_lineage.db-wal",
-          "check_browser.js",
-          "debug.png",
-          "debug2.png",
-          "debug3.png",
-          "index.html",
-          "lexical_cortex.db",
-          "lexical_cortex.db-wal",
-          "mjpeg_server.js",
-          "package-lock.json",
-          "package.json",
-          "patch.js",
-          "pup-screenshot.png",
-          "pup-screenshot2.png",
-          "pup.js",
-          "requirements.txt",
-          "streamer.js",
-          "take_screenshot.js",
-          "take_screenshot2.js",
-          "test-scene.js",
-          "test.js",
-          "test_ipc.py",
-          "test_load.js",
-          "test_load_script.js",
-          "test_ollama.py",
-          "vite.config.js"
-        ],
-        "folders": [
-          "backend",
-          "dist",
-          "docs",
-          "node_modules",
-          "public",
-          "src",
           "tests"
         ]
       }
@@ -926,7 +868,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-28",
+        "updated": "2026-08-29",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1358,7 +1300,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-08-28",
+        "updated": "2026-08-29",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2502,12 +2444,6 @@
     },
     {
       "source": "wing:west",
-      "target": "repo:avatar-creator",
-      "type": "door",
-      "weight": 1
-    },
-    {
-      "source": "wing:west",
       "target": "repo:batch_termux",
       "type": "door",
       "weight": 1
@@ -2851,7 +2787,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 35,
+    "west": 34,
     "east": 13,
     "north": 4,
     "south": 8
