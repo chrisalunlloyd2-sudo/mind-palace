@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-01T20:47:17.109636+00:00",
+  "generated_at": "2026-09-02T03:41:13.261069+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-01",
+        "updated": "2026-09-02",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -215,7 +215,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-01",
+        "updated": "2026-09-02",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -830,7 +830,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Machine2",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-08-27",
+        "updated": "2026-09-02",
         "created": "2026-06-25",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -852,6 +852,7 @@
           "system_scan_report.kqml"
         ],
         "folders": [
+          "BDI_FSM_AGENT",
           "MoeGUI",
           "logs",
           "tests"
