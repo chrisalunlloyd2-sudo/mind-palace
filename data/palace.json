@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-02T10:55:53.966753+00:00",
+  "generated_at": "2026-09-02T16:15:06.082211+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -852,6 +852,7 @@
           "system_scan_report.kqml"
         ],
         "folders": [
+          "AGENT_SQUIGLY",
           "BDI_FSM_AGENT",
           "MoeGUI",
           "logs",
