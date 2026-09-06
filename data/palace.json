@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T15:11:09.964485+00:00",
+  "generated_at": "2026-09-06T20:11:26.072604+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -1341,7 +1341,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-09-01",
+        "updated": "2026-09-06",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1353,6 +1353,8 @@
           "BUILD_PLAN.md",
           "BUILD_STRATEGY.md",
           "CROSS_CORRELATED_ROADMAP.md",
+          "GLM_FLASH_BLUEPRINT.md",
+          "HYPOTHESES_50.md",
           "INSTALLER.md",
           "LICENSE.txt",
           "MindPalace.iss",
@@ -1360,6 +1362,7 @@
           "README.md",
           "ROADMAP.md",
           "UNFINISHED_BUSINESS.md",
+          "WORLD_FINISHER_PLAN.md",
           "backup-to-usb.sh",
           "build-installer.sh",
           "build-warm-installer.sh",
