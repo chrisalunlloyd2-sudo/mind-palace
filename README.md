@@ -27,6 +27,12 @@ A multi-level 3D lakehouse with interactive furniture, file cabinets, movable ob
 - **Minimap**: real-time overhead view
 - **Touch controls**: full mobile support with virtual joystick
 - **Minecraft-style placement**: pick up and place objects anywhere
+- **✨ Personality layer** (`css/personality.css`): the palace's design
+  system — gold TODO crystals that breathe, cyan public / pink private
+  neon signage, quorum APPROVED/REJECTED glow flares, glass panels with
+  bloom, gold-rail scrollbars, etched inputs, two-tone agent chat.
+  Loaded by `index.html` and `index-4d.html`; re-skins only, never
+  re-lays-out, and respects `prefers-reduced-motion`.
 
 ## 📁 Classic Version
 The original Wolfenstein-style raycaster is still available at:
