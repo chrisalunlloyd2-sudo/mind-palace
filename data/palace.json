@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T03:42:39.311729+00:00",
+  "generated_at": "2026-09-07T11:59:08.929053+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -190,6 +190,7 @@
         "wing": "west",
         "files": [
           "CONTRIBUTING.md",
+          "DAG.png",
           "LICENSE",
           "README.md",
           "SECURITY.md",
@@ -828,7 +829,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-09-06",
+        "updated": "2026-09-07",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -908,7 +909,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-06",
+        "updated": "2026-09-07",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1340,7 +1341,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-09-06",
+        "updated": "2026-09-07",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1387,11 +1388,14 @@
         "wing": "north",
         "files": [
           "AGENTS.md",
+          "ARCHITECTURE.md",
           "BLACKBOARD.md",
           "BLUEPRINT.md",
           "BUILD_PLAN.md",
           "BUILD_STRATEGY.md",
+          "CONTRIBUTING.md",
           "CROSS_CORRELATED_ROADMAP.md",
+          "DEV_SETUP.md",
           "GLM_FLASH_BLUEPRINT.md",
           "HYPOTHESES_50.md",
           "INSTALLER.md",
