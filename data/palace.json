@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-07T11:59:08.929053+00:00",
+  "generated_at": "2026-09-07T17:42:36.034617+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -169,45 +169,6 @@
           "__pycache__",
           "gemini_extension",
           "tests"
-        ]
-      }
-    },
-    {
-      "id": "repo:AvatarAlive",
-      "type": "repo_room",
-      "label": "AvatarAlive",
-      "payload": {
-        "name": "AvatarAlive",
-        "description": "Living 100% life-scale biometric avatar engine and symbolic DAG mind - procedural Alice, skinned glTF export, BDI cognition, genetic breeding. NOVA append-only governance.",
-        "url": "https://github.com/chrisalunlloyd2-sudo/AvatarAlive",
-        "language": "Python",
-        "stars": 0,
-        "updated": "2026-09-07",
-        "created": "2026-09-07",
-        "private": false,
-        "owner": "chrisalunlloyd2-sudo",
-        "category": "Active Projects",
-        "wing": "west",
-        "files": [
-          "CONTRIBUTING.md",
-          "DAG.png",
-          "LICENSE",
-          "README.md",
-          "SECURITY.md",
-          "install.bat",
-          "install.ps1",
-          "requirements.txt",
-          "start.bat"
-        ],
-        "folders": [
-          "00_REQUEST",
-          "02_AGENT_WORK",
-          "05_TEST",
-          "06_PROOF",
-          "07_KNOWLEDGE_BASE",
-          "08_SWARM_OUTBOX",
-          "databases",
-          "src"
         ]
       }
     },
@@ -1405,6 +1366,7 @@
           "PATCHING.md",
           "README.md",
           "ROADMAP.md",
+          "ROADMAP_3MONTH.md",
           "UNFINISHED_BUSINESS.md",
           "WORLD_FINISHER_PLAN.md",
           "backup-to-usb.sh",
@@ -2495,12 +2457,6 @@
     },
     {
       "source": "wing:west",
-      "target": "repo:AvatarAlive",
-      "type": "door",
-      "weight": 1
-    },
-    {
-      "source": "wing:west",
       "target": "repo:batch_termux",
       "type": "door",
       "weight": 1
@@ -2844,7 +2800,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 35,
+    "west": 34,
     "east": 13,
     "north": 4,
     "south": 8
