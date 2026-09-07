@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-06T20:29:01.084998+00:00",
+  "generated_at": "2026-09-07T03:42:39.311729+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-06",
+        "updated": "2026-09-07",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -173,6 +173,44 @@
       }
     },
     {
+      "id": "repo:AvatarAlive",
+      "type": "repo_room",
+      "label": "AvatarAlive",
+      "payload": {
+        "name": "AvatarAlive",
+        "description": "Living 100% life-scale biometric avatar engine and symbolic DAG mind - procedural Alice, skinned glTF export, BDI cognition, genetic breeding. NOVA append-only governance.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/AvatarAlive",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-09-07",
+        "created": "2026-09-07",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "CONTRIBUTING.md",
+          "LICENSE",
+          "README.md",
+          "SECURITY.md",
+          "install.bat",
+          "install.ps1",
+          "requirements.txt",
+          "start.bat"
+        ],
+        "folders": [
+          "00_REQUEST",
+          "02_AGENT_WORK",
+          "05_TEST",
+          "06_PROOF",
+          "07_KNOWLEDGE_BASE",
+          "08_SWARM_OUTBOX",
+          "databases",
+          "src"
+        ]
+      }
+    },
+    {
       "id": "repo:batch_termux",
       "type": "repo_room",
       "label": "batch_termux",
@@ -215,7 +253,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-06",
+        "updated": "2026-09-07",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1341,13 +1379,14 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-09-06",
+        "updated": "2026-09-07",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
         "category": "Experiments",
         "wing": "north",
         "files": [
+          "AGENTS.md",
           "BLACKBOARD.md",
           "BLUEPRINT.md",
           "BUILD_PLAN.md",
@@ -1358,6 +1397,7 @@
           "INSTALLER.md",
           "LICENSE.txt",
           "MindPalace.iss",
+          "NEXT_100_STEPS.md",
           "PATCHING.md",
           "README.md",
           "ROADMAP.md",
@@ -1375,6 +1415,7 @@
           "pom.xml"
         ],
         "folders": [
+          "docs",
           "patches",
           "scripts",
           "src"
@@ -2450,6 +2491,12 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:AvatarAlive",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:batch_termux",
       "type": "door",
       "weight": 1
@@ -2793,7 +2840,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 34,
+    "west": 35,
     "east": 13,
     "north": 4,
     "south": 8
