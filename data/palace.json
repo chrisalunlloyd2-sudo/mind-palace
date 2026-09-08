@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T13:07:30.640845+00:00",
+  "generated_at": "2026-09-08T16:18:11.906885+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -1356,8 +1356,12 @@
           "BLUEPRINT.md",
           "BUILD_PLAN.md",
           "BUILD_STRATEGY.md",
+          "CODE_OF_CONDUCT.md",
           "COMMUNITY.md",
           "CONTRIBUTING.md",
+          "CONTRIBUTION_NORMS.md",
+          "CONTRIBUTORS.md",
+          "CONTRIBUTOR_LADDER.md",
           "CROSS_CORRELATED_ROADMAP.md",
           "DEV_SETUP.md",
           "FEATURE_BACKLOG.md",
