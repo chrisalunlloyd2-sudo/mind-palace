@@ -1,4 +1,4 @@
-// Mind Palace — GitHub API Integration
+﻿// Mind Palace â€” GitHub API Integration
 // Create repos, commit files, fetch similar projects
 
 const GitHubAPI = {
@@ -13,7 +13,7 @@ const GitHubAPI = {
             this.token = stored;
             await this.verifyToken();
         }
-        console.log('🐙 GitHubAPI initialized', this.initialized ? '(authenticated)' : '(no token)');
+        console.log('ðŸ™ GitHubAPI initialized', this.initialized ? '(authenticated)' : '(no token)');
     },
     
     setToken(token) {
@@ -35,10 +35,10 @@ const GitHubAPI = {
                 const user = await response.json();
                 this.username = user.login;
                 this.initialized = true;
-                console.log(`✅ GitHub authenticated as @${this.username}`);
+                console.log(`âœ… GitHub authenticated as @${this.username}`);
                 return true;
             } else {
-                console.error('❌ GitHub token invalid');
+                console.error('âŒ GitHub token invalid');
                 this.initialized = false;
                 return false;
             }
@@ -77,7 +77,7 @@ const GitHubAPI = {
         }
         
         const repo = await response.json();
-        console.log(`✅ Created repository: ${repo.html_url}`);
+        console.log(`âœ… Created repository: ${repo.html_url}`);
         return repo;
     },
     
@@ -138,7 +138,7 @@ const GitHubAPI = {
         }
         
         const result = await response.json();
-        console.log(`✅ Committed ${filePath} to ${repoName}`);
+        console.log(`âœ… Committed ${filePath} to ${repoName}`);
         return result;
     },
     
@@ -230,14 +230,10 @@ const GitHubAPI = {
         this.username = null;
         this.initialized = false;
         localStorage.removeItem('github_pat');
-        console.log('👋 GitHub logged out');
-    }
-};
-
-window.GitHubAPI = GitHubAPI;
-
+        console.log('ðŸ‘‹ GitHub logged out');
+    },
     // Create a new repository
-    async createRepo(name, description = '', private = false, autoInit = true) {
+    async createRepoV2(name, description = '', isPrivate = false, autoInit = true) {
         if (!this.token) {
             throw new Error('GitHub token required. Please authenticate first.');
         }
@@ -252,7 +248,7 @@ window.GitHubAPI = GitHubAPI;
             body: JSON.stringify({
                 name: name.toLowerCase().replace(/[^a-z0-9-]/g, '-'),
                 description: description,
-                private: private,
+                private: isPrivate,
                 auto_init: autoInit
             })
         });
@@ -263,12 +259,12 @@ window.GitHubAPI = GitHubAPI;
         }
         
         const repo = await response.json();
-        console.log('✅ Repository created:', repo.html_url);
+        console.log('âœ… Repository created:', repo.html_url);
         return repo;
-    }
+    },
     
     // Commit a file to a repository
-    async commitFile(owner, repo, path, content, message = 'Update file') {
+    async commitFileV2(owner, repo, path, content, message = 'Update file') {
         if (!this.token) {
             throw new Error('GitHub token required');
         }
@@ -313,7 +309,7 @@ window.GitHubAPI = GitHubAPI;
         }
         
         return await response.json();
-    }
+    },
     
     // Create multiple files in a repository
     async createFiles(owner, repo, files, commitMessage = 'Generate files from Mind Palace') {
@@ -321,7 +317,7 @@ window.GitHubAPI = GitHubAPI;
         
         for (const file of files) {
             try {
-                const result = await this.commitFile(owner, repo, file.name, file.content, commitMessage);
+                const result = await this.commitFileV2(owner, repo, file.name, file.content, commitMessage);
                 results.push({ success: true, file: file.name, result });
             } catch (error) {
                 results.push({ success: false, file: file.name, error: error.message });
@@ -329,10 +325,10 @@ window.GitHubAPI = GitHubAPI;
         }
         
         return results;
-    }
+    },
     
     // Search for similar repositories
-    async searchSimilarRepos(query, language = 'Python', minStars = 10, limit = 10) {
+    async searchSimilarReposV2(query, language = 'Python', minStars = 10, limit = 10) {
         const searchQuery = `${query} language:${language} stars:>=${minStars}`;
         const response = await fetch(
             `https://api.github.com/search/repositories?q=${encodeURIComponent(searchQuery)}&sort=stars&order=desc&per_page=${limit}`,
@@ -349,7 +345,7 @@ window.GitHubAPI = GitHubAPI;
         
         const data = await response.json();
         return data.items || [];
-    }
+    },
     
     // Get common file patterns from repositories
     async getCommonPatterns(repos) {
@@ -373,4 +369,8 @@ window.GitHubAPI = GitHubAPI;
             .sort((a, b) => b[1] - a[1])
             .slice(0, 10)
             .map(([name, count]) => ({ name, count }));
-    }
+    },
+
+};
+
+window.GitHubAPI = GitHubAPI;
