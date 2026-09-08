@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-08T04:46:10.947796+00:00",
+  "generated_at": "2026-09-08T10:54:19.411308+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -870,7 +870,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-07",
+        "updated": "2026-09-08",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1354,9 +1354,12 @@
           "BLUEPRINT.md",
           "BUILD_PLAN.md",
           "BUILD_STRATEGY.md",
+          "COMMUNITY.md",
           "CONTRIBUTING.md",
           "CROSS_CORRELATED_ROADMAP.md",
           "DEV_SETUP.md",
+          "FEATURE_BACKLOG.md",
+          "FIRST_PR.md",
           "GLM_FLASH_BLUEPRINT.md",
           "HYPOTHESES_50.md",
           "INSTALLER.md",
