@@ -43,3 +43,8 @@ See `docs/ARCHITECTURE.md` for the full 7-phase plan.
 
 ## 📦 Repo
 https://github.com/chrisalunlloyd2-sudo/mind-palace
+
+
+## Hosted demo tour
+
+[demo.html](https://chrisalunlloyd2-sudo.github.io/mind-palace/demo.html) — static palace tour (11 real waypoints + stills) with run-it-locally CTAs. Serves the game's verification artifacts.

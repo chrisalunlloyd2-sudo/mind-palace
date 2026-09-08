@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MindPalace — hosted demo tour</title>
+    <link rel="stylesheet" href="css/personality.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: var(--void-night, #05070d);
+            color: #d8dee9;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            padding: 2rem 1rem;
+            max-width: 960px;
+            margin: 0 auto;
+        }
+        h1, h2 { color: var(--gold, #e2b04a); letter-spacing: 0.04em; }
+        h1 { font-size: 1.6rem; margin-bottom: .3rem; }
+        .sub { color: #8a93a5; margin-bottom: 2rem; }
+        .gif-frame {
+            border: 1px solid rgba(226,176,74,.35);
+            padding: .5rem;
+            background: rgba(255,255,255,.03);
+            margin-bottom: 2rem;
+        }
+        .gif-frame img { width: 100%; display: block; }
+        .gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+        .gallery img { width: 100%; border: 1px solid rgba(0,229,255,.25); display: block; }
+        .cta {
+            border: 1px solid rgba(226,176,74,.4);
+            padding: 1.2rem 1.4rem;
+            margin: 1rem 0;
+        }
+        .cta code { background: rgba(0,229,255,.08); padding: .15rem .4rem; color: #00e5ff; }
+        .cta a { color: #00e5ff; }
+        .note { color: #8a93a5; font-size: .9rem; }
+        ul { margin: .5rem 0 0 1.2rem; }
+        @media (max-width: 640px) { .gallery { grid-template-columns: 1fr; } }
+    </style>
+</head>
+<body>
+    <h1>MindPalace — hosted demo</h1>
+    <p class="sub">A Doom-style 3D explorer for your GitHub account. Every door is a real repo, every book a real file — and two small language models live in the walls. This page is the static tour; the real thing runs locally.</p>
+
+    <div class="gif-frame">
+        <img src="screenshots/mindpalace_tour.gif"
+             alt="A tour of the palace — 11 real verification waypoints from the running game"
+             loading="lazy">
+        <p class="note">11 real E2E waypoints captured from the running game (verification artifacts, not mockups).</p>
+    </div>
+
+    <h2>Still frames</h2>
+    <div class="gallery">
+        <img src="screenshots/hero.png" alt="First view — fog-lit hallway, doors as repos">
+        <img src="screenshots/main_hall.png" alt="Main hall with bookcases">
+        <img src="screenshots/agents.png" alt="The SLM agents walking the halls">
+        <img src="screenshots/rotor_rings.png" alt="The courtyard rotor rings">
+    </div>
+
+    <h2>Run the real thing</h2>
+    <div class="cta">
+        <strong>The 5-minute local demo (what this page can't show — it's a real 3D game):</strong>
+        <ul>
+            <li>Grab the installer from <a href="https://github.com/chrisalunlloyd2-sudo/mindpalace/releases">Releases</a> — or build with Java 17 + Maven.</li>
+            <li>Run with <code>--demo</code>: a full 12-room fixture palace, <em>zero auth, zero network</em>. No GitHub account needed.</li>
+            <li>Everything you see on this page is what CI verifies — the demo you run is the demo that's tested.</li>
+        </ul>
+    </div>
+    <div class="cta">
+        Want in? The <a href="https://github.com/chrisalunlloyd2-sudo/mindpalace#how-to-help">How to help</a> section lists 5 paths — including a
+        <a href="https://github.com/chrisalunlloyd2-sudo/mindpalace/blob/main/FIRST_PR.md">15-minute first PR</a> that needs no Java.
+        Every shipped step has machine-verified evidence in the
+        <a href="https://github.com/chrisalunlloyd2-sudo/mindpalace/issues/9">public step-log</a>.
+    </div>
+
+    <p class="note">Fully local: your code, your GPU, your Ollama models. No cloud, no telemetry.
+    Nothing lives forever, nothing runs for free, always advancing.</p>
+</body>
+</html>
