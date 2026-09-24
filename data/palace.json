@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T03:55:06.629054+00:00",
+  "generated_at": "2026-09-24T11:22:53.561346+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -897,6 +897,32 @@
       }
     },
     {
+      "id": "repo:market-research",
+      "type": "repo_room",
+      "label": "market-research",
+      "payload": {
+        "name": "market-research",
+        "description": "Lightweight web research digest for paint/home-reno market + seasonal demand (v1)",
+        "url": "https://github.com/chrisalunlloyd2-sudo/market-research",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-09-24",
+        "created": "2026-09-24",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "research.py",
+          "topics.yml"
+        ],
+        "folders": [
+          "reports"
+        ]
+      }
+    },
+    {
       "id": "repo:MasterLogs",
       "type": "repo_room",
       "label": "MasterLogs",
@@ -906,7 +932,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-23",
+        "updated": "2026-09-24",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1355,7 +1381,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-09-23",
+        "updated": "2026-09-24",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2645,6 +2671,12 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:market-research",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:MasterLogs",
       "type": "door",
       "weight": 1
@@ -2880,7 +2912,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 35,
+    "west": 36,
     "east": 13,
     "north": 4,
     "south": 8
