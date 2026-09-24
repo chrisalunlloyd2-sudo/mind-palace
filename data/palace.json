@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-24T11:22:53.561346+00:00",
+  "generated_at": "2026-09-24T16:47:46.623682+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -258,7 +258,9 @@
         "files": [
           "README.md",
           "blog.html",
-          "index.html"
+          "index.html",
+          "robots.txt",
+          "sitemap.xml"
         ],
         "folders": [
           "assets",
