@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-23T21:17:25.128434+00:00",
+  "generated_at": "2026-09-24T03:55:06.629054+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-23",
+        "updated": "2026-09-24",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -217,7 +217,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-23",
+        "updated": "2026-09-24",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -236,6 +236,34 @@
           "schemas",
           "scripts",
           "state_snapshot"
+        ]
+      }
+    },
+    {
+      "id": "repo:chrislloyd-io",
+      "type": "repo_room",
+      "label": "chrislloyd-io",
+      "payload": {
+        "name": "chrislloyd-io",
+        "description": "Chris Alun Lloyd Ltd \u2014 painting & home renovation, affiliate shop, open-source business-automation compendium. Data-driven static site.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/chrislloyd-io",
+        "language": "JavaScript",
+        "stars": 0,
+        "updated": "2026-09-24",
+        "created": "2026-09-23",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "blog.html",
+          "index.html"
+        ],
+        "folders": [
+          "assets",
+          "data",
+          "scripts"
         ]
       }
     },
@@ -797,7 +825,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-09-23",
+        "updated": "2026-09-24",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -837,7 +865,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Machine2",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-10",
+        "updated": "2026-09-24",
         "created": "2026-06-25",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -860,6 +888,7 @@
         ],
         "folders": [
           "AGENT_SQUIGLY",
+          "Aegis_Agents",
           "BDI_FSM_AGENT",
           "MoeGUI",
           "logs",
@@ -1367,7 +1396,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 1,
-        "updated": "2026-09-22",
+        "updated": "2026-09-24",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2513,6 +2542,12 @@
       "weight": 1
     },
     {
+      "source": "wing:west",
+      "target": "repo:chrislloyd-io",
+      "type": "door",
+      "weight": 1
+    },
+    {
       "source": "wing:east",
       "target": "repo:DARWIN_GRID_DEPLOY",
       "type": "door",
@@ -2845,7 +2880,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 34,
+    "west": 35,
     "east": 13,
     "north": 4,
     "south": 8
