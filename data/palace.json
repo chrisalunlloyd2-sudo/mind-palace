@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T21:17:03.450763+00:00",
+  "generated_at": "2026-09-26T04:14:29.000333+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-25",
+        "updated": "2026-09-26",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -217,7 +217,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-25",
+        "updated": "2026-09-26",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -827,7 +827,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-09-25",
+        "updated": "2026-09-26",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1424,7 +1424,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 1,
-        "updated": "2026-09-25",
+        "updated": "2026-09-26",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1452,6 +1452,7 @@
           "GLM_FLASH_BLUEPRINT.md",
           "HYPOTHESES_50.md",
           "INSTALLER.md",
+          "KANBAN_REVIEW.md",
           "LICENSE.txt",
           "MindPalace.iss",
           "NEXT_100_STEPS.md",
@@ -1476,6 +1477,7 @@
         "folders": [
           "data",
           "docs",
+          "kanban_reviews",
           "patches",
           "scripts",
           "src",
