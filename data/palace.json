@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-26T20:49:39.384879+00:00",
+  "generated_at": "2026-09-27T04:29:29.519741+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-26",
+        "updated": "2026-09-27",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -175,6 +175,29 @@
       }
     },
     {
+      "id": "repo:aria-sync",
+      "type": "repo_room",
+      "label": "aria-sync",
+      "payload": {
+        "name": "aria-sync",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/aria-sync",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-09-27",
+        "created": "2026-09-27",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [],
+        "folders": [
+          "gems",
+          "notes"
+        ]
+      }
+    },
+    {
       "id": "repo:batch_termux",
       "type": "repo_room",
       "label": "batch_termux",
@@ -217,7 +240,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-26",
+        "updated": "2026-09-27",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -756,6 +779,32 @@
       }
     },
     {
+      "id": "repo:intelligence_bridge",
+      "type": "repo_room",
+      "label": "intelligence_bridge",
+      "payload": {
+        "name": "intelligence_bridge",
+        "description": "",
+        "url": "https://github.com/chrisalunlloyd2-sudo/intelligence_bridge",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-09-26",
+        "created": "2026-09-26",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Core Systems",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "bridge_daemon.py",
+          "requirements.txt",
+          "start_bridge.sh",
+          "voice_mint.sh"
+        ],
+        "folders": []
+      }
+    },
+    {
       "id": "repo:JRM",
       "type": "repo_room",
       "label": "JRM",
@@ -828,7 +877,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-09-26",
+        "updated": "2026-09-27",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2022,13 +2071,14 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/SIMS1337",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-09-19",
+        "updated": "2026-09-27",
         "created": "2026-07-22",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
         "files": [
+          "ARCHITECTURE.md",
           "BLUEPRINT.md",
           "BUILD_BLOCKER.md",
           "CHANGELOG.md",
@@ -2050,8 +2100,10 @@
           "TASKS.md",
           "godhand.png",
           "guardian.bat",
+          "heartbeat_merge.sh",
           "index.html",
           "mvn-wrapper.bat",
+          "pipeline_monitor_state.txt",
           "pom.xml",
           "sims",
           "sims.bat",
@@ -2065,6 +2117,7 @@
           "logs",
           "lora",
           "modelfiles",
+          "plugins",
           "reports",
           "root-scripts",
           "scripts",
@@ -2562,6 +2615,12 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:aria-sync",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:batch_termux",
       "type": "door",
       "weight": 1
@@ -2647,6 +2706,12 @@
     {
       "source": "wing:west",
       "target": "repo:house-inference",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
+      "target": "repo:intelligence_bridge",
       "type": "door",
       "weight": 1
     },
@@ -2917,7 +2982,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 36,
+    "west": 38,
     "east": 13,
     "north": 4,
     "south": 8
