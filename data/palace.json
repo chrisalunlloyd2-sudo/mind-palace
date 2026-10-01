@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T22:01:46.529620+00:00",
+  "generated_at": "2026-10-01T04:59:07.345553+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-30",
+        "updated": "2026-10-01",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -240,7 +240,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-30",
+        "updated": "2026-10-01",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -270,9 +270,9 @@
         "name": "chrislloyd-io",
         "description": "Chris Alun Lloyd Ltd \u2014 painting & home renovation, affiliate shop, open-source business-automation compendium. Data-driven static site.",
         "url": "https://github.com/chrisalunlloyd2-sudo/chrislloyd-io",
-        "language": "JavaScript",
+        "language": "Python",
         "stars": 0,
-        "updated": "2026-09-27",
+        "updated": "2026-10-01",
         "created": "2026-09-23",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -287,6 +287,7 @@
         ],
         "folders": [
           "assets",
+          "blog-drafts",
           "data",
           "docs",
           "scripts"
@@ -877,7 +878,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-09-30",
+        "updated": "2026-10-01",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
