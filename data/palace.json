@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T12:44:49.640612+00:00",
+  "generated_at": "2026-10-01T22:29:07.624527+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -1518,6 +1518,7 @@
           "SUCCESS_METRICS.md",
           "UNFINISHED_BUSINESS.md",
           "WORLD_FINISHER_PLAN.md",
+          "avatar.json",
           "backup-to-usb.sh",
           "build-installer.sh",
           "build-warm-installer.sh",
