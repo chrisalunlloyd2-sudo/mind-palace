@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T20:47:15.564213+00:00",
+  "generated_at": "2026-10-04T05:02:35.650934+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-03",
+        "updated": "2026-10-04",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -175,6 +175,37 @@
       }
     },
     {
+      "id": "repo:agent-laguna",
+      "type": "repo_room",
+      "label": "agent-laguna",
+      "payload": {
+        "name": "agent-laguna",
+        "description": "Autonomous daily agent \u2014 hexflow contract processor, hounty reward system, daily task completion + 1 self-improvement step/day",
+        "url": "https://github.com/chrisalunlloyd2-sudo/agent-laguna",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-10-03",
+        "created": "2026-10-03",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Core Systems",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "VERSION",
+          "agent.py",
+          "daily_task.py",
+          "hexflow_contract.py",
+          "hounty.py",
+          "requirements.txt",
+          "self_improve.py"
+        ],
+        "folders": [
+          "tests"
+        ]
+      }
+    },
+    {
       "id": "repo:aria-sync",
       "type": "repo_room",
       "label": "aria-sync",
@@ -240,7 +271,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-03",
+        "updated": "2026-10-04",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -883,7 +914,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-10-03",
+        "updated": "2026-10-04",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1480,7 +1511,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 2,
-        "updated": "2026-10-03",
+        "updated": "2026-10-04",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2624,6 +2655,12 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:agent-laguna",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:aria-sync",
       "type": "door",
       "weight": 1
@@ -2991,7 +3028,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 38,
+    "west": 39,
     "east": 13,
     "north": 4,
     "south": 8
