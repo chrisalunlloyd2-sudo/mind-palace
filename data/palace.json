@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T12:24:31.118199+00:00",
+  "generated_at": "2026-10-06T18:19:57.094478+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -184,7 +184,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/agent-laguna",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-03",
+        "updated": "2026-10-06",
         "created": "2026-10-03",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -195,6 +195,7 @@
           "VERSION",
           "agent.py",
           "daily_task.py",
+          "github_integration.py",
           "hexflow_contract.py",
           "hounty.py",
           "requirements.txt",
