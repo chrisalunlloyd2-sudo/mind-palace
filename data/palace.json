@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T18:19:57.094478+00:00",
+  "generated_at": "2026-10-07T00:47:08.540673+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-06",
+        "updated": "2026-10-07",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -198,8 +198,10 @@
           "github_integration.py",
           "hexflow_contract.py",
           "hounty.py",
+          "hounty_state.json",
           "requirements.txt",
-          "self_improve.py"
+          "self_improve.py",
+          "self_improve_state.jsonl"
         ],
         "folders": [
           "tests"
@@ -272,7 +274,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-06",
+        "updated": "2026-10-07",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -915,7 +917,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-10-06",
+        "updated": "2026-10-07",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1512,7 +1514,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 2,
-        "updated": "2026-10-06",
+        "updated": "2026-10-07",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1569,6 +1571,7 @@
           "docs",
           "kanban_reviews",
           "patches",
+          "reports",
           "scripts",
           "src",
           "tools"
