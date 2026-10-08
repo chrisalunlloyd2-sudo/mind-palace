@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-08T00:46:40.129476+00:00",
+  "generated_at": "2026-10-08T06:30:13.789639+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -1004,8 +1004,14 @@
         "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
-        "files": [],
-        "folders": []
+        "files": [
+          "README.md",
+          "research.py",
+          "topics.yml"
+        ],
+        "folders": [
+          "reports"
+        ]
       }
     },
     {
@@ -1018,7 +1024,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-07",
+        "updated": "2026-10-08",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1467,7 +1473,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-10-07",
+        "updated": "2026-10-08",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
