@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-10T18:19:19.427882+00:00",
+  "generated_at": "2026-10-11T00:51:10.095421+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-10",
+        "updated": "2026-10-11",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -184,7 +184,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/agent-laguna",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-07",
+        "updated": "2026-10-11",
         "created": "2026-10-03",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -194,14 +194,20 @@
           "README.md",
           "VERSION",
           "agent.py",
+          "ascii_flow.py",
           "daily_task.py",
           "github_integration.py",
+          "guider_sweep.py",
           "hexflow_contract.py",
           "hounty.py",
           "hounty_state.json",
+          "pacer.json",
+          "pacer.py",
           "requirements.txt",
+          "rnn_pruner.py",
           "self_improve.py",
-          "self_improve_state.jsonl"
+          "self_improve_state.jsonl",
+          "sweep_seeds.json"
         ],
         "folders": [
           "tests"
@@ -274,7 +280,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-10",
+        "updated": "2026-10-11",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -330,6 +336,30 @@
           "dist",
           "docs",
           "scripts"
+        ]
+      }
+    },
+    {
+      "id": "repo:Chris_Lloyd_Website",
+      "type": "repo_room",
+      "label": "Chris_Lloyd_Website",
+      "payload": {
+        "name": "Chris_Lloyd_Website",
+        "description": "Chris Lloyd Painting - Regina & area. Static portfolio.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/Chris_Lloyd_Website",
+        "language": "HTML",
+        "stars": 0,
+        "updated": "2026-10-10",
+        "created": "2026-10-10",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "index.html"
+        ],
+        "folders": [
+          "photos"
         ]
       }
     },
@@ -917,7 +947,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-10-10",
+        "updated": "2026-10-11",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2680,6 +2710,12 @@
       "weight": 1
     },
     {
+      "source": "wing:west",
+      "target": "repo:Chris_Lloyd_Website",
+      "type": "door",
+      "weight": 1
+    },
+    {
       "source": "wing:east",
       "target": "repo:DARWIN_GRID_DEPLOY",
       "type": "door",
@@ -3024,7 +3060,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 39,
+    "west": 40,
     "east": 13,
     "north": 4,
     "south": 8
