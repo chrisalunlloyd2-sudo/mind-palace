@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T00:51:10.095421+00:00",
+  "generated_at": "2026-10-11T06:26:57.730671+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -191,6 +191,7 @@
         "category": "Core Systems",
         "wing": "west",
         "files": [
+          "CODER_RECEIPTS.md",
           "README.md",
           "VERSION",
           "agent.py",
@@ -1054,7 +1055,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/MasterLogs",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-10",
+        "updated": "2026-10-11",
         "created": "2026-07-26",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1503,7 +1504,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-10-10",
+        "updated": "2026-10-11",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
