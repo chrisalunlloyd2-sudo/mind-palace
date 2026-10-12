@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-12T12:35:49.230512+00:00",
+  "generated_at": "2026-10-12T18:20:14.281613+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -847,32 +847,6 @@
           "docs",
           "qwen"
         ]
-      }
-    },
-    {
-      "id": "repo:intelligence_bridge",
-      "type": "repo_room",
-      "label": "intelligence_bridge",
-      "payload": {
-        "name": "intelligence_bridge",
-        "description": "",
-        "url": "https://github.com/chrisalunlloyd2-sudo/intelligence_bridge",
-        "language": "Python",
-        "stars": 0,
-        "updated": "2026-09-26",
-        "created": "2026-09-26",
-        "private": false,
-        "owner": "chrisalunlloyd2-sudo",
-        "category": "Core Systems",
-        "wing": "west",
-        "files": [
-          "README.md",
-          "bridge_daemon.py",
-          "requirements.txt",
-          "start_bridge.sh",
-          "voice_mint.sh"
-        ],
-        "folders": []
       }
     },
     {
@@ -2794,12 +2768,6 @@
     },
     {
       "source": "wing:west",
-      "target": "repo:intelligence_bridge",
-      "type": "door",
-      "weight": 1
-    },
-    {
-      "source": "wing:west",
       "target": "repo:JRM",
       "type": "door",
       "weight": 1
@@ -3065,7 +3033,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 40,
+    "west": 39,
     "east": 13,
     "north": 4,
     "south": 8
