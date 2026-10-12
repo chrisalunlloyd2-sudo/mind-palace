@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-11T18:20:09.564190+00:00",
+  "generated_at": "2026-10-12T00:52:30.450895+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-11",
+        "updated": "2026-10-12",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -281,7 +281,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-11",
+        "updated": "2026-10-12",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -988,7 +988,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Machine2",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-09-30",
+        "updated": "2026-10-11",
         "created": "2026-06-25",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1001,6 +1001,8 @@
           "aegis_stabilization_report.md",
           "chat_kernels.py",
           "desktop_moe_orchestrator.py",
+          "nmct_code.db-shm",
+          "nmct_code.db-wal",
           "nmct_db_manager.py",
           "otg_db_bridge.py",
           "seed_snippets.py",
@@ -1014,6 +1016,8 @@
           "Aegis_Agents",
           "BDI_FSM_AGENT",
           "MoeGUI",
+          "_backups",
+          "data",
           "logs",
           "tests"
         ]
