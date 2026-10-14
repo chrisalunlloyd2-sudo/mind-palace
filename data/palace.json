@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T18:22:24.235161+00:00",
+  "generated_at": "2026-10-14T00:38:22.305918+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-13",
+        "updated": "2026-10-14",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -281,7 +281,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-13",
+        "updated": "2026-10-14",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1523,7 +1523,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 2,
-        "updated": "2026-10-12",
+        "updated": "2026-10-13",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
