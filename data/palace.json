@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-17T18:15:45.223039+00:00",
+  "generated_at": "2026-10-18T00:43:37.635819+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-17",
+        "updated": "2026-10-18",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -281,7 +281,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-10-17",
+        "updated": "2026-10-18",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
