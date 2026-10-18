@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-18T12:20:11.871845+00:00",
+  "generated_at": "2026-10-18T18:16:21.877581+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -196,6 +196,7 @@
           "VERSION",
           "agent.py",
           "ascii_flow.py",
+          "board_contract.py",
           "daily_task.py",
           "github_integration.py",
           "guider_sweep.py",
@@ -1571,12 +1572,12 @@
           "deploy_patch.ps1",
           "e2e.sh",
           "evolve-ctl.sh",
-          "game_console.err.log",
           "gen-wizard-bmp.py",
           "mvnw",
           "pom.xml"
         ],
         "folders": [
+          "config",
           "data",
           "docs",
           "kanban_reviews",
