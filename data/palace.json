@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-04T12:14:53.265136+00:00",
+  "generated_at": "2026-11-04T18:11:43.567723+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -1527,7 +1527,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mindpalace",
         "language": "Java",
         "stars": 2,
-        "updated": "2026-11-02",
+        "updated": "2026-11-04",
         "created": "2026-08-10",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
