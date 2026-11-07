@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T00:24:26.646767+00:00",
+  "generated_at": "2026-11-07T06:14:52.549888+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -476,8 +476,22 @@
         "owner": "chrisalunlloyd2-sudo",
         "category": "Active Projects",
         "wing": "west",
-        "files": [],
-        "folders": []
+        "files": [
+          "Blueprint.md",
+          "CHANGELOG.md",
+          "PROJECT_LOG.md",
+          "README.md",
+          "ROADMAP.md",
+          "TASKS.md",
+          "core_logic.py",
+          "logic.py",
+          "main.py"
+        ],
+        "folders": [
+          "evolved_system",
+          "todo",
+          "utils"
+        ]
       }
     },
     {
@@ -910,7 +924,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/living-ascii-art",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-11-06",
+        "updated": "2026-11-07",
         "created": "2026-07-11",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -1472,7 +1486,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/mind-palace",
         "language": "JavaScript",
         "stars": 0,
-        "updated": "2026-11-06",
+        "updated": "2026-11-07",
         "created": "2026-07-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -2018,7 +2032,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/sims-java-neo-fx",
         "language": "Java",
         "stars": 0,
-        "updated": "2026-08-10",
+        "updated": "2026-11-07",
         "created": "2026-08-06",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
