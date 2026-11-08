@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-07T18:10:42.021323+00:00",
+  "generated_at": "2026-11-08T00:28:39.853184+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -51,7 +51,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/aegis-agent-bridge",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-11-07",
+        "updated": "2026-11-08",
         "created": "2026-07-14",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -283,7 +283,7 @@
         "url": "https://github.com/chrisalunlloyd2-sudo/Chrisalunlloyd2-sudo",
         "language": "Python",
         "stars": 0,
-        "updated": "2026-11-07",
+        "updated": "2026-11-08",
         "created": "2026-08-16",
         "private": false,
         "owner": "chrisalunlloyd2-sudo",
@@ -912,6 +912,57 @@
           "n_retry.md"
         ],
         "folders": []
+      }
+    },
+    {
+      "id": "repo:LiDar",
+      "type": "repo_room",
+      "label": "LiDar",
+      "payload": {
+        "name": "LiDar",
+        "description": "Emulative LiDAR: monocular depth, 5-illusion correction, 3-D triangulation and active view planning \u2014 pure Python stdlib.",
+        "url": "https://github.com/chrisalunlloyd2-sudo/LiDar",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-11-08",
+        "created": "2026-11-07",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "accuracy.py",
+          "arena_parallel_report.json",
+          "arena_report.json",
+          "arena_report_survivors.json",
+          "depth_engine.py",
+          "fit_engine.py",
+          "flash_lidar.py",
+          "flash_report.json",
+          "geospatial.py",
+          "hardware_probe.json",
+          "illusion_filter.py",
+          "illusions.py",
+          "inventory.py",
+          "models.py",
+          "multiview_report.json",
+          "page_store.py",
+          "planner_report.json",
+          "run.sh",
+          "server.py",
+          "shapes.py",
+          "store.py",
+          "triangulate.py",
+          "uncertainty.py"
+        ],
+        "folders": [
+          "arena",
+          "fixtures",
+          "gui_pages",
+          "scripts",
+          "tests"
+        ]
       }
     },
     {
@@ -2809,6 +2860,12 @@
       "weight": 1
     },
     {
+      "source": "wing:west",
+      "target": "repo:LiDar",
+      "type": "door",
+      "weight": 1
+    },
+    {
       "source": "wing:north",
       "target": "repo:living-ascii-art",
       "type": "door",
@@ -3069,7 +3126,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 40,
+    "west": 41,
     "east": 13,
     "north": 4,
     "south": 8
