@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-14T22:07:30.941522+00:00",
+  "generated_at": "2026-11-15T00:29:19.834201+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -2642,6 +2642,34 @@
       }
     },
     {
+      "id": "repo:VoiceHex",
+      "type": "repo_room",
+      "label": "VoiceHex",
+      "payload": {
+        "name": "VoiceHex",
+        "description": "Local offline voice assistant - speculative hex-cell TTS chooser, deterministic, no LLM",
+        "url": "https://github.com/chrisalunlloyd2-sudo/VoiceHex",
+        "language": "Python",
+        "stars": 0,
+        "updated": "2026-11-14",
+        "created": "2026-11-14",
+        "private": false,
+        "owner": "chrisalunlloyd2-sudo",
+        "category": "Active Projects",
+        "wing": "west",
+        "files": [
+          "README.md",
+          "horizon_memory.md"
+        ],
+        "folders": [
+          "cells",
+          "config",
+          "src",
+          "tests"
+        ]
+      }
+    },
+    {
       "id": "repo:wip-quantum-asm",
       "type": "repo_room",
       "label": "wip-quantum-asm",
@@ -3115,6 +3143,12 @@
     },
     {
       "source": "wing:west",
+      "target": "repo:VoiceHex",
+      "type": "door",
+      "weight": 1
+    },
+    {
+      "source": "wing:west",
       "target": "repo:wip-quantum-asm",
       "type": "door",
       "weight": 1
@@ -3134,7 +3168,7 @@
   ],
   "spawn": "atrium:main",
   "wing_counts": {
-    "west": 41,
+    "west": 42,
     "east": 13,
     "north": 4,
     "south": 8
