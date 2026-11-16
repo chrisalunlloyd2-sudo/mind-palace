@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T06:26:47.992631+00:00",
+  "generated_at": "2026-11-16T12:19:20.024486+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -300,6 +300,7 @@
           "data",
           "docs",
           "fsm",
+          "local_ci_receipts",
           "schemas",
           "scripts",
           "state_snapshot",
