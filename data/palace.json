@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-16T00:31:55.112518+00:00",
+  "generated_at": "2026-11-16T06:26:47.992631+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -2660,8 +2660,10 @@
         "category": "Active Projects",
         "wing": "west",
         "files": [
+          "LICENSE",
           "README.md",
-          "horizon_memory.md"
+          "horizon_memory.md",
+          "pyproject.toml"
         ],
         "folders": [
           "cells",
@@ -2669,7 +2671,8 @@
           "docs",
           "scripts",
           "src",
-          "tests"
+          "tests",
+          "voicehex"
         ]
       }
     },
