@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-17T18:12:38.749817+00:00",
+  "generated_at": "2026-11-18T00:26:50.318215+00:00",
   "nodes": [
     {
       "id": "atrium:main",
@@ -292,7 +292,9 @@
         "files": [
           "POST_MORTEMS.md",
           "README.md",
-          "SYNTHESIS_PLAN.md"
+          "SYNTHESIS_PLAN.md",
+          "scripts_local_metrics.py",
+          "scripts_local_snake.py"
         ],
         "folders": [
           "assets",
